@@ -13,4 +13,5 @@ export class AppComponent {
   newWindow() {
     window.open('about:blank', '_self');
   }
+  
 }
