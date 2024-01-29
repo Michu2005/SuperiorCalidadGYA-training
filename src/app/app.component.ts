@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +11,10 @@ export class AppComponent {
   imgSuperior = '../assets/images/logo-superior.png';
   imgSalticas = '../assets/images/products-superior.png';
 
+  constructor(private router: Router) {}
+
   newWindow() {
-    window.open('about:blank', '_self');
+    this.router.navigate(['/pag-inicio']);
   }
-  
+
 }
