@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'calidad';
+  txtIng = 'Ingrese su código';
+  imgSuperior = '../assets/images/logo-superior.png';
+  imgSalticas = '../assets/images/products-superior.png';
+
+  newWindow() {
+    window.open('about:blank', '_self');
+  }
 }

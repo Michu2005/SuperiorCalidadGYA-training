@@ -1,0 +1,45 @@
+.logoSuperior{margin-left: 2%;
+    width: 13%;
+    height: 12%;
+}
+
+.imgSalticas{
+    margin-right: 25px;
+    display: flex;
+    float: right;
+}
+
+.ingresoCod{
+    margin-left: 5%;
+    padding: 8px 15px;
+    display: inline-block;
+    border: 10px solid #82b0f7;
+    border-radius: 25px;
+}
+
+.cont-cod {
+    margin-top: 15%;
+    margin-left: 140%;
+}
+
+.buttons-cont{
+    margin-left: 12%;
+    margin-top: 10%;
+    display: flex;
+}
+
+.button-ingreso{
+    font-family: 'Times New Roman', Times, serif;
+    margin-right: 50%;
+}
+
+.button-salir{
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(0, 0, 0);
+}
+ .txt-cont{
+    margin-top: 10px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+ }
