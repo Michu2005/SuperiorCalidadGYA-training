@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'pag-inicio',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./pag-inicio.component.css']
 })
 export class PagInicioComponent {
+  txtIng = 'Ingrese su código';
 
+  constructor(private router: Router) {}
+
+  ingresoMenu() {
+    this.router.navigate(['/ingreso-menu']);
+  }
 }

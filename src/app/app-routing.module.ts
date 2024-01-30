@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
 import { PagInicioComponent } from './pag-inicio/pag-inicio.component';
+import { IngresoMenuComponent } from './ingreso-menu/ingreso-menu.component';
 
 const routes: Routes = [
-  {path: '', component:AppComponent},
-  {path:'pag-inicio', component:PagInicioComponent}
+  {path:'pag-inicio', component:PagInicioComponent},
+  {path:'ingreso-menu', component:IngresoMenuComponent},
+
+  {path:'', redirectTo:'/pag-inicio', pathMatch:'full'}
 ];
 
 @NgModule({

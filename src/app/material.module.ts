@@ -5,6 +5,8 @@ import {
     BrowserAnimationsModule, 
     NoopAnimationsModule 
 } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -12,11 +14,14 @@ import {
         MatButtonModule,
         MatInputModule,
         BrowserAnimationsModule,
-        NoopAnimationsModule
+        NoopAnimationsModule,
+        MatFormFieldModule,
+        MatSelectModule
     ],
     exports:[
         MatButtonModule,
         MatInputModule,
+        MatFormFieldModule,
     ]
 })
 export class MaterialModule {}  

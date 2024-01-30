@@ -1,1 +1,12 @@
-<p>pag-inicio works!</p>
+<div class="contenido-dinamico">
+    <div class="txt-cont"><h2>{{txtIng}}</h2></div>
+    <td><mat-form-field class="cont-cod">
+      <mat-label style="font-family: 'Times New Roman', Times, serif; color: rgb(43, 43, 43);">CÓDIGO</mat-label>
+        <input matInput #codigo_empl maxlength="4" placeholder="Ej. 9410">
+      <mat-hint style="color: white;" align="start">{{codigo_empl.value.length}} / 4</mat-hint>
+    </mat-form-field></td>
+    <div class="buttons-cont">
+      <button class="button-ingreso" (click)="ingresoMenu()" mat-raised-button color="primary">INGRESAR</button> 
+      <button class="button-salir" mat-raised-button>SALIR</button>
+    </div>
+</div>
