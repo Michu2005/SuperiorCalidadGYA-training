@@ -6,25 +6,22 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 import { PagInicioComponent } from './pag-inicio/pag-inicio.component';
 import { RouterModule, Routes } from '@angular/router';
-import { IngresoMenuComponent } from './ingreso-menu/ingreso-menu.component';
 
 const routes: Routes = [
   { path: 'pag-inicio', component: PagInicioComponent },
+  
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    PagInicioComponent,
-    IngresoMenuComponent
-    
+    PagInicioComponent,    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
-    IngresoMenuComponent,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
   ],
   providers: [],
   bootstrap: [AppComponent]

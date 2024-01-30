@@ -20,15 +20,20 @@
 .button-ingreso{
     font-family: 'Times New Roman', Times, serif;
     margin-right: 50%;
+    font-weight: bold;
 }
 
 .button-salir{
     font-family: 'Times New Roman', Times, serif;
     color: rgb(0, 0, 0);
+    font-weight: bold;
 }
  .txt-cont{
     margin-top: 10px;
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
     color: white;
+    font-weight: bold;
+    font-size: 25px;
  }
+ 

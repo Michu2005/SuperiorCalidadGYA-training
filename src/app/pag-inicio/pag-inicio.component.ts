@@ -11,7 +11,7 @@ export class PagInicioComponent {
 
   constructor(private router: Router) {}
 
-  ingresoMenu() {
-    this.router.navigate(['/ingreso-menu']);
+  ingresoDatos() {
+    this.router.navigate(['/pag-inicio', 'ingreso-datos']);
   }
 }

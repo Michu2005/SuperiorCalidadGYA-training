@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PagInicioComponent } from './pag-inicio/pag-inicio.component';
-import { IngresoMenuComponent } from './ingreso-menu/ingreso-menu.component';
+import { IngresoDatosComponent } from './ingreso-datos/ingreso-datos.component';
 
 const routes: Routes = [
-  {path:'pag-inicio', component:PagInicioComponent},
-  {path:'ingreso-menu', component:IngresoMenuComponent},
-
-  {path:'', redirectTo:'/pag-inicio', pathMatch:'full'}
+  { path:'pag-inicio', component:PagInicioComponent, 
+    children:[
+      { path:':ingreso-datos', component:IngresoDatosComponent },
+    ]
+  },
+  { path: '', redirectTo: 'pag-inicio', pathMatch: 'full' }
 ];
 
 @NgModule({
