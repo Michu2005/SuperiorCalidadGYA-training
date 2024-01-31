@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'ingreso-datos',
@@ -9,5 +10,8 @@ export class IngresoDatosComponent {
   txtPrincipal = 'INGRESO DE DATOS';
   nameSAC = 'NOMBRE SAC:';
   ingCod = 'CÓDIGO PRODUCTO:';
-value: any;
+  descrpProd = 'DESCRIPCIÓN\nDEL PRODUCTO:';
+
+  myControl = new FormControl('');
+  options: string[] = ['One', 'Two', 'Three'];
 }

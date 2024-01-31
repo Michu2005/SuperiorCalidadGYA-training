@@ -1,5 +1,5 @@
 .txt-ingreso{
-    text-align: center;
+    margin-left: 30%;
     font-size: large;
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
@@ -21,4 +21,20 @@
 
 .ing-cod-prod{
     margin-top: 20px;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    margin-left: 7.5%;
+    margin-top: 11px;
+}
+
+.descripcion-prod{
+    white-space: pre-line;
+    margin-top: 25px;
+    margin-left: 2%;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
 }

@@ -1,7 +1,7 @@
+<h3 class="txt-ingreso">
+    {{txtPrincipal}}
+</h3>
 <div class="cont-ingreso-datos">
-    <h3 class="txt-ingreso">
-        {{txtPrincipal}}
-    </h3>
     <div class="cont-desple" style="display: flex;">
         <h2 class="txt-sec">{{nameSAC}}</h2>
         <mat-form-field  class="selector">
@@ -16,5 +16,27 @@
     </div>
     <div class="ing-cod-prod" style="display: flex;">
         <h2 class="txt-sec">{{ingCod}}</h2>
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+              <mat-label>Código</mat-label>
+              <input type="text"
+                     placeholder="Código"
+                     aria-label="Number"
+                     matInput
+                     [formControl]="myControl"
+                     [matAutocomplete]="auto">
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let option of options" [value]="option">
+                  {{option}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </form>
     </div>
+    <h2 class="descripcion-prod" style="white-space: pre-line;">
+        {{descrpProd}}
+    </h2>
+</div>
+<div>
+    
 </div>
