@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class PagInicioComponent {
   txtIng = 'Ingrese su código';
 
-  constructor(private router: Router) {}
+  constructor(public router: Router) {}
 
   ingresoDatos() {
     this.router.navigate(['/pag-inicio', 'ingreso-datos']);

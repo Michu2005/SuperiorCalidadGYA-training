@@ -16,12 +16,15 @@ import { MatSelectModule } from '@angular/material/select';
         BrowserAnimationsModule,
         NoopAnimationsModule,
         MatFormFieldModule,
-        MatSelectModule
+        MatSelectModule,
     ],
     exports:[
         MatButtonModule,
         MatInputModule,
+        BrowserAnimationsModule,
+        NoopAnimationsModule,
         MatFormFieldModule,
+        MatSelectModule,
     ]
 })
 export class MaterialModule {}  

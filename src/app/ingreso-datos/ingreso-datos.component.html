@@ -1,1 +1,20 @@
-<p>ingreso-datos works!</p>
+<div class="cont-ingreso-datos">
+    <h3 class="txt-ingreso">
+        {{txtPrincipal}}
+    </h3>
+    <div class="cont-desple" style="display: flex;">
+        <h2 class="txt-sec">{{nameSAC}}</h2>
+        <mat-form-field  class="selector">
+            <mat-label>Nombres SAC</mat-label>
+            <mat-select>
+              <mat-option value="option"></mat-option>
+            </mat-select>
+            <mat-hint align="end" style="color: white; font-family: 'Times New Roman', Times, serif;">
+                Seleccione nombre SAC
+            </mat-hint>
+        </mat-form-field>
+    </div>
+    <div class="ing-cod-prod" style="display: flex;">
+        <h2 class="txt-sec">{{ingCod}}</h2>
+    </div>
+</div>

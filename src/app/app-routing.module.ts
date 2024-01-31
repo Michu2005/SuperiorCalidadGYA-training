@@ -4,15 +4,14 @@ import { PagInicioComponent } from './pag-inicio/pag-inicio.component';
 import { IngresoDatosComponent } from './ingreso-datos/ingreso-datos.component';
 
 const routes: Routes = [
-  { path:'pag-inicio', component:PagInicioComponent, 
-    children:[
-      { path:':ingreso-datos', component:IngresoDatosComponent },
-    ]
-  },
+  { path:'pag-inicio', component:PagInicioComponent},
+  { path:'ingreso-datos', component:IngresoDatosComponent},
+  
+  //Ruta por defecto
   { path: '', redirectTo: 'pag-inicio', pathMatch: 'full' }
 ];
 
-@NgModule({
+@NgModule({ 
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })

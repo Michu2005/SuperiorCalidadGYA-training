@@ -1,0 +1,24 @@
+.txt-ingreso{
+    text-align: center;
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: white;
+    font-size: 25px;
+}
+
+.txt-sec{
+    margin-top: 35px;
+    margin-left: 25px;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+}
+
+.selector {
+    margin-top: 20px;
+    margin-left: 15%;
+}
+
+.ing-cod-prod{
+    margin-top: 20px;
+}
