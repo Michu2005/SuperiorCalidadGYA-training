@@ -1,42 +1,70 @@
 <h3 class="txt-ingreso">
     {{txtPrincipal}}
 </h3>
-<div class="cont-ingreso-datos">
-    <div class="cont-desple" style="display: flex;">
-        <h2 class="txt-sec">{{nameSAC}}</h2>
-        <mat-form-field  class="selector">
-            <mat-label>Nombres SAC</mat-label>
+<div class="cont-column-uno" style="display: flex;">
+    <h2 class="txt-sec">{{nameSAC}}</h2>
+    <mat-form-field class="selector" style="position: absolute;">
+        <mat-label>Nombres SAC</mat-label>
+        <mat-select>
+            <mat-option value="option"></mat-option>
+        </mat-select>
+        <mat-hint align="end" style="color: white; font-family: 'Times New Roman', Times, serif;">
+            Seleccione nombre SAC
+        </mat-hint>
+    </mat-form-field>
+    <div class="cont-column-dos">
+        <h2 class="txt-turno">
+            TURNO
+        </h2>
+        <mat-form-field class="selector-turno" style="position: absolute;">
+            <mat-label>Turnos</mat-label>
             <mat-select>
-              <mat-option value="option"></mat-option>
+                <mat-option value="option"></mat-option>
             </mat-select>
             <mat-hint align="end" style="color: white; font-family: 'Times New Roman', Times, serif;">
-                Seleccione nombre SAC
+                Seleccione el turno
             </mat-hint>
         </mat-form-field>
     </div>
-    <div class="ing-cod-prod" style="display: flex;">
-        <h2 class="txt-sec">{{ingCod}}</h2>
-        <form class="example-form">
-            <mat-form-field class="example-full-width">
-              <mat-label>Código</mat-label>
-              <input type="text"
-                     placeholder="Código"
-                     aria-label="Number"
-                     matInput
-                     [formControl]="myControl"
-                     [matAutocomplete]="auto">
-              <mat-autocomplete #auto="matAutocomplete">
+</div>
+<div class="ing-cod-prod" style="display: flex;">
+    <h2 class="txt-sec">{{ingCod}}</h2>
+    <form class="cont-cod-prod">
+        <mat-form-field>
+          <mat-label>Código</mat-label>
+          <input type="text"
+            placeholder="Código"
+            aria-label="Number"
+            matInput
+            [formControl]="myControl"
+            [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
                 <mat-option *ngFor="let option of options" [value]="option">
-                  {{option}}
+                    {{option}}
                 </mat-option>
-              </mat-autocomplete>
-            </mat-form-field>
-          </form>
-    </div>
-    <h2 class="descripcion-prod" style="white-space: pre-line;">
-        {{descrpProd}}
+            </mat-autocomplete>
+        </mat-form-field>
+    </form>
+    <h2 class="txt-linea">
+        LÍNEA
     </h2>
+    <mat-form-field class="selector-linea" style="position: absolute;">
+        <mat-label>Líneas</mat-label>
+        <mat-select>
+            <mat-option value="option"></mat-option>
+        </mat-select>
+        <mat-hint align="end" style="color: white; font-family: 'Times New Roman', Times, serif;">
+            Seleccione la línea
+        </mat-hint>
+    </mat-form-field>
 </div>
-<div>
-    
+<h2 class="descripcion-prod" style="white-space: pre-line;">
+    {{descrpProd}}
+</h2>
+<div class="buttons-cont">
+    <button class="button-save" [routerLink]="['/menu-inicio']" mat-raised-button color="primary">
+        GUARDAR
+    </button>
+    <button class="button-exit" mat-raised-button>SALIR</button>
 </div>
+<router-outlet></router-outlet>

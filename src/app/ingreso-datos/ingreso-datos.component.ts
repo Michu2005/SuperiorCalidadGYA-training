@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'ingreso-datos',
@@ -13,5 +14,11 @@ export class IngresoDatosComponent {
   descrpProd = 'DESCRIPCIÓN\nDEL PRODUCTO:';
 
   myControl = new FormControl('');
-  options: string[] = ['One', 'Two', 'Three'];
+  options: string[] = ['1234', '5678', '9012'];
+
+  constructor(public router: Router) {}
+
+  menuInicio() {
+    this.router.navigate(['/menu-inicio']);
+  }
 }

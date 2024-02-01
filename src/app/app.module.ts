@@ -7,18 +7,21 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 import { PagInicioComponent } from './pag-inicio/pag-inicio.component';
 import { IngresoDatosComponent } from './ingreso-datos/ingreso-datos.component';
+import { MenuInicioComponent } from './menu-inicio/menu-inicio.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     PagInicioComponent,
-    IngresoDatosComponent 
+    IngresoDatosComponent,
+    MenuInicioComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
-    RouterModule
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,7 +9,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import {NgFor} from '@angular/common';
-import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatMenuModule} from '@angular/material/menu'
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
         NgFor,
         ReactiveFormsModule,
         FormsModule,
+        MatMenuModule
         
     ],
     exports:[
@@ -36,7 +38,8 @@ import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
         MatAutocompleteModule,
         NgFor,
         ReactiveFormsModule,
-        FormsModule
+        FormsModule,
+        MatMenuModule
     ]
 })
 export class MaterialModule {}  
