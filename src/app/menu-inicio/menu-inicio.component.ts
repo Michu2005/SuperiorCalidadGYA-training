@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { MaterialModule } from '../material.module';
 
 @Component({
-  selector: 'app-menu-inicio',
+  selector: 'menu-inicio',
   templateUrl: './menu-inicio.component.html',
   styleUrls: ['./menu-inicio.component.css']
 })

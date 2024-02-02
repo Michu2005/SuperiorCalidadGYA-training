@@ -1,0 +1,40 @@
+.txt{
+    color: white;
+    margin-left: 7%;
+}
+
+.cont-txt-params{
+    display: flex;
+    flex: 1;
+}
+
+.detalles-prod{
+    display: flex;
+    flex: 1;
+    margin-left: 3%;
+    color: white;
+}
+
+.txt-detalle-product{
+    color: white;
+    margin-left: 35%;
+}
+
+.parametros{
+    display: flexbox;
+    flex: 1;
+    color: rgb(7, 0, 0);
+    font-weight: bolder;
+    margin-left: 2.5%;
+}
+
+.button-guardar{
+    margin-right: 50%;
+    font-weight: bold;
+}
+
+.buttons-cont{
+    margin-left: 10%;
+    display: flex;
+    margin-right: 35%;
+}

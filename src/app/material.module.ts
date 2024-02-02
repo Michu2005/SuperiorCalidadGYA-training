@@ -1,16 +1,14 @@
 import { NgModule } from "@angular/core";
 import { MatButtonModule } from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
-import { 
-    BrowserAnimationsModule, 
-    NoopAnimationsModule 
-} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import {NgFor} from '@angular/common';
+import {NgFor, NgIf} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatMenuModule} from '@angular/material/menu'
+import {MatMenuModule} from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -25,8 +23,9 @@ import {MatMenuModule} from '@angular/material/menu'
         NgFor,
         ReactiveFormsModule,
         FormsModule,
-        MatMenuModule
-        
+        MatMenuModule,
+        NgIf,
+        MatIconModule
     ],
     exports:[
         MatButtonModule,
@@ -39,7 +38,9 @@ import {MatMenuModule} from '@angular/material/menu'
         NgFor,
         ReactiveFormsModule,
         FormsModule,
-        MatMenuModule
+        MatMenuModule,
+        NgIf,
+        MatIconModule
     ]
 })
 export class MaterialModule {}  

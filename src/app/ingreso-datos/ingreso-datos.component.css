@@ -4,10 +4,10 @@ body{
 .txt-ingreso{
     margin-left: 30%;
     font-size: large;
-    font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
     color: white;
     font-size: 25px;
+    font-weight: bolder;
 }
 
 .cont-column-dos{
@@ -19,7 +19,6 @@ body{
 .txt-sec{
     margin-top: 35px;
     margin-left: 25px;
-    font-family: 'Times New Roman', Times, serif;
     color: white;
 }
 
@@ -46,7 +45,6 @@ body{
 .descripcion-prod{  
     margin-top: 30px;
     margin-left: 2%;
-    font-family: 'Times New Roman', Times, serif;
     color: white;
 }
 
@@ -54,7 +52,6 @@ body{
     margin-top: 0;
     margin-left: 50%;
     color: white;
-    font-family: 'Times New Roman', Times, serif;
 }   
 
 .selector-turno{
@@ -69,7 +66,6 @@ body{
     margin-top: 4%;
     margin-left: 32%;
     color: white;
-    font-family: 'Times New Roman', Times, serif;
 }
 
 .selector-linea{
@@ -85,7 +81,6 @@ body{
 
 .button-exit,
 .button-save{
-    font-family: 'Times New Roman', Times, serif;
     margin-right: 30%;
     font-weight: bold;
 }

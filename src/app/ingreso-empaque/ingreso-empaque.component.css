@@ -1,0 +1,6 @@
+.detalles-prod{
+    display: flex;
+    flex: 1;
+    margin-left: 3%;
+    color: white;
+}

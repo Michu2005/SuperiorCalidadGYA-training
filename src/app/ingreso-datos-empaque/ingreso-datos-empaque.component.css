@@ -1,0 +1,36 @@
+.txt-turno{
+    color: white;
+    margin-left: 21%;
+}
+
+.selector-turno{
+    margin-left: 15%;
+}
+
+.txt-lote{
+    color: white;
+    margin-left: 21%;
+    margin-top: 9%;
+}
+
+.cont-ingreso-lote{
+    margin-left: 15%;
+    width: 15%;
+}
+
+.txt-maquina{
+    margin-top: 6%;
+    color: white;
+    margin-left: 45%;
+}
+
+.selector-maquina{
+    margin-left: 42%;
+}
+
+.button-exit,
+.button-save{
+    margin-left: 6%;
+    margin-right: 30%;
+    font-weight: bold;
+}
