@@ -1,31 +1,11 @@
-.txt{
-    color: white;
-    margin-left: 7%;
-}
-
-.cont-txt-params{
-    display: flex;
-    flex: 1;
-}
-
 .detalles-prod{
-    display: flex;
-    flex: 1;
-    margin-left: 3%;
+    margin-left: 2%;
     color: white;
 }
 
 .txt-detalle-product{
     color: white;
-    margin-left: 35%;
-}
-
-.parametros{
-    display: flexbox;
-    flex: 1;
-    color: rgb(7, 0, 0);
-    font-weight: bolder;
-    margin-left: 2.5%;
+    margin-left: 2%;
 }
 
 .button-guardar{
@@ -34,7 +14,22 @@
 }
 
 .buttons-cont{
-    margin-left: 10%;
     display: flex;
-    margin-right: 35%;
+    margin-left: 10%;
+    margin-top: 2%;
+}
+
+.cont-tabla{
+    margin-left: 2%;
+    width: 95%;
+}
+
+.mat-mdc-table {
+    width: 80%;
+    max-height: 300px;
+    overflow: auto; 
+  }
+  
+.mat-column-name {
+    height: 90px;
 }

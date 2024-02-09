@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./ingreso-empaque.component.css']
 })
 export class IngresoEmpaqueComponent {
-
+  numMuestras : number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  txtEstatico: string[] = ["No. Muestras", "Peso Primario", "Peso Secundario ", "Peso Corrugado (g)"];
 }

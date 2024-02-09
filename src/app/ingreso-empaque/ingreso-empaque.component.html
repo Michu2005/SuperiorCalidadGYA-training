@@ -6,3 +6,25 @@
         Detalles producto:
     </h2>
 </div>
+<div class="texto-estatico" *ngFor="let texto of txtEstatico">
+    {{ texto }}
+</div>
+<div class="numero-muestras" *ngFor="let num of numMuestras">
+    <td>{{ num }}</td>
+    <div>
+        <table cellspacing="0" class="cont-inputs"><tr>
+            <td><mat-form-field style="width: 50%; margin-left: 65%;">
+              <mat-label>Dato</mat-label>
+              <input matInput placeholder="Ex. 66.9">
+            </mat-form-field></td>
+            <td><mat-form-field style="width: 50%; margin-left: 58%; margin-left: 65%;">
+              <mat-label>Dato</mat-label>
+              <input matInput placeholder="Ex. 68.5">
+            </mat-form-field></td>
+            <td><mat-form-field style="width: 50%; margin-left: 60%; margin-left: 65%;">
+                <mat-label>Dato</mat-label>
+                <input matInput placeholder="Ex. 54.3">
+            </mat-form-field></td>
+        </tr></table>
+    </div>
+</div>

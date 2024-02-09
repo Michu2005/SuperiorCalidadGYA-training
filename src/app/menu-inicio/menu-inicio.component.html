@@ -1,10 +1,15 @@
+<div class="contenido-fijo">
+    <img class="logoSuperior" [src]="imgSuperior" alt="Imagen Corporación Superior"/>
+    <div>
+      <img class="imgSalticas" [src]="imgSalticas"/>
+</div>
 <h1 class="txt">
     QUE FUNCIÓN DESEA REALIZAR
 </h1>
-<button class="button-proceso" [routerLink]="['/ingreso-proceso']" mat-raised-button color="primary">
+<button class="button-proceso" (click)="ingresoProceso()" mat-raised-button color="primary">
     PROCESO
 </button>
-<button class="button-empaque" [routerLink]="['/ingreso-datos-empaque']" mat-raised-button color="primary">
+<button class="button-empaque" (click)="ingDatosEmp()" mat-raised-button color="primary">
     EMPAQUE
 </button>
 <router-outlet></router-outlet>

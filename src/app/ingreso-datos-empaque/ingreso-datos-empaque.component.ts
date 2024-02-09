@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class IngresoDatosEmpaqueComponent {
   value = 'Ingreso Lote';
+  imgSuperior = '../assets/images/logo-superior.png';
+  imgSalticas = '../assets/images/products-superior.png';
 }

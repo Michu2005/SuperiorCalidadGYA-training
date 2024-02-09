@@ -1,3 +1,8 @@
+<div class="contenido-fijo">
+    <img class="logoSuperior" [src]="imgSuperior" alt="Imagen Corporación Superior"/>
+    <div>
+      <img class="imgSalticas" [src]="imgSalticas"/>
+</div>
 <h3 class="txt-ingreso">
     {{txtPrincipal}}
 </h3>
@@ -6,7 +11,7 @@
     <mat-form-field class="selector" style="position: absolute;">
         <mat-label>Nombres SAC</mat-label>
         <mat-select>
-            <mat-option value="option"></mat-option>
+            <mat-option *ngFor="let option of optionsSac" [value]="option.nombre">{{option.nombre}}</mat-option>
         </mat-select>
         <mat-hint align="end" style="color: white;">
             Seleccione nombre SAC
@@ -19,7 +24,7 @@
         <mat-form-field class="selector-turno" style="position: absolute;">
             <mat-label>Turnos</mat-label>
             <mat-select>
-                <mat-option value="option"></mat-option>
+                <mat-option *ngFor="let option of optionsTurno" [value]="option.id">{{option.descripcion}}</mat-option>
             </mat-select>
             <mat-hint align="end" style="color: white;">
                 Seleccione el turno
@@ -38,9 +43,9 @@
             matInput
             [formControl]="myControl"
             [matAutocomplete]="auto">
-            <mat-autocomplete #auto="matAutocomplete">
-                <mat-option *ngFor="let option of options" [value]="option">
-                    {{option}}
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="cargarDescripcion($event)">
+                <mat-option *ngFor="let option of filtroCodigo | async" [value]="option.codigo">
+                    {{option.codigo}}
                 </mat-option>
             </mat-autocomplete>
         </mat-form-field>
@@ -51,7 +56,7 @@
     <mat-form-field class="selector-linea" style="position: absolute;">
         <mat-label>Líneas</mat-label>
         <mat-select>
-            <mat-option value="option"></mat-option>
+            <mat-option *ngFor="let option of options" [value]="option.id">{{option.descripcion}}</mat-option>
         </mat-select>
         <mat-hint align="end" style="color: white;">
             Seleccione la línea
@@ -62,7 +67,7 @@
     {{descrpProd}}
 </h2>
 <div class="buttons-cont">
-    <button class="button-save" [routerLink]="['/menu-inicio']" mat-raised-button color="primary">
+    <button class="button-save" (click)="menuInicio()" mat-raised-button color="primary">
         GUARDAR
     </button>
     <button class="button-exit" mat-raised-button>SALIR</button>

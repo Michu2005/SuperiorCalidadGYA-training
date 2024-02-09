@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 export class IngresoMenuComponent {
   txtingreso = 'INGRESO DE DATOS';
   nameSAC = 'Nombre SAC:';
+  imgSuperior = '../assets/images/logo-superior.png';
+  imgSalticas = '../assets/images/products-superior.png';
 
 
 }

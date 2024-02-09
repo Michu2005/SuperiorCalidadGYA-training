@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class PagInicioComponent {
   txtIng = 'Ingrese su código';
+  imgSuperior = '../assets/images/logo-superior.png';
+  imgSalticas = '../assets/images/products-superior.png';
 
   constructor(public router: Router) {}
 

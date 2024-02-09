@@ -9,6 +9,8 @@ import { IngresoDatosComponent } from './ingreso-datos/ingreso-datos.component';
 import { MenuInicioComponent } from './menu-inicio/menu-inicio.component';
 import { IngresoProcesoComponent } from './ingreso-proceso/ingreso-proceso.component';
 import { IngresoDatosEmpaqueComponent } from './ingreso-datos-empaque/ingreso-datos-empaque.component';
+import { IngresoEmpaqueComponent } from './ingreso-empaque/ingreso-empaque.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -18,13 +20,15 @@ import { IngresoDatosEmpaqueComponent } from './ingreso-datos-empaque/ingreso-da
     IngresoDatosComponent,
     MenuInicioComponent,
     IngresoProcesoComponent,
-    IngresoDatosEmpaqueComponent
+    IngresoDatosEmpaqueComponent,
+    IngresoEmpaqueComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
     RouterModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -9,6 +9,7 @@ import {NgFor, NgIf} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatMenuModule} from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { MatIconModule } from '@angular/material/icon';
         FormsModule,
         MatMenuModule,
         NgIf,
-        MatIconModule
+        MatIconModule,
+        MatTableModule
     ],
     exports:[
         MatButtonModule,
@@ -40,7 +42,8 @@ import { MatIconModule } from '@angular/material/icon';
         FormsModule,
         MatMenuModule,
         NgIf,
-        MatIconModule
+        MatIconModule,
+        MatTableModule
     ]
 })
 export class MaterialModule {}  

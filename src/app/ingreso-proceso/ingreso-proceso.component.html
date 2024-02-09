@@ -1,54 +1,43 @@
-<div class="detalles-prod">
-    <h2>
-        Codigo producto:
-    </h2>
+<div class="contenido-fijo">
+  <img class="logoSuperior" [src]="imgSuperior" alt="Imagen Corporación Superior"/>
+</div>
+<div>
+    <h2 class="detalles-prod">
+        Codigo producto: {{productoSeleccionado.codigo}}
+    </h2> 
     <h2 class="txt-detalle-product">
-        Detalles producto:
+        Detalles producto: {{productoSeleccionado.descripcion}}
     </h2>
-</div>
-<div class="cont-txt-params">
-    <h3 class="txt">
-        Parámetro
-    </h3>
-    <h3 class="txt">
-        Min
-    </h3>
-    <h3 class="txt">
-        Max
-    </h3>
-    <h3 class="txt">
-        Parámetro Zona 1
-    </h3>
-    <h3 class="txt">
-        Parámetro Zona 2
-    </h3>
-    <h3 class="txt">
-        Parámetro Zona 3
-    </h3>
-</div>
-<div class="parametros">
-    Temperatura Masa
-    <br>
-    <br>
-    Peso Formado
-    <br>
-    <br>
-    Peso Seco
-    <br>
-    <br>
-    Espesor
-    <br>
-    <br>
-    Largo
-    <br>
-    <br>
-    Ancho
-    <br>
-    <br>
-    Humedad
-    <br>
-    <br>
-    ph Galleta
+</div> 
+<div class="cont-tabla">
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <mat-header-cell *matHeaderCellDef> Parámetro </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Min </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="weight">
+      <mat-header-cell *matHeaderCellDef> Max </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="symbol">
+      <mat-header-cell *matHeaderCellDef> Parámetro Zona 1 </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+    </ng-container>
+  
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
 </div>
 <div class="buttons-cont">
     <button class="button-guardar" [routerLink]="['/menu-inicio']" mat-raised-button color="primary">
