@@ -5,22 +5,51 @@
     color: white;
 }
 
-.txt-detalle-product{
-    margin-left: 35%;
-}
-
-.numero-muestras{
-    margin-top: 2%;
-    margin-left: 7%;
-    color: white;
-    font-size: 20px;
-    height: 41px;
-}
-
 .texto-estatico{
     display: inline-block;
     margin-left: 4%;
     margin-right: 10px;
     color: white;
     font-size: 18px;
+}
+
+.cont-tabla{
+    margin-left: 2%;
+    width: 96%;
+}
+
+.mat-mdc-table {
+    max-height: 250px;
+    overflow: auto; 
+}
+
+.detalles-prod{
+    margin-left: 2%;
+    color: white;
+}
+
+.txt-detalle-product{
+    color: white;
+    margin-left: 2%;
+}
+
+.example-full-width{
+    height: 80px;
+}
+
+.contenedor-min-max-peso{
+    width: 40%;
+    color: white;
+    margin-left: 2%;
+}
+
+.buttons-cont {
+    display: flex;
+    align-items: center; /* Alinea verticalmente los elementos en el centro */
+}
+
+.button-save,
+.button-exit {
+    margin-top: 10%;
+    margin-left: 190px; /* Ajusta el margen izquierdo entre los botones */
 }

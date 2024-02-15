@@ -1,30 +1,68 @@
-<div class="detalles-prod">
-    <h2>
-        Codigo producto:
-    </h2>
+<div class="contenido-fijo">
+    <img class="logoSuperior" [src]="imgSuperior" alt="Imagen Corporación Superior"/>      
+</div>
+<div>
+    <h2 class="detalles-prod">
+        Codigo producto: {{productoSeleccionado.codigo}}
+    </h2> 
     <h2 class="txt-detalle-product">
-        Detalles producto:
+        Detalles producto: {{productoSeleccionado.descripcion}}
     </h2>
-</div>
-<div class="texto-estatico" *ngFor="let texto of txtEstatico">
-    {{ texto }}
-</div>
-<div class="numero-muestras" *ngFor="let num of numMuestras">
-    <td>{{ num }}</td>
-    <div>
-        <table cellspacing="0" class="cont-inputs"><tr>
-            <td><mat-form-field style="width: 50%; margin-left: 65%;">
-              <mat-label>Dato</mat-label>
+</div> 
+<div class="cont-tabla">
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <mat-header-cell *matHeaderCellDef> No. Muestras </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef> Dato Peso Primario </mat-header-cell>
+            <mat-cell *matCellDef="let element"> 
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Ex. 66.9">
+              </mat-form-field>
+            </mat-cell>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+          <mat-header-cell *matHeaderCellDef> Dato Peso Secundario </mat-header-cell>
+          <mat-cell *matCellDef="let element"> 
+            <mat-form-field class="example-full-width">
               <input matInput placeholder="Ex. 66.9">
-            </mat-form-field></td>
-            <td><mat-form-field style="width: 50%; margin-left: 58%; margin-left: 65%;">
-              <mat-label>Dato</mat-label>
-              <input matInput placeholder="Ex. 68.5">
-            </mat-form-field></td>
-            <td><mat-form-field style="width: 50%; margin-left: 60%; margin-left: 65%;">
-                <mat-label>Dato</mat-label>
-                <input matInput placeholder="Ex. 54.3">
-            </mat-form-field></td>
-        </tr></table>
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="symbol">
+          <mat-header-cell *matHeaderCellDef> Dato Peso Corrugado </mat-header-cell>
+          <mat-cell *matCellDef="let element"> 
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Ex. 66.9">
+            </mat-form-field>
+          </mat-cell>
+        </ng-container>
+      
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+</div>
+<div style="display: flex;">
+    <div class="contenedor-min-max-peso">
+        <mat-tab-group>
+            <mat-tab label="Peso Primario" color="primary"> <br> Min <br><br> Max </mat-tab>
+            <mat-tab label="Peso Secundario" color="primary"> <br> Min <br><br> Max </mat-tab>
+            <mat-tab label="Peso Corrugado" color="primary"> <br> Peso Corrugado (g) </mat-tab>
+        </mat-tab-group>
+    </div>
+    <div>
+        <button class="button-save" [routerLink]="['/ingreso-empaque']" mat-raised-button color="primary">
+            GUARDAR
+        </button>
+        <button class="button-exit" mat-raised-button>SALIR</button>
     </div>
 </div>

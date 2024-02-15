@@ -19,4 +19,13 @@ export interface PeriodicElement {
     position: number;
     weight: number;
     symbol: string;
-  }
+}
+
+export interface PeriodicElement1 {
+    name: string;
+    position: number;
+    weight: number;
+    symbol: string;
+    paramZona2: number;
+    paramZona3: number ;
+}

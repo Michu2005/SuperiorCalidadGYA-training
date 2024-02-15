@@ -40,7 +40,7 @@ export class IngresoDatosComponent {
   }
 
   constructor(public router: Router,
-    private listarServicio: ServiciosService) { }
+    private listarServicio: ServiciosService) {}
 
   menuInicio() {
     this.router.navigate(['/menu-inicio', this.productoSeleccionado]);

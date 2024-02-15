@@ -17,7 +17,7 @@ body{
 }
 
 .txt-sec{
-    margin-top: 35px;
+    margin-top: 50px;
     margin-left: 25px;
     color: white;
 }
@@ -27,23 +27,22 @@ body{
     min-width: 250px;
     max-width: 200px;
     width: 100%;
-    margin-top: 15px;
+    margin-top: 45px;
     max-width: 100px;
 }
 
 .ing-cod-prod{
-    margin-top: 15px;
+    margin-top: 50px;
 }
 
 .cont-cod-prod{
     min-width: 100px;
     max-width: 20px;
     margin-left: 7%;
-    margin-top: 13px;
+    margin-top: 20px;
 }
 
-.descripcion-prod{  
-    margin-top: 30px;
+.descripcion-prod{ 
     margin-left: 2%;
     color: white;
 }
@@ -63,19 +62,19 @@ body{
 }
 
 .txt-linea{
-    margin-top: 4%;
+    margin-top: 12%;
     margin-left: 32%;
     color: white;
 }
 
 .selector-linea{
-    margin-top: 5%;
+    margin-top: 1.5%;
     margin-left: 43%;
 }
 
 .buttons-cont{
     margin-left: 12%;
-    margin-top: 5%;
+    
     display: flex;
 }
 

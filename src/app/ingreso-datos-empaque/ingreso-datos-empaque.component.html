@@ -3,30 +3,20 @@
     <div>
       <img class="imgSalticas" [src]="imgSalticas"/>
 </div>
-<h2 class="txt-turno">
-    TURNO
-</h2>
-<mat-form-field class="selector-turno" style="position: absolute;">
-    <mat-label>Turnos</mat-label>
-    <mat-select>
-        <mat-option value="option"></mat-option>
-    </mat-select>
-    <mat-hint align="end" style="color: white;">
-        Seleccione el turno
-    </mat-hint>
-</mat-form-field>
-<h2 class="txt-maquina">
-    Máquina
-</h2>
-<mat-form-field class="selector-maquina" style="position: absolute;">
-    <mat-label>Máquinas</mat-label>
-    <mat-select>
-        <mat-option value="option"></mat-option>
-    </mat-select>
-    <mat-hint align="end" style="color: white;">
-        Seleccione el turno
-    </mat-hint>
-</mat-form-field>
+<div>
+    <h2 class="txt-maquina">
+        MÁQUINA
+    </h2>
+    <mat-form-field class="selector-maquina" style="position: absolute;">
+        <mat-label>Máquinas</mat-label>
+        <mat-select>
+            <mat-option *ngFor="let option of optionsMaquina" [value]="option.id">{{option.descripcion}}</mat-option>
+        </mat-select>
+        <mat-hint align="end" style="color: white;">
+            Seleccione la máquina
+        </mat-hint>
+    </mat-form-field>
+</div>
 <h2 class="txt-lote">
     LOTE
 </h2>

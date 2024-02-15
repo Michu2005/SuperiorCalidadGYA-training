@@ -29,4 +29,8 @@ export class ServiciosService {
   public getEmpleadoSac(){
     return this.http.get(`${this.baseUrl}/listar/sac?idPerfil=2`);
   }
+
+  public getMaquina(){
+    return this.http.get(`${this.baseUrl}/listar/maquina`);
+  }
 }

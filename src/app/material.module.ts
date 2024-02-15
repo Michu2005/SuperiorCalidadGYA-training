@@ -10,6 +10,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatMenuModule} from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
+import { MatTabsModule } from '@angular/material/tabs';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { MatTableModule } from '@angular/material/table';
         MatMenuModule,
         NgIf,
         MatIconModule,
-        MatTableModule
+        MatTableModule,
+        MatTabsModule
     ],
     exports:[
         MatButtonModule,
@@ -43,7 +45,8 @@ import { MatTableModule } from '@angular/material/table';
         MatMenuModule,
         NgIf,
         MatIconModule,
-        MatTableModule
+        MatTableModule,
+        MatTabsModule
     ]
 })
 export class MaterialModule {}  
