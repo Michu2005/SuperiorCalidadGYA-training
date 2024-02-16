@@ -51,7 +51,7 @@
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
       </mat-table>
 </div>
-<div style="display: flex;">
+<div style="display: inline-flex; ">
     <div class="contenedor-min-max-peso">
         <mat-tab-group>
             <mat-tab label="Peso Primario" color="primary"> <br> Min <br><br> Max </mat-tab>
@@ -60,9 +60,9 @@
         </mat-tab-group>
     </div>
     <div>
-        <button class="button-save" [routerLink]="['/ingreso-empaque']" mat-raised-button color="primary">
+        <button class="button-save" (click)="ingEmpaque()" mat-raised-button color="primary">
             GUARDAR
         </button>
-        <button class="button-exit" mat-raised-button>SALIR</button>
+        <button class="button-exit" mat-raised-button (click)="menuIng()">SALIR</button>
     </div>
 </div>

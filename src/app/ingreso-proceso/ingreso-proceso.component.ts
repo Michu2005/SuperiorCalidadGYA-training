@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { DatosCodigo, PeriodicElement, PeriodicElement1 } from '../interfaces/datos';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DatosCodigo, PeriodicElement1 } from '../interfaces/datos';
 
 @Component({
   selector: 'ingreso-proceso',
@@ -10,7 +10,6 @@ import { DatosCodigo, PeriodicElement, PeriodicElement1 } from '../interfaces/da
 export class IngresoProcesoComponent {
 
   imgSuperior = '../assets/images/logo-superior.png';
-
 
   ELEMENT_DATA: PeriodicElement1[] = [
     {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H', paramZona2: 0, paramZona3: 0},
@@ -34,7 +33,16 @@ export class IngresoProcesoComponent {
     descripcion:"N/A"
   }
   
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, 
+    private router: Router) {}
+
+  menuIng() {
+    this.router.navigate(['/menu-inicio']);
+  }
+
+  salidaPagInicio() {
+    this.router.navigate(['/pag-inicio']);
+  }
 
   ngOnInit(){
     this.route.params.subscribe(datos => {

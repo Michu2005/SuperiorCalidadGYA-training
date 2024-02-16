@@ -22,15 +22,15 @@ export class ServiciosService {
     return this.http.get(`${this.baseUrl}/listar/producto`);
   }
 
-  public getEmpleado(){
-    return this.http.get(`${this.baseUrl}/listar/empleado`);
-  }
-
   public getEmpleadoSac(){
     return this.http.get(`${this.baseUrl}/listar/sac?idPerfil=2`);
   }
 
   public getMaquina(){
     return this.http.get(`${this.baseUrl}/listar/maquina`);
+  }
+
+  public getEmpleadoAac(){
+    return this.http.get(`${this.baseUrl}/listar/aac?idPerfil=3`);
   }
 }

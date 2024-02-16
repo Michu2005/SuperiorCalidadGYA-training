@@ -64,8 +64,8 @@
   </mat-table>
 </div>
 <div class="buttons-cont">
-    <button class="button-guardar" [routerLink]="['/menu-inicio']" mat-raised-button color="primary">
+    <button class="button-guardar" (click)="menuIng()" mat-raised-button color="primary">
       GUARDAR
     </button>
-    <button class="button-salir" mat-raised-button>SALIR</button>
+    <button class="button-salir" mat-raised-button (click)="salidaPagInicio()">SALIR</button>
 </div>

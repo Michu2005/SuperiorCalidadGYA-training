@@ -14,6 +14,11 @@ export interface DatosEmpleadoSac {
     nombre: string;
 }
 
+export interface DatosEmpleadoAac {
+    codigo: string;
+    nombre: string;
+}
+
 export interface PeriodicElement {
     name: string;
     position: number;

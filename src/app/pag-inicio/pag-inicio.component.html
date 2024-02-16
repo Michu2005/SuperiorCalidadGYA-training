@@ -1,7 +1,9 @@
-<div class="contenido-fijo">
+<div class="contenedor">
   <img class="logoSuperior" [src]="imgSuperior" alt="Imagen Corporación Superior"/>
-  <div>
+  <div class="contenido">
+    <p class="FechaYHora">Fecha y hora actual: {{ fechaYHoraActual | date: 'medium' }}</p>
     <img class="imgSalticas" [src]="imgSalticas"/>
+  </div>
 </div>
 <div class="contenido-fijo-pag-inicio">
     <div><h2 class="txt-cont">{{txtIng}}</h2></div>
@@ -11,7 +13,7 @@
       <mat-hint style="color: white;" align="start">{{codigo_empl.value.length}} / 4</mat-hint>
     </mat-form-field></td>
     <div class="buttons-cont">
-      <button class="button-ingreso" [routerLink]="['/ingreso-datos']" mat-raised-button color="primary">
+      <button class="button-ingreso" (click)="ingresoDatos()" mat-raised-button color="primary">
         INGRESAR
       </button>
       <button class="button-salir" mat-raised-button>SALIR</button>

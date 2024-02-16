@@ -13,17 +13,20 @@ export class IngresoDatosEmpaqueComponent {
   imgSuperior = '../assets/images/logo-superior.png';
   imgSalticas = '../assets/images/products-superior.png';
 
-  optionsTurno: SeleccionarDatos[] = [];
   optionsMaquina: SeleccionarDatos[] = [];
 
   constructor(public router: Router,
     private listarServicio: ServiciosService) {}
 
+  salidaMenuInicio() {
+    this.router.navigate(['/menu-inicio']);
+  }
+
+  ingresoEmpaque() {
+    this.router.navigate(['/ingreso-empaque']);
+  }
+
   ngOnInit(){
-    this.listarServicio.getTurno().subscribe((resultadoTurno: any) => {
-      this.optionsTurno = resultadoTurno.data;
-      console.log(this.optionsTurno);
-    })
     this.listarServicio.getMaquina().subscribe((rersultadoMaquina : any) =>{
       this.optionsMaquina = rersultadoMaquina.data;
       console.log(this.optionsMaquina);

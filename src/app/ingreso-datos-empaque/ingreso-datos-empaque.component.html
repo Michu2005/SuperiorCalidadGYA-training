@@ -28,8 +28,8 @@
     </button>
 </mat-form-field>
 <div class="buttons-cont">
-    <button class="button-save" [routerLink]="['/ingreso-empaque']" mat-raised-button color="primary">
+    <button class="button-save" (click)="ingresoEmpaque()" mat-raised-button color="primary">
         GUARDAR
     </button>
-    <button class="button-exit" mat-raised-button>SALIR</button>
+    <button class="button-exit" mat-raised-button (click)="salidaMenuInicio()">SALIR</button>
 </div>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { DatosCodigo, PeriodicElement } from '../interfaces/datos';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'ingreso-empaque',
@@ -29,15 +29,25 @@ export class IngresoEmpaqueComponent {
   productoSeleccionado: DatosCodigo = {
     id:0,
     codigo:"N/A",
-    descripcion:"N/A"
+    descripcion:"N/A",
   }
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, 
+    private router: Router) {}
+
+    ingEmpaque() {
+      this.router.navigate(['/ingreso-empaque']);
+    }
+
+    menuIng() {
+      this.router.navigate(['/menu-inicio']);
+    }
 
   ngOnInit(){
     this.route.params.subscribe(datos =>  {
       this.productoSeleccionado = datos as DatosCodigo;
     })
   }
+
 
 }

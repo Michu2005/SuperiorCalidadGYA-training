@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ServiciosService } from '../servicios/servicios.service';
-import { DatosCodigo, DatosEmpleadoSac, PeriodicElement, SeleccionarDatos } from '../interfaces/datos';
+import { DatosCodigo, DatosEmpleadoAac, DatosEmpleadoSac, SeleccionarDatos } from '../interfaces/datos';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { Observable, map, startWith } from 'rxjs';
 
@@ -11,7 +11,7 @@ import { Observable, map, startWith } from 'rxjs';
   templateUrl: './ingreso-datos.component.html',
   styleUrls: ['./ingreso-datos.component.css']
 })
-export class IngresoDatosComponent {
+export class IngresoDatosComponent implements OnInit{
   txtPrincipal = 'INGRESO DE DATOS';
   nameSAC = 'NOMBRE SAC:';
   ingCod = 'CÓDIGO PRODUCTO:';
@@ -39,11 +39,23 @@ export class IngresoDatosComponent {
     descripcion:"N/A"
   }
 
+  empleAac: DatosEmpleadoAac = {
+    codigo: '0',
+    nombre: 'N/A'
+  }
+
+  nombreEmpleado: string = '';
+
   constructor(public router: Router,
+    private route: ActivatedRoute,
     private listarServicio: ServiciosService) {}
 
   menuInicio() {
     this.router.navigate(['/menu-inicio', this.productoSeleccionado]);
+  }
+
+  salidaPagInicio() {
+    this.router.navigate(['/pag-inicio']);
   }
 
   ngOnInit() {
@@ -59,12 +71,16 @@ export class IngresoDatosComponent {
       this.autocompleteCodigo = resultadoCodigo.data;
       console.log(this.autocompleteCodigo);
     })
-    this.listarServicio.getEmpleado().subscribe((resultadoEmpleado : any) =>{
+    /*this.listarServicio.getEmpleado().subscribe((resultadoEmpleado : any) =>{
       console.log(resultadoEmpleado);
-    })
+    })*/
     this.listarServicio.getEmpleadoSac().subscribe((resultEmpleadoSac : any) =>{
       this.optionsSac = resultEmpleadoSac;
       console.log(resultEmpleadoSac);
+    })
+    this.listarServicio.getEmpleadoAac().subscribe((resultEmpleadoAac : any) =>{
+      this.empleAac = resultEmpleadoAac;
+      console.log(resultEmpleadoAac);
     })
     this.filtroCodigo = this.myControl.valueChanges.pipe(
       startWith(''),
@@ -86,5 +102,9 @@ export class IngresoDatosComponent {
       // Actualiza el campo this.descrpProd con la descripción del producto seleccionado
       this.descrpProd = selectedProducto.descripcion;
     }
+  }
+
+  cargarNombreEmpleado(){
+    
   }
 }

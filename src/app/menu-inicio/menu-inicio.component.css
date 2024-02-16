@@ -4,14 +4,16 @@
     margin-top: 5%;
 }
 
-.button-empaque,
+.button-empaque{
+    margin-top: 5%;
+    margin-right: 15%;
+}
 .button-proceso{
     margin-top: 5%;
-    margin-left: 25%;
-    font-weight: bold;
+    margin-left: 15%;
 }
 
 .button-exit{
-    display: 1;
-    margin-top: 20%;
+    margin-top: 8%;
+    margin-left: 28%;
 }

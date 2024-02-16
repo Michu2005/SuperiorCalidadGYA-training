@@ -1,19 +1,45 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { DatosEmpleadoAac } from '../interfaces/datos';
+import { ServiciosService } from '../servicios/servicios.service';
 
 @Component({
   selector: 'pag-inicio',
   templateUrl: './pag-inicio.component.html',
   styleUrls: ['./pag-inicio.component.css']
 })
-export class PagInicioComponent {
-  txtIng = 'Ingrese su código';
+export class PagInicioComponent{
+  txtIng = 'Ingrese su código personal';
   imgSuperior = '../assets/images/logo-superior.png';
   imgSalticas = '../assets/images/products-superior.png';
 
-  constructor(public router: Router) {}
+  fechaYHoraActual: Date = new Date();
+  intervalo: any;
+
+  empleAac: DatosEmpleadoAac = {
+    codigo: '0',
+    nombre: 'N/A'
+  }
+
+  constructor(public router: Router,
+    private listarServicio: ServiciosService) {}
 
   ingresoDatos() {
-    this.router.navigate(['/pag-inicio', 'ingreso-datos']);
+    this.router.navigate(['ingreso-datos', { nombreEmpleado: this.empleAac.nombre }]);
   }
+
+  ngOnInit(){
+    /*this.listarServicio.getEmpleadoAac().subscribe((resultEmpleadoAac : any) =>{
+      this.empleAac = resultEmpleadoAac;
+      console.log(resultEmpleadoAac);
+    })*/
+    this.intervalo = setInterval(() => {
+      this.fechaYHoraActual = new Date();
+    }, 1000);
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.intervalo); // Limpia el intervalo cuando el componente se destruye
+  }
+
 }

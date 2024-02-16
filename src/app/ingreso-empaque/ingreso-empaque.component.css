@@ -38,18 +38,25 @@
 }
 
 .contenedor-min-max-peso{
-    width: 40%;
-    color: white;
-    margin-left: 2%;
+    background-color: rgba(255, 255, 255, 0.637);
+    border-radius: 5px;
+    margin-top: 1%;
+    margin-right: 50%;
+    width: 100%;
+    color: black;
+    margin-left: 4%;
 }
 
 .buttons-cont {
     display: flex;
-    align-items: center; /* Alinea verticalmente los elementos en el centro */
+    align-items: center;
 }
 
-.button-save,
+.button-save{
+    margin-top: 20%;
+}
+
 .button-exit {
-    margin-top: 10%;
-    margin-left: 190px; /* Ajusta el margen izquierdo entre los botones */
+    margin-top: 20%;
+    margin-right: 25%;
 }

@@ -6,13 +6,13 @@
 <h1 class="txt">
     QUE FUNCIÓN DESEA REALIZAR
 </h1>
-<div style="display: flex;">
+<div style="display: flex; justify-content: space-between;">
     <button class="button-proceso" (click)="ingresoProceso()" mat-raised-button color="primary">
         PROCESO
     </button>
     <button class="button-empaque" (click)="ingDatosEmp()" mat-raised-button color="primary">
         EMPAQUE
     </button>
-    <button class="button-exit" mat-raised-button>SALIR</button>
 </div>
+<button class="button-exit" mat-raised-button (click)="salidaPagInicio()">SALIR</button>
 <router-outlet></router-outlet>

@@ -11,10 +11,6 @@ export class MenuInicioComponent {
 
   imgSuperior = '../assets/images/logo-superior.png';
   imgSalticas = '../assets/images/products-superior.png';
-  
-  ingresoProc() {
-    this.router.navigate(['/ingreso-proceso']);
-  }
 
   datosRecibidos: DatosCodigo = {
     id : 0,
@@ -27,6 +23,14 @@ export class MenuInicioComponent {
 
   ingresoProceso() {
     this.router.navigate(['/ingreso-proceso', this.datosRecibidos]);
+  }
+  
+  ingresoProc() {
+    this.router.navigate(['/ingreso-proceso']);
+  }
+
+  salidaPagInicio() {
+    this.router.navigate(['/pag-inicio']);
   }
 
   //Función para ingreso de datos empaque
