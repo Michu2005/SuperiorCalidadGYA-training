@@ -14,31 +14,40 @@
     <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
         <!-- Columna de posición -->
         <ng-container matColumnDef="position">
-            <mat-header-cell *matHeaderCellDef> Num. Parametros </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef> Num. Parámetros </mat-header-cell>
             <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
         </ng-container>
       
         <!-- Columna de Fuga Leve -->
-        <ng-container matColumnDef="fugaLeve">
-            <mat-header-cell *matHeaderCellDef> Min </mat-header-cell>
+        <ng-container matColumnDef="paramDetalle">
+            <mat-header-cell *matHeaderCellDef> Detalle Parámetros </mat-header-cell>
             <mat-cell *matCellDef="let element"> 
-                <mat-checkbox [(ngModel)]="element.fugaLeve" name="fugaGroup"></mat-checkbox>
+                {{element.paramDetalle}}
             </mat-cell>
         </ng-container>
       
         <!-- Columna de Fuga Grave -->
-        <ng-container matColumnDef="fugaGrave">
-            <mat-header-cell *matHeaderCellDef> Max </mat-header-cell>
+        <ng-container matColumnDef="min">
+            <mat-header-cell *matHeaderCellDef> Min </mat-header-cell>
             <mat-cell *matCellDef="let element"> 
-                <mat-checkbox [(ngModel)]="element.fugaGrave" name="fugaGroup"></mat-checkbox>
+                {{element.min}}
             </mat-cell>
         </ng-container>
       
         <!-- Columna de Sin Fuga -->
-        <ng-container matColumnDef="sinFuga">
-            <mat-header-cell *matHeaderCellDef> Sin Fuga </mat-header-cell>
+        <ng-container matColumnDef="max">
+            <mat-header-cell *matHeaderCellDef> Max </mat-header-cell>
             <mat-cell *matCellDef="let element"> 
-                <mat-checkbox [(ngModel)]="element.sinFuga" name="fugaGroup"></mat-checkbox>
+                {{element.max}}
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="paramDato">
+            <mat-header-cell *matHeaderCellDef> Dato Parámetro </mat-header-cell>
+            <mat-cell *matCellDef="let element"> 
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Ex. 66.9">
+                </mat-form-field>
             </mat-cell>
         </ng-container>
       

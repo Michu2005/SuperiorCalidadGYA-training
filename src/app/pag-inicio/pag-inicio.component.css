@@ -19,20 +19,20 @@
 
 .button-ingreso{
     margin-right: 50%;
-    font-weight: bold;
+    font-size: medium;
 }
 
 .button-salir{
     color: rgb(0, 0, 0);
     font-weight: bold;
+    font-size: medium;
 }
 
 .txt-cont{
     margin-top: 50px;
     text-align: center;
     color: white;
-    font-weight: bold;
-    font-size: 25px;
+    font-size: 27px;
 }
  
 .FechaYHora{

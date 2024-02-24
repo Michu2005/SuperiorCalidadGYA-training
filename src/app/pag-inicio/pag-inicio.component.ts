@@ -21,6 +21,12 @@ export class PagInicioComponent{
     nombre: 'N/A'
   }
 
+  confirmarSalida() {
+    if (confirm("¿Estás seguro de que deseas salir?")) {
+      window.close(); // Cierra la ventana actual
+    }
+  }
+
   constructor(public router: Router,
     private listarServicio: ServiciosService) {}
 

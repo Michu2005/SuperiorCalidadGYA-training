@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ControlFugas, DatosCodigo } from '../interfaces/datos';
+import { DatosCodigo, PeriodicElement2 } from '../interfaces/datos';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -19,19 +19,15 @@ export class EmpaqueParamAdicionalesComponent {
     descripcion:"N/A"
   }
 
-  ELEMENT_DATA: ControlFugas[] = [
-    {position: 1, fugaLeve: false, fugaGrave: false, sinFuga: false},
-    {position: 2, fugaLeve: false, fugaGrave: false, sinFuga: false},
-    {position: 3, fugaLeve: false, fugaGrave: false, sinFuga: false},
-    {position: 4, fugaLeve: false, fugaGrave: false, sinFuga: false},
-    {position: 5, fugaLeve: false, fugaGrave: false, sinFuga: false},
-    {position: 6, fugaLeve: false, fugaGrave: false, sinFuga: false},
-    {position: 7, fugaLeve: false, fugaGrave: false, sinFuga: false},
-    {position: 8, fugaLeve: false, fugaGrave: false, sinFuga: false},
-    {position: 9, fugaLeve: false, fugaGrave: false, sinFuga: false},
-    {position: 10, fugaLeve: false, fugaGrave: false, sinFuga: false},
+  ELEMENT_DATA: PeriodicElement2[] = [
+    {position: 1, paramDetalle: 'Param 1', min: 0, max: 0, paramDato: 0},
+    {position: 2, paramDetalle: 'Param 2', min: 0, max: 0, paramDato: 0},
+    {position: 3, paramDetalle: 'Param 3', min: 0, max: 0, paramDato: 0},
+    {position: 4, paramDetalle: 'Param 4', min: 0, max: 0, paramDato: 0},
+    {position: 5, paramDetalle: 'Param 5', min: 0, max: 0, paramDato: 0},
+    {position: 6, paramDetalle: 'Param 6', min: 0, max: 0, paramDato: 0}
   ];
-  displayedColumns: string[] = ['position', 'fugaLeve', 'fugaGrave', 'sinFuga'];
+  displayedColumns: string[] = ['position', 'paramDetalle', 'min', 'max', 'paramDato'];
   dataSource = this.ELEMENT_DATA;   
 
   constructor(private route: ActivatedRoute, 

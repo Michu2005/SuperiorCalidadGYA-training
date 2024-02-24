@@ -43,3 +43,11 @@ export interface ControlFugas {
     fugaGrave: boolean;
     sinFuga: boolean;
 }
+
+export interface PeriodicElement2 {
+    position: number;
+    paramDetalle: string;
+    min: number;
+    max: number;
+    paramDato: number;
+}
