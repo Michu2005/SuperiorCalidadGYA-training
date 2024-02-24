@@ -12,6 +12,9 @@ export class MenuInicioComponent {
   imgSuperior = '../assets/images/logo-superior.png';
   imgSalticas = '../assets/images/products-superior.png';
 
+  fechaYHoraActual: Date = new Date();
+  intervalo: any;
+
   datosRecibidos: DatosCodigo = {
     id : 0,
     codigo:"N/A",
@@ -42,5 +45,8 @@ export class MenuInicioComponent {
     this.route.params.subscribe(datos => {
       this.datosRecibidos = datos as DatosCodigo;
     })
+    this.intervalo = setInterval(() => {
+      this.fechaYHoraActual = new Date();
+    }, 1000);
   }
 }

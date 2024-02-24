@@ -1,18 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-import { DatosCodigo, PeriodicElement } from '../interfaces/datos';
+import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { DatosCodigo, PeriodicElement } from '../interfaces/datos';
 
 @Component({
-  selector: 'ingreso-empaque',
-  templateUrl: './ingreso-empaque.component.html',
-  styleUrls: ['./ingreso-empaque.component.css']
+  selector: 'empaque-galleta-rota',
+  templateUrl: './empaque-galleta-rota.component.html',
+  styleUrls: ['./empaque-galleta-rota.component.css']
 })
-export class IngresoEmpaqueComponent implements OnInit{
+export class EmpaqueGalletaRotaComponent {
 
   imgSuperior = '../assets/images/logo-superior.png';
 
   fechaYHoraActual: Date = new Date();
   intervalo: any;
+
+  datosRecibidos: DatosCodigo = {
+    id: 0,
+    codigo:"N/A",
+    descripcion:"N/A"
+  }
 
   ELEMENT_DATA: PeriodicElement[] = [
     {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
@@ -29,17 +35,12 @@ export class IngresoEmpaqueComponent implements OnInit{
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = this.ELEMENT_DATA;
 
-  datosRecibidos: DatosCodigo = {
-    id: 0,
-    codigo:"N/A",
-    descripcion:"N/A"
-  }
-
   constructor(private route: ActivatedRoute, 
-    private router: Router) {}
+    private router: Router
+    ) {}
 
-    empaqueGalletaRota() {
-      this.router.navigate(['/empaque-galleta-rota']);
+    empaqueHermeticidad() {
+      this.router.navigate(['/empaque-hermeticidad', this.datosRecibidos]);
     }
 
     menuIng() {

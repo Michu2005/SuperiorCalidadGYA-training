@@ -33,3 +33,10 @@
 .mat-column-name {
     height: 90px;
 }
+
+.FechaYHora{
+    font-size: 18px;
+    color: white;
+    margin-left: 58%;
+    margin-top: 3%;
+}

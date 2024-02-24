@@ -1,11 +1,9 @@
-<div class="contenedor">
+<div style="display: flex;">
   <img class="logoSuperior" [src]="imgSuperior" alt="Imagen Corporación Superior"/>
-  <div class="contenido">
-    <p class="FechaYHora">Fecha y hora actual: {{ fechaYHoraActual | date: 'medium' }}</p>
-    <img class="imgSalticas" [src]="imgSalticas"/>
-  </div>
+  <p class="FechaYHora">Fecha y hora: {{ fechaYHoraActual | date: 'medium' }}</p>
 </div>
-<div class="contenido-fijo-pag-inicio">
+<img class="imgSalticas" [src]="imgSalticas"/>
+<div class="contenido-pag-inicio">
     <div><h2 class="txt-cont">{{txtIng}}</h2></div>
     <td><mat-form-field class="cont-cod">
       <mat-label style="color: rgb(43, 43, 43);">CÓDIGO</mat-label>

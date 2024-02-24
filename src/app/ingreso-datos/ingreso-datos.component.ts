@@ -21,6 +21,9 @@ export class IngresoDatosComponent implements OnInit{
 
   myControl = new FormControl();
 
+  fechaYHoraActual: Date = new Date();
+  intervalo: any;
+
   //Datos cargados para select de linea y turno
   options: SeleccionarDatos[] = [];
   optionsTurno: SeleccionarDatos[] = [];
@@ -82,10 +85,13 @@ export class IngresoDatosComponent implements OnInit{
       this.empleAac = resultEmpleadoAac;
       console.log(resultEmpleadoAac);
     })
+    this.intervalo = setInterval(() => {
+      this.fechaYHoraActual = new Date();
+    }, 1000);
     this.filtroCodigo = this.myControl.valueChanges.pipe(
       startWith(''),
       map((value : any) => this._filter(value || '')),
-    );
+    )
   }
 
   private _filter(value: string): DatosCodigo[] {
@@ -103,8 +109,5 @@ export class IngresoDatosComponent implements OnInit{
       this.descrpProd = selectedProducto.descripcion;
     }
   }
-
-  cargarNombreEmpleado(){
-    
-  }
+  
 }

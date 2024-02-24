@@ -1,0 +1,47 @@
+.detalles-prod{
+    margin-left: 2%;
+    color: white;
+}
+
+.txt-detalle-product{
+    color: white;
+    margin-left: 2%;
+}
+
+.FechaYHora{
+    font-size: 18px;
+    color: white;
+    margin-left: 58%;
+    margin-top: 3%;
+}
+.cont-tabla{
+    margin-left: 2%;
+    width: 96%;
+}
+
+.mat-mdc-table {
+    max-height: 300px;
+    overflow: auto; 
+}
+
+.button-save{
+    margin-top: 2%;
+    margin-left: 15%;
+}
+
+.button-exit{
+    margin-top: 2%;
+    margin-left: 15%;
+}
+
+.contenedor-especificaciones{
+    margin-left: 2%;
+    background-color: rgba(255, 255, 255, 0.637);
+    border-radius: 5px;
+    margin-top: 0.5%;
+    width: 20%;
+}
+
+.procentaje{
+    margin-left: 30%;
+}

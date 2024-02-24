@@ -1,0 +1,36 @@
+.detalles-prod{
+    margin-left: 2%;
+    color: white;
+}
+
+.txt-detalle-product{
+    color: white;
+    margin-left: 2%;
+}
+
+.FechaYHora{
+    font-size: 18px;
+    color: white;
+    margin-left: 58%;
+    margin-top: 3%;
+}
+
+.cont-tabla{
+    margin-left: 2%;
+    width: 96%;
+}
+
+.mat-mdc-table {
+    max-height: 300px;
+    overflow: auto; 
+}
+
+.button-save{
+    margin-top: 2%;
+    margin-left: 15%;
+}
+
+.button-exit{
+    margin-top: 2%;
+    margin-left: 15%;
+}

@@ -27,10 +27,19 @@ export interface PeriodicElement {
 }
 
 export interface PeriodicElement1 {
-    name: string;
     position: number;
-    weight: number;
-    symbol: string;
+    parametro: string;
+    min: number;
+    max: number;
+    paramZona1: number;
     paramZona2: number;
     paramZona3: number ;
+
+}
+
+export interface ControlFugas {
+    position: number;
+    fugaLeve: boolean;
+    fugaGrave: boolean;
+    sinFuga: boolean;
 }

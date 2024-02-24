@@ -1,8 +1,8 @@
-<div class="contenido-fijo">
+<div style="display: flex;">
   <img class="logoSuperior" [src]="imgSuperior" alt="Imagen Corporación Superior"/>
-  <div>
-    <img class="imgSalticas" [src]="imgSalticas"/>
+  <p class="FechaYHora">Fecha y hora: {{ fechaYHoraActual | date: 'medium' }}</p>
 </div>
+<img class="imgSalticas" [src]="imgSalticas"/>
 <h3 class="txt-ingreso">
     {{txtPrincipal}}
 </h3>

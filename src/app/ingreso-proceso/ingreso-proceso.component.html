@@ -1,5 +1,6 @@
-<div class="contenido-fijo">
+  <div style="display: flex;">
   <img class="logoSuperior" [src]="imgSuperior" alt="Imagen Corporación Superior"/>
+  <p class="FechaYHora">Fecha y hora: {{ fechaYHoraActual | date: 'medium' }}</p>
 </div>
 <div>
     <h2 class="detalles-prod">
@@ -13,24 +14,31 @@
   <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <!-- Position Column -->
     <ng-container matColumnDef="position">
-      <mat-header-cell *matHeaderCellDef> Parámetro </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef> No. parametros </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
     </ng-container>
+
+    <!-- Parametro -->
+    <ng-container matColumnDef="parametro">
+      <mat-header-cell *matHeaderCellDef> Parámetro </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.parametro}} </mat-cell>
+    </ng-container>
   
+
     <!-- Name Column -->
-    <ng-container matColumnDef="name">
+    <ng-container matColumnDef="min">
       <mat-header-cell *matHeaderCellDef> Min </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.min}} </mat-cell>
     </ng-container>
   
     <!-- Weight Column -->
-    <ng-container matColumnDef="weight">
+    <ng-container matColumnDef="max">
       <mat-header-cell *matHeaderCellDef> Max </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.max}} </mat-cell>
     </ng-container>
   
     <!-- Symbol Column -->
-    <ng-container matColumnDef="symbol">
+    <ng-container matColumnDef="paramZona1">
       <mat-header-cell *matHeaderCellDef> Parámetro Zona 1 </mat-header-cell>
       <mat-cell *matCellDef="let element"> 
         <mat-form-field class="example-full-width">

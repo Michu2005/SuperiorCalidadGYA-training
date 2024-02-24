@@ -13,6 +13,9 @@ export class IngresoDatosEmpaqueComponent {
   imgSuperior = '../assets/images/logo-superior.png';
   imgSalticas = '../assets/images/products-superior.png';
 
+  fechaYHoraActual: Date = new Date();
+  intervalo: any;
+
   optionsMaquina: SeleccionarDatos[] = [];
 
   constructor(public router: Router,
@@ -31,5 +34,8 @@ export class IngresoDatosEmpaqueComponent {
       this.optionsMaquina = rersultadoMaquina.data;
       console.log(this.optionsMaquina);
     })
+    this.intervalo = setInterval(() => {
+      this.fechaYHoraActual = new Date();
+    }, 1000);
   }
 }

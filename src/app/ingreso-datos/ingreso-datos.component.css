@@ -74,7 +74,6 @@ body{
 
 .buttons-cont{
     margin-left: 12%;
-    
     display: flex;
 }
 
@@ -82,4 +81,15 @@ body{
 .button-save{
     margin-right: 30%;
     font-weight: bold;
+}
+
+.FechaYHora{
+    font-size: 18px;
+    color: white;
+    margin-left: 58%;
+    margin-top: 3%;
+}
+
+.imgSalticas{
+    margin-top: 4%;
 }

@@ -11,6 +11,9 @@ import { IngresoProcesoComponent } from './ingreso-proceso/ingreso-proceso.compo
 import { IngresoDatosEmpaqueComponent } from './ingreso-datos-empaque/ingreso-datos-empaque.component';
 import { IngresoEmpaqueComponent } from './ingreso-empaque/ingreso-empaque.component';
 import { HttpClientModule } from '@angular/common/http';
+import { EmpaqueGalletaRotaComponent } from './empaque-galleta-rota/empaque-galleta-rota.component';
+import { EmpaqueHermeticidadComponent } from './empaque-hermeticidad/empaque-hermeticidad.component';
+import { EmpaqueParamAdicionalesComponent } from './empaque-param-adicionales/empaque-param-adicionales.component';
 
 
 @NgModule({
@@ -21,7 +24,10 @@ import { HttpClientModule } from '@angular/common/http';
     MenuInicioComponent,
     IngresoProcesoComponent,
     IngresoDatosEmpaqueComponent,
-    IngresoEmpaqueComponent
+    IngresoEmpaqueComponent,
+    EmpaqueGalletaRotaComponent,
+    EmpaqueHermeticidadComponent,
+    EmpaqueParamAdicionalesComponent
   ],
   imports: [
     BrowserModule,

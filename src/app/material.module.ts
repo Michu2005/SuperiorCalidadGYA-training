@@ -11,6 +11,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { MatTabsModule } from '@angular/material/tabs';
         NgIf,
         MatIconModule,
         MatTableModule,
-        MatTabsModule
+        MatTabsModule,
+        MatCheckboxModule
     ],
     exports:[
         MatButtonModule,
@@ -46,7 +48,8 @@ import { MatTabsModule } from '@angular/material/tabs';
         NgIf,
         MatIconModule,
         MatTableModule,
-        MatTabsModule
+        MatTabsModule,
+        MatCheckboxModule
     ]
 })
 export class MaterialModule {}  

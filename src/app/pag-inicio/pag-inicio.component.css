@@ -28,7 +28,7 @@
 }
 
 .txt-cont{
-    margin-top: 10px;
+    margin-top: 50px;
     text-align: center;
     color: white;
     font-weight: bold;
@@ -36,7 +36,12 @@
 }
  
 .FechaYHora{
+    font-size: 18px;
     color: white;
-    margin-left: 80%;
-    margin-right: 10%;
+    margin-left: 58%;
+    margin-top: 3%;
+}
+
+.imgSalticas{
+    margin-top: 3%;
 }

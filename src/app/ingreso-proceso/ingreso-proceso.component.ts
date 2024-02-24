@@ -11,19 +11,22 @@ export class IngresoProcesoComponent {
 
   imgSuperior = '../assets/images/logo-superior.png';
 
+  fechaYHoraActual: Date = new Date();
+  intervalo: any;
+
   ELEMENT_DATA: PeriodicElement1[] = [
-    {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H', paramZona2: 0, paramZona3: 0},
-    {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He', paramZona2: 0, paramZona3: 0},
-    {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li', paramZona2: 0, paramZona3: 0},
-    {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be', paramZona2: 0, paramZona3: 0},
-    {position: 5, name: 'Boron', weight: 10.811, symbol: 'B', paramZona2: 0, paramZona3: 0},
-    {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C', paramZona2: 0, paramZona3: 0},
-    {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N', paramZona2: 0, paramZona3: 0},
-    {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O', paramZona2: 0, paramZona3: 0},
-    {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F', paramZona2: 0, paramZona3: 0},
-    {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne', paramZona2: 0, paramZona3: 0},
+    {position: 1, parametro: 'N/A', min: 1.0, max: 1.79, paramZona1: 0, paramZona2: 0, paramZona3: 0},
+    {position: 2, parametro: 'N/A', min: 0, max: 4.26, paramZona1: 0, paramZona2: 0, paramZona3: 0},
+    {position: 3, parametro: 'N/A', min: 0, max: 6.941, paramZona1: 0, paramZona2: 0, paramZona3: 0},
+    {position: 4, parametro: 'N/A', min: 0, max: 9.22, paramZona1: 0, paramZona2: 0, paramZona3: 0},
+    {position: 5, parametro: 'N/A', min: 0, max: 10.11, paramZona1: 0, paramZona2: 0, paramZona3: 0},
+    {position: 6, parametro: 'N/A', min: 0, max: 12.07, paramZona1: 0, paramZona2: 0, paramZona3: 0},
+    {position: 7, parametro: 'N/A', min: 0, max: 14.67, paramZona1: 0, paramZona2: 0, paramZona3: 0},
+    {position: 8, parametro: 'N/A', min: 0, max: 15.94, paramZona1: 0, paramZona2: 0, paramZona3: 0},
+    {position: 9, parametro: 'N/A', min: 0, max: 18.84, paramZona1: 0, paramZona2: 0, paramZona3: 0},
+    {position: 10, parametro: 'N/A', min: 0, max: 20.97, paramZona1: 0, paramZona2: 0, paramZona3: 0},
   ];
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'paramZona2', 'paramZona3'];
+  displayedColumns: string[] = ['position', 'parametro', 'min', 'max', 'paramZona1', 'paramZona2', 'paramZona3'];
   dataSource = this.ELEMENT_DATA;
 
   //Incializa con estos valores
@@ -36,17 +39,21 @@ export class IngresoProcesoComponent {
   constructor(private route: ActivatedRoute, 
     private router: Router) {}
 
-  menuIng() {
-    this.router.navigate(['/menu-inicio']);
-  }
+    menuIng() {
+      this.router.navigate(['/menu-inicio']);
+    }
 
-  salidaPagInicio() {
-    this.router.navigate(['/pag-inicio']);
-  }
+    salidaPagInicio() {
+      this.router.navigate(['/pag-inicio']);
+    }
 
   ngOnInit(){
     this.route.params.subscribe(datos => {
+      console.log(datos);
       this.productoSeleccionado = datos as DatosCodigo;
     })
+    this.intervalo = setInterval(() => {
+      this.fechaYHoraActual = new Date();
+    }, 1000);
   }  
 }

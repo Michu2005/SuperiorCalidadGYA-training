@@ -4,6 +4,10 @@
     margin-top: 5%;
 }
 
+.imgSalticas{
+    margin-top: 5%;
+}
+
 .button-empaque{
     margin-top: 5%;
     margin-right: 15%;
@@ -16,4 +20,11 @@
 .button-exit{
     margin-top: 8%;
     margin-left: 28%;
+}
+
+.FechaYHora{
+    font-size: 18px;
+    color: white;
+    margin-left: 58%;
+    margin-top: 3%;
 }

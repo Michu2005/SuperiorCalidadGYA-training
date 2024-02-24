@@ -20,7 +20,7 @@
       
         <!-- Name Column -->
         <ng-container matColumnDef="name">
-            <mat-header-cell *matHeaderCellDef> Dato Peso Primario </mat-header-cell>
+            <mat-header-cell *matHeaderCellDef> Peso Galleta Rota (g)  </mat-header-cell>
             <mat-cell *matCellDef="let element"> 
               <mat-form-field class="example-full-width">
                 <input matInput placeholder="Ex. 66.9">
@@ -30,7 +30,7 @@
       
         <!-- Weight Column -->
         <ng-container matColumnDef="weight">
-          <mat-header-cell *matHeaderCellDef> Dato Peso Secundario </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> Peso Primario (g) </mat-header-cell>
           <mat-cell *matCellDef="let element"> 
             <mat-form-field class="example-full-width">
               <input matInput placeholder="Ex. 66.9">
@@ -40,7 +40,7 @@
       
         <!-- Symbol Column -->
         <ng-container matColumnDef="symbol">
-          <mat-header-cell *matHeaderCellDef> Dato Peso Corrugado </mat-header-cell>
+          <mat-header-cell *matHeaderCellDef> % Galleta Rota Calculado </mat-header-cell>
           <mat-cell *matCellDef="let element"> 
             <mat-form-field class="example-full-width">
               <input matInput placeholder="Ex. 66.9">
@@ -52,18 +52,14 @@
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
       </mat-table>
 </div>
-<div style="display: inline-flex; ">
-    <div class="contenedor-min-max-peso">
+<div style="display: flex;">
+    <div class="contenedor-especificaciones">
         <mat-tab-group>
-            <mat-tab label="Peso Primario" color="primary"> <br> Min (g) <br><br> Max (g) </mat-tab>
-            <mat-tab label="Peso Secundario" color="primary"> <br> Min (g) <br><br> Max (g) </mat-tab>
-            <mat-tab label="Peso Corrugado" color="primary"> <br> Peso Corrugado (g) </mat-tab>
+            <mat-tab label="Especificaciones" color="primary"> <br> % Max. Galleta Rota </mat-tab>
         </mat-tab-group>
     </div>
-    <div>
-        <button class="button-save" (click)="empaqueGalletaRota()" mat-raised-button color="primary">
-            GUARDAR
-        </button>
-        <button class="button-exit" mat-raised-button (click)="menuIng()">SALIR</button>
-    </div>
+    <button class="button-save" (click)="empaqueHermeticidad()" mat-raised-button color="primary">
+        GUARDAR
+    </button>
+    <button class="button-exit" mat-raised-button (click)="menuIng()">SALIR</button>
 </div>
