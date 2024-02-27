@@ -35,10 +35,10 @@ export class PagInicioComponent{
   }
 
   ngOnInit(){
-    /*this.listarServicio.getEmpleadoAac().subscribe((resultEmpleadoAac : any) =>{
+    this.listarServicio.getEmpleadoAac().subscribe((resultEmpleadoAac : any) =>{
       this.empleAac = resultEmpleadoAac;
       console.log(resultEmpleadoAac);
-    })*/
+    })
     this.intervalo = setInterval(() => {
       this.fechaYHoraActual = new Date();
     }, 1000);
@@ -47,5 +47,4 @@ export class PagInicioComponent{
   ngOnDestroy(): void {
     clearInterval(this.intervalo); // Limpia el intervalo cuando el componente se destruye
   }
-
 }

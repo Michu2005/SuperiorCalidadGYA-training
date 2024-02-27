@@ -4,10 +4,8 @@ body{
 .txt-ingreso{
     margin-left: 30%;
     font-size: large;
-    font-weight: bold;
     color: white;
     font-size: 25px;
-    font-weight: bolder;
 }
 
 .cont-column-dos{
@@ -80,7 +78,6 @@ body{
 .button-exit,
 .button-save{
     margin-right: 30%;
-    font-weight: bold;
 }
 
 .FechaYHora{

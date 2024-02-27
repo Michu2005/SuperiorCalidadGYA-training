@@ -33,4 +33,8 @@ export class ServiciosService {
   public getEmpleadoAac(){
     return this.http.get(`${this.baseUrl}/listar/aac?idPerfil=3`);
   }
+
+  public getParametros(){
+    return this.http.get(`${this.baseUrl}/listar/parametro`);
+  }
 }
