@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DatosCodigo, PeriodicElement1 } from '../interfaces/datos';
+import { ServiciosService } from '../servicios/servicios.service';
 
 @Component({
   selector: 'ingreso-proceso',
@@ -35,12 +36,14 @@ export class IngresoProcesoComponent {
     codigo:"N/A",
     descripcion:"N/A"
   }
+
+  parametrosProducto: any [] = [];
   
   constructor(private route: ActivatedRoute, 
     private router: Router) {}
 
     menuIng() {
-      this.router.navigate(['/menu-inicio']);
+      this.router.navigate(['/menu-inicio', this.productoSeleccionado]);
     }
 
     salidaPagInicio() {
@@ -55,5 +58,5 @@ export class IngresoProcesoComponent {
     this.intervalo = setInterval(() => {
       this.fechaYHoraActual = new Date();
     }, 1000);
-  }  
+  }
 }

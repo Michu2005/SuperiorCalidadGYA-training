@@ -33,9 +33,8 @@ export interface PeriodicElement1 {
     max: number;
     paramZona1: number;
     paramZona2: number;
-    paramZona3: number ;
-
-}
+    paramZona3: number;
+}  
 
 export interface ControlFugas {
     position: number;

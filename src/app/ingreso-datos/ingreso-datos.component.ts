@@ -19,8 +19,10 @@ export class IngresoDatosComponent implements OnInit{
   imgSuperior = '../assets/images/logo-superior.png';
   imgSalticas = '../assets/images/products-superior.png';
 
+  codigoProducto: string='';
   myControl = new FormControl();
 
+  //Muestra hora y fecha en tiempo real
   fechaYHoraActual: Date = new Date();
   intervalo: any;
 
@@ -50,7 +52,6 @@ export class IngresoDatosComponent implements OnInit{
   nombreEmpleado: string = '';
 
   constructor(public router: Router,
-    private route: ActivatedRoute,
     private listarServicio: ServiciosService) {}
 
   menuInicio() {
@@ -74,9 +75,6 @@ export class IngresoDatosComponent implements OnInit{
       this.autocompleteCodigo = resultadoCodigo.data;
       console.log(this.autocompleteCodigo);
     })
-    /*this.listarServicio.getEmpleado().subscribe((resultadoEmpleado : any) =>{
-      console.log(resultadoEmpleado);
-    })*/
     this.listarServicio.getEmpleadoSac().subscribe((resultEmpleadoSac : any) =>{
       this.optionsSac = resultEmpleadoSac;
       console.log(resultEmpleadoSac);
@@ -109,5 +107,4 @@ export class IngresoDatosComponent implements OnInit{
       this.descrpProd = selectedProducto.descripcion;
     }
   }
-  
 }

@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class ServiciosService {
 
   private baseUrl = "http://localhost:8081/catalogos";
+  productoSeleccionado: any;
 
   constructor(private http : HttpClient) { }
 
@@ -34,7 +35,7 @@ export class ServiciosService {
     return this.http.get(`${this.baseUrl}/listar/aac?idPerfil=3`);
   }
 
-  public getParametros(){
-    return this.http.get(`${this.baseUrl}/listar/parametro`);
+  public getParametroPorIdProducto(idProducto : number){
+    return this.http.get(`${this.baseUrl}/listar/parametrosPorProducto?idProducto=${idProducto}`);
   }
 }
