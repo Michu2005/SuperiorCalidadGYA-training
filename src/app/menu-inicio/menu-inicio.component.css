@@ -8,23 +8,20 @@
     margin-top: 5%;
 }
 
-.button-empaque{
-    margin-top: 5%;
-    margin-right: 15%;
-}
-.button-proceso{
-    margin-top: 5%;
-    margin-left: 15%;
-}
-
-.button-exit{
-    margin-top: 8%;
-    margin-left: 28%;
+.text-white{
+    margin-top: 10%;
+    margin-left: 30%;
 }
 
 .FechaYHora{
     font-size: 18px;
     color: white;
+    margin-top: 2%;
     margin-left: 58%;
-    margin-top: 3%;
+}
+
+.btn-salir{
+    margin-left: 5%;
+    height: 45px;
+    width: 110px;
 }

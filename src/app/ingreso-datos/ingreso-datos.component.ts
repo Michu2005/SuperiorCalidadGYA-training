@@ -15,9 +15,9 @@ export class IngresoDatosComponent implements OnInit{
   txtPrincipal = 'INGRESO DE DATOS';
   nameSAC = 'NOMBRE SAC:';
   ingCod = 'CÓDIGO PRODUCTO:';
-  descrpProd = 'DESCRIPCIÓN\nDEL PRODUCTO:';
-  imgSuperior = '../assets/images/logo-superior.png';
-  imgSalticas = '../assets/images/products-superior.png';
+  descrpProd = 'DESCRIPCIÓN DEL PRODUCTO';
+  imgSuperior = '../assets/images/logo-superior.PNG';
+  imgProdSuperior = '../assets/images/galletas-superior.png';
 
   codigoProducto: string='';
   myControl = new FormControl();

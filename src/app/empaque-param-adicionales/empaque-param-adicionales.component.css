@@ -11,7 +11,7 @@
 .FechaYHora{
     font-size: 18px;
     color: white;
-    margin-left: 58%;
+    margin-left: 60%;
     margin-top: 3%;
 }
 
@@ -25,12 +25,16 @@
     overflow: auto; 
 }
 
-.button-save{
-    margin-top: 2%;
-    margin-left: 15%;
+.btn-primary{
+    margin-top: 3%;
+    margin-left: 25%;
+    background-color: #006EB6;
 }
 
-.button-exit{
+.btn-secondary{
+    background-color: #F49929;
     margin-top: 2%;
-    margin-left: 15%;
+    margin-left: 2%;
+    width: 7%;
+    height: 6%;
 }

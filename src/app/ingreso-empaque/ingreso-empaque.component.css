@@ -1,31 +1,14 @@
-.detalles-prod{
-    display: flex;
-    flex: 1;
-    margin-left: 3%;
+.detalles-prod,
+.txt-detalle-product{
+    margin-left: 2%;
     color: white;
 }
 
 .texto-estatico{
-    display: inline-block;
     margin-left: 4%;
     margin-right: 10px;
     color: white;
     font-size: 18px;
-}
-
-.cont-tabla{
-    margin-left: 2%;
-    width: 96%;
-}
-
-.mat-mdc-table {
-    max-height: 250px;
-    overflow: auto; 
-}
-
-.detalles-prod{
-    margin-left: 2%;
-    color: white;
 }
 
 .txt-detalle-product{
@@ -33,37 +16,47 @@
     margin-left: 2%;
 }
 
-.example-full-width{
-    height: 80px;
+.btn-primary{
+    margin-top: 30%;
+    margin-right: 15px;
+    background-color: #006EB6;
 }
 
-.contenedor-min-max-peso{
-    background-color: rgba(255, 255, 255, 0.637);
-    border-radius: 5px;
-    margin-top: 2%;
-    margin-right: 50%;
-    width: 100%;
-    color: black;
-    margin-left: 4%;
-}
-
-.buttons-cont {
-    display: flex;
-    align-items: center;
-}
-
-.button-save{
-    margin-top: 20%;
-}
-
-.button-exit {
-    margin-top: 20%;
-    margin-right: 25%;
+.btn-secondary{
+    background-color: #F49929;
+    margin-top: 3%;
+    margin-left: 2%;
+    width: 7%;
+    height: 6%;
 }
 
 .FechaYHora{
     font-size: 18px;
     color: white;
-    margin-left: 58%;
+    margin-left: 57%;
     margin-top: 3%;
 }
+
+.table{
+    width: 70%;
+    margin-left: 2%;
+}
+
+.contenedor{
+    display: flex;
+    margin-right: 2%;
+}
+
+.detalles-container {
+    flex-grow: 1; /* Permite que este contenedor ocupe todo el espacio restante */
+}
+
+.cont-especificaciones{
+    display: flex;
+}
+
+.cont-tabla-wrapper {
+    max-height: 400px;
+    overflow-y: scroll;
+}
+  

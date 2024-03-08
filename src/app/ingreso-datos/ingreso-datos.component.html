@@ -1,75 +1,70 @@
 <div style="display: flex;">
   <img class="logoSuperior" [src]="imgSuperior" alt="Imagen Corporación Superior"/>
   <p class="FechaYHora">Fecha y hora: {{ fechaYHoraActual | date: 'medium' }}</p>
+  <button (click)="salidaPagInicio()" type="button" class="btn btn-secondary" data-mdb-ripple-init>
+    SALIR</button>
 </div>
-<img class="imgSalticas" [src]="imgSalticas"/>
+
 <h3 class="txt-ingreso">
     {{txtPrincipal}}
 </h3>
-<div class="cont-column-uno" style="display: flex;">
-    <h2 class="txt-sec">{{nameSAC}}</h2>
-    <mat-form-field class="selector" style="position: absolute;">
-        <mat-label>Nombres SAC</mat-label>
-        <mat-select>
-            <mat-option *ngFor="let option of optionsSac" [value]="option.nombre">{{option.nombre}}</mat-option>
-        </mat-select>
-        <mat-hint align="end" style="color: white;">
-            Seleccione nombre SAC
-        </mat-hint>
-    </mat-form-field>
-    <div class="cont-column-dos">
-        <h2 class="txt-turno">
-            TURNO
-        </h2>
-        <mat-form-field class="selector-turno" style="position: absolute;">
-            <mat-label>Turnos</mat-label>
-            <mat-select>
-                <mat-option *ngFor="let option of optionsTurno" [value]="option.id">{{option.descripcion}}</mat-option>
-            </mat-select>
-            <mat-hint align="end" style="color: white;">
-                Seleccione el turno
-            </mat-hint>
-        </mat-form-field>
-    </div>
-</div>
-<div class="ing-cod-prod" style="display: flex;">
-    <h2 class="txt-sec">{{ingCod}}</h2>
-    <form class="cont-cod-prod">
-        <mat-form-field>
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-6 col-lg-6">
+        <form>
+          <div class="mb-3">
+              <label for="dropdown1" class="form-label">Seleccione nombre SAC</label>
+              <select class="form-select">
+                  <option value="" selected disabled>Selecciona una opción</option>
+                  <option *ngFor="let option of optionsSac" [value]="option.nombre">{{ option.nombre }}</option>
+              </select>
+          </div>        
+          <div class="mb-3">
+          <label for="dropdown2" class="form-label">Seleccione Turno</label>
+          <select class="form-select">
+            <option selected>Selecciona una opción</option>
+            <option *ngFor="let option of optionsTurno" [value]="option.id">{{ option.descripcion }}</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="dropdown3" class="form-label">Seleccione la Línea</label>
+          <select class="form-select">
+            <option selected>Seleccione una opción</option>
+            <option *ngFor="let option of options" [value]="option.id">{{option.descripcion}}</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="autollenado" class="form-label">Ingrese el código del producto</label>
+          <br>
+          <mat-form-field class="w-100">
           <mat-label>Código</mat-label>
           <input type="text"
-            placeholder="Código"
-            aria-label="Number"
-            matInput
-            [formControl]="myControl"
-            [matAutocomplete]="auto">
-            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="cargarDescripcion($event)">
-                <mat-option *ngFor="let option of filtroCodigo | async" [value]="option.codigo">
-                    {{option.codigo}}
-                </mat-option>
-            </mat-autocomplete>
-        </mat-form-field>
-    </form>
-    <h2 class="txt-linea">
-        LÍNEA
-    </h2>
-    <mat-form-field class="selector-linea" style="position: absolute;">
-        <mat-label>Líneas</mat-label>
-        <mat-select>
-            <mat-option *ngFor="let option of options" [value]="option.id">{{option.descripcion}}</mat-option>
-        </mat-select>
-        <mat-hint align="end" style="color: white;">
-            Seleccione la línea
-        </mat-hint>
-    </mat-form-field>
-</div>
-<h2 class="descripcion-prod" style="white-space: pre-line;">
-    {{descrpProd}}
-</h2>
-<div class="buttons-cont">
-    <button class="button-save" (click)="menuInicio()" mat-raised-button color="primary">
-        GUARDAR
-    </button>
-    <button class="button-exit" mat-raised-button (click)="salidaPagInicio()">SALIR</button>
+              placeholder="Código"
+              aria-label="Number"
+              matInput
+              [formControl]="myControl"
+              [matAutocomplete]="auto"
+              >
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="cargarDescripcion($event)" panelClass="custom-autocomplete-panel">
+              <mat-option *ngFor="let option of filtroCodigo | async" [value]="option.codigo">
+                  {{option.codigo}}
+              </mat-option>
+          </mat-autocomplete>
+      </mat-form-field>
+      <h3 style="color: white;">{{descrpProd}}</h3>
+      </div>
+      <div class="buttons-cont d-flex d-flex-center">
+          <button (click)="menuInicio()" type="button" class="btn btn-primary mx-auto" data-mdb-ripple-init>
+            GUARDAR</button>
+        </div>
+      </form>
+      </div>
+        <div class="col-6 col-lg-6">
+          <img class="prodSuperior" [src]="imgProdSuperior"/>
+        </div>
+    </div>
 </div>
 <router-outlet></router-outlet>
+  
+  <!-- Bootstrap Bundle JS (Popper.js + Bootstrap JS) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-hp0Dk6qJ9j7xNyPp4FjiP8r4KVtL8fLE6IXj5FbOXlpvALstw8l2JQz7jAxss/L/" crossorigin="anonymous"></script>

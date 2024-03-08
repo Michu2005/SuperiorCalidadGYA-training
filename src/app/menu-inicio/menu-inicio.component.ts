@@ -9,7 +9,7 @@ import { DatosCodigo } from '../interfaces/datos';
 })
 export class MenuInicioComponent {
 
-  imgSuperior = '../assets/images/logo-superior.png';
+  imgSuperior = '../assets/images/logo-superior.PNG';
   imgSalticas = '../assets/images/products-superior.png';
 
   fechaYHoraActual: Date = new Date();

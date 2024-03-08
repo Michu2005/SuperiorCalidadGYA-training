@@ -1,6 +1,7 @@
 <div style="display: flex;">
     <img class="logoSuperior" [src]="imgSuperior" alt="Imagen Corporación Superior"/>
-    <p style="display: flex;" class="FechaYHora">Fecha y hora: {{ fechaYHoraActual | date: 'medium' }}</p>
+    <p style="display: flex;" class="FechaYHora">{{ fechaYHoraActual | date: 'medium' }}</p>
+    <button (click)="salidaMenuInicio()" type="button" class="btn btn-secondary" data-mdb-ripple-init>SALIR</button>
 </div>
 <img class="imgSalticas" [src]="imgSalticas"/>
 <div>
@@ -28,8 +29,6 @@
     </button>
 </mat-form-field>
 <div class="buttons-cont">
-    <button class="button-save" (click)="ingresoEmpaque()" mat-raised-button color="primary">
-        GUARDAR
-    </button>
-    <button class="button-exit" mat-raised-button (click)="salidaMenuInicio()">SALIR</button>
+    <button (click)="ingresoEmpaque()" type="button" class="btn btn-primary" data-mdb-ripple-init>
+        GUARDAR</button>
 </div>

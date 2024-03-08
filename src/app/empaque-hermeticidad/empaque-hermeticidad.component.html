@@ -1,13 +1,14 @@
 <div style="display: flex;">
     <img class="logoSuperior" [src]="imgSuperior" alt="Imagen Corporación Superior"/>
-    <p style="display: flex;" class="FechaYHora">Fecha y hora: {{ fechaYHoraActual | date: 'medium' }}</p>
+    <p style="display: flex;" class="FechaYHora">{{ fechaYHoraActual | date: 'medium' }}</p>
+    <button (click)="menuIng()" type="button" class="btn btn-secondary" data-mdb-ripple-init>SALIR</button>
 </div>
 <div>
-  <h2 class="detalles-prod" *ngIf="datosRecibidos">
-    Codigo producto: {{ datosRecibidos.codigo }}
+  <h2 class="detalles-prod" *ngIf="productoSeleccionado">
+    Codigo producto: {{ productoSeleccionado.codigo }}
   </h2> 
-  <h2 class="txt-detalle-product" *ngIf="datosRecibidos">
-    Detalles producto: {{ datosRecibidos.descripcion }}
+  <h2 class="txt-detalle-product" *ngIf="productoSeleccionado">
+    Detalles producto: {{ productoSeleccionado.descripcion }}
   </h2>  
 </div>
 <div class="cont-tabla">
@@ -53,8 +54,6 @@
             <mat-tab label="Especificaciones" color="primary"> <br> % Mínimo Hermeticidad <span class="procentaje">90%</span></mat-tab>
         </mat-tab-group>
     </div>
-    <button class="button-save" (click)="empaqueParamAdic()" mat-raised-button color="primary">
-        GUARDAR
-    </button>
-    <button class="button-exit" mat-raised-button (click)="menuIng()">SALIR</button>
+    <button (click)="empaqueParamAdic()" type="button" class="btn btn-primary" data-mdb-ripple-init>
+        GUARDAR</button>
 </div>

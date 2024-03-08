@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DatosCodigo, PeriodicElement1 } from '../interfaces/datos';
+import { DatosCodigo } from '../interfaces/datos';
 import { ServiciosService } from '../servicios/servicios.service';
 
 @Component({
@@ -10,25 +10,10 @@ import { ServiciosService } from '../servicios/servicios.service';
 })
 export class IngresoProcesoComponent {
 
-  imgSuperior = '../assets/images/logo-superior.png';
+  imgSuperior = '../assets/images/logo-superior.PNG';
 
   fechaYHoraActual: Date = new Date();
   intervalo: any;
-
-  ELEMENT_DATA: PeriodicElement1[] = [
-    {position: 1, parametro: 'N/A', min: 1.0, max: 1.79, paramZona1: 0, paramZona2: 0, paramZona3: 0},
-    {position: 2, parametro: 'N/A', min: 0, max: 4.26, paramZona1: 0, paramZona2: 0, paramZona3: 0},
-    {position: 3, parametro: 'N/A', min: 0, max: 6.941, paramZona1: 0, paramZona2: 0, paramZona3: 0},
-    {position: 4, parametro: 'N/A', min: 0, max: 9.22, paramZona1: 0, paramZona2: 0, paramZona3: 0},
-    {position: 5, parametro: 'N/A', min: 0, max: 10.11, paramZona1: 0, paramZona2: 0, paramZona3: 0},
-    {position: 6, parametro: 'N/A', min: 0, max: 12.07, paramZona1: 0, paramZona2: 0, paramZona3: 0},
-    {position: 7, parametro: 'N/A', min: 0, max: 14.67, paramZona1: 0, paramZona2: 0, paramZona3: 0},
-    {position: 8, parametro: 'N/A', min: 0, max: 15.94, paramZona1: 0, paramZona2: 0, paramZona3: 0},
-    {position: 9, parametro: 'N/A', min: 0, max: 18.84, paramZona1: 0, paramZona2: 0, paramZona3: 0},
-    {position: 10, parametro: 'N/A', min: 0, max: 20.97, paramZona1: 0, paramZona2: 0, paramZona3: 0},
-  ];
-  displayedColumns: string[] = ['position', 'parametro', 'min', 'max', 'paramZona1', 'paramZona2', 'paramZona3'];
-  dataSource = this.ELEMENT_DATA;
 
   //Incializa con estos valores
   productoSeleccionado: DatosCodigo = {
@@ -37,10 +22,11 @@ export class IngresoProcesoComponent {
     descripcion:"N/A"
   }
 
-  parametrosProducto: any [] = [];
+  parametros: any [] = [];
   
   constructor(private route: ActivatedRoute, 
-    private router: Router) {}
+    private router: Router,
+    private listarServicio : ServiciosService) {}
 
     menuIng() {
       this.router.navigate(['/menu-inicio', this.productoSeleccionado]);
@@ -55,8 +41,16 @@ export class IngresoProcesoComponent {
       console.log(datos);
       this.productoSeleccionado = datos as DatosCodigo;
     })
+    this.cargarParametros();
     this.intervalo = setInterval(() => {
       this.fechaYHoraActual = new Date();
     }, 1000);
+  }
+
+  cargarParametros() {
+    this.listarServicio.getParametroPorIdProductoYTipoParametroId(this.productoSeleccionado.id, 2).subscribe((datos : any []) => {
+      console.log(datos); // Verifica que los datos se estén recibiendo correctamente
+      this.parametros = datos; // Asigna la lista de objetos directamente
+    });
   }
 }

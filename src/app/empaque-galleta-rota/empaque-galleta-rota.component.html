@@ -1,65 +1,50 @@
 <div style="display: flex;">
-    <img class="logoSuperior" [src]="imgSuperior" alt="Imagen Corporación Superior"/>
-    <p style="display: flex;" class="FechaYHora">Fecha y hora: {{ fechaYHoraActual | date: 'medium' }}</p>
+  <img class="logoSuperior" [src]="imgSuperior" alt="Imagen Corporación Superior"/>
+  <p style="display: flex;" class="FechaYHora">{{ fechaYHoraActual | date: 'medium' }}</p>
+  <button (click)="menuIng()" type="button" class="btn btn-secondary" data-mdb-ripple-init>
+    SALIR</button>
 </div>
 <div>
-  <h2 class="detalles-prod" *ngIf="datosRecibidos">
-    Codigo producto: {{ datosRecibidos.codigo }}
+  <h2 class="detalles-prod" *ngIf="productoSeleccionado">
+    Codigo producto: {{ productoSeleccionado.codigo }}
   </h2> 
-  <h2 class="txt-detalle-product" *ngIf="datosRecibidos">
-    Detalles producto: {{ datosRecibidos.descripcion }}
+  <h2 class="txt-detalle-product" *ngIf="productoSeleccionado">
+    Detalles producto: {{ productoSeleccionado.descripcion }}
   </h2>  
 </div> 
-<div class="cont-tabla">
-    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-        <!-- Position Column -->
-        <ng-container matColumnDef="position">
-          <mat-header-cell *matHeaderCellDef> No. Muestras </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
-        </ng-container>
-      
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
-            <mat-header-cell *matHeaderCellDef> Peso Galleta Rota (g)  </mat-header-cell>
-            <mat-cell *matCellDef="let element"> 
-              <mat-form-field class="example-full-width">
-                <input matInput placeholder="Ex. 66.9">
-              </mat-form-field>
-            </mat-cell>
-        </ng-container>
-      
-        <!-- Weight Column -->
-        <ng-container matColumnDef="weight">
-          <mat-header-cell *matHeaderCellDef> Peso Primario (g) </mat-header-cell>
-          <mat-cell *matCellDef="let element"> 
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="Ex. 66.9">
-            </mat-form-field>
-          </mat-cell>
-        </ng-container>
-      
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="symbol">
-          <mat-header-cell *matHeaderCellDef> % Galleta Rota Calculado </mat-header-cell>
-          <mat-cell *matCellDef="let element"> 
-            <mat-form-field class="example-full-width">
-              <input matInput placeholder="Ex. 66.9">
-            </mat-form-field>
-          </mat-cell>
-        </ng-container>
-      
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-      </mat-table>
+<div class="cont-tabla" style="max-height: 300px; overflow-y: scroll;">
+  <table class="table table-striped-columns table-hover">
+    <thead class="thead-dark" style="position: sticky; top: 0; z-index: 1;">
+      <tr>
+        <th>No. Muestras</th>
+        <th>Peso Galleta Rota (g)</th>
+        <th>Peso Primario (g)</th>
+        <th>% Galleta Rota Calculado</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr *ngFor="let item of items; let i = index">
+        <td>{{ i + 1 }}</td> <!-- Aquí sumamos 1 al índice -->
+        <td><input type="text" class="form-control" [(ngModel)]="item.columna1"></td>
+        <td><input type="text" class="form-control" [(ngModel)]="item.columna2"></td>
+        <td><input type="text" class="form-control" [(ngModel)]="item.columna3"></td>
+      </tr>
+    </tbody>   
+  </table>
 </div>
 <div style="display: flex;">
-    <div class="contenedor-especificaciones">
-        <mat-tab-group>
-            <mat-tab label="Especificaciones" color="primary"> <br> % Max. Galleta Rota </mat-tab>
-        </mat-tab-group>
-    </div>
-    <button class="button-save" (click)="empaqueHermeticidad()" mat-raised-button color="primary">
-        GUARDAR
-    </button>
-    <button class="button-exit" mat-raised-button (click)="menuIng()">SALIR</button>
+  <div class="contenedor-especificaciones">
+    <mat-tab-group>
+      <mat-tab label="Especificaciones" color="primary">
+        <br>
+        <div style="display: flex; align-items: center;">
+          <span>% Max. Galleta Rota</span>
+          <span style="margin-left: 250px;">{{parametroSeleccionado.unidadMedida}}</span>
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+    
+  </div>
+  <button (click)="empaqueHermeticidad()" type="button" class="btn btn-primary" data-mdb-ripple-init>
+    GUARDAR</button>
 </div>

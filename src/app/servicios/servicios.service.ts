@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ParametroProducto } from '../interfaces/datos';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -35,7 +37,9 @@ export class ServiciosService {
     return this.http.get(`${this.baseUrl}/listar/aac?idPerfil=3`);
   }
 
-  public getParametroPorIdProducto(idProducto : number){
-    return this.http.get(`${this.baseUrl}/listar/parametrosPorProducto?idProducto=${idProducto}`);
+  public getParametroPorIdProductoYTipoParametroId(idProducto: number, tipoParametroId: number): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/listar/parametrosPorProductoYTipoParametro?idProducto=${idProducto}&idTipoParametro=${tipoParametroId}`);
   }
+
+
 }

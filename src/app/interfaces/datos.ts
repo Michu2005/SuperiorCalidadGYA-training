@@ -19,22 +19,14 @@ export interface DatosEmpleadoAac {
     nombre: string;
 }
 
-export interface PeriodicElement {
-    name: string;
-    position: number;
-    weight: number;
-    symbol: string;
-}
-
-export interface PeriodicElement1 {
-    position: number;
-    parametro: string;
+export interface ParametroProducto {
+    descripcion: string;
     min: number;
     max: number;
     paramZona1: number;
     paramZona2: number;
     paramZona3: number;
-}  
+}
 
 export interface ControlFugas {
     position: number;
@@ -43,10 +35,9 @@ export interface ControlFugas {
     sinFuga: boolean;
 }
 
-export interface PeriodicElement2 {
-    position: number;
-    paramDetalle: string;
+export interface ParametrosEmpaque {
+    descripcion: string;
     min: number;
     max: number;
-    paramDato: number;
+    unidadMedida: string;
 }

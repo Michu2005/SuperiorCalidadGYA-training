@@ -19,21 +19,24 @@
     width: 15%;
 }
 
-.button-exit,
-.button-save{
-    margin-left: 6%;
-    margin-right: 30%;
+.btn-primary{
+    margin-top: 5%;
+    margin-left: 23%;
+    background-color: #006EB6;
 }
 
-.buttons-cont{
-    margin-top: 5%;
-    display: flex;
+.btn-secondary{
+    background-color: #F49929;
+    margin-top: 2%;
+    margin-left: 2%;
+    width: 7%;
+    height: 6%;
 }
 
 .FechaYHora{
     font-size: 18px;
     color: white;
-    margin-left: 58%;
+    margin-left: 59%;
     margin-top: 3%;
 }
 

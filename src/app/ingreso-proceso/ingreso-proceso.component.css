@@ -1,37 +1,12 @@
-.detalles-prod{
-    margin-left: 2%;
-    color: white;
-}
-
+.detalles-prod,
 .txt-detalle-product{
+    margin-left: 2%;
     color: white;
+}
+
+.table{
+    width: 95%;
     margin-left: 2%;
-}
-
-.button-guardar{
-    margin-right: 50%;
-    font-weight: bold;
-}
-
-.buttons-cont{
-    display: flex;
-    margin-left: 10%;
-    margin-top: 2%;
-}
-
-.cont-tabla{
-    margin-left: 2%;
-    width: 96%;
-}
-
-.mat-mdc-table {
-    width: 80%;
-    max-height: 300px;
-    overflow: auto; 
-  }
-  
-.mat-column-name {
-    height: 90px;
 }
 
 .FechaYHora{
@@ -39,4 +14,27 @@
     color: white;
     margin-left: 58%;
     margin-top: 3%;
+}
+
+.btn-secondary{
+    background-color: #F49929;
+    margin-top: 2%;
+    margin-left: 2%;
+    width: 7%;
+    height: 6%;
+}
+
+.btn-primary{
+    margin-top: 1%;
+    margin-right: 100%;
+    background-color: #006EB6;
+}
+
+.contenedor{
+    display: flex;
+    margin-right: 2%;
+}
+
+.detalles-container {
+    flex-grow: 1; /* Permite que este contenedor ocupe todo el espacio restante */
 }

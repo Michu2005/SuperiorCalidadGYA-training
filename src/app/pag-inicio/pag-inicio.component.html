@@ -1,6 +1,8 @@
 <div style="display: flex;">
   <img class="logoSuperior" [src]="imgSuperior" alt="Imagen Corporación Superior"/>
-  <p class="FechaYHora">Fecha y hora: {{ fechaYHoraActual | date: 'medium' }}</p>
+  <p class="FechaYHora">{{ fechaYHoraActual | date: 'medium' }}</p>
+  <button (click)="confirmarSalida()" type="button" class="btn btn-secondary" data-mdb-ripple-init>
+    SALIR</button>
 </div>
 <img class="imgSalticas" [src]="imgSalticas"/>
 <div class="contenido-pag-inicio">
@@ -11,10 +13,10 @@
       <mat-hint style="color: white;" align="start">{{codigo_empl.value.length}} / 4</mat-hint>
     </mat-form-field></td>
     <div class="buttons-cont">
-      <button class="button-ingreso" (click)="ingresoDatos()" mat-raised-button color="primary">
-        INGRESAR
-      </button>
-      <button class="button-salir" mat-raised-button (click)="confirmarSalida()">Salir</button>
+      <button (click)="ingresoDatos()" type="button" class="btn btn-primary" data-mdb-ripple-init>
+        GUARDAR</button>
     </div>
 </div>
 <router-outlet></router-outlet>
+
+

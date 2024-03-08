@@ -9,8 +9,8 @@ import { ServiciosService } from '../servicios/servicios.service';
   styleUrls: ['./pag-inicio.component.css']
 })
 export class PagInicioComponent{
-  txtIng = 'Ingrese su código personal';
-  imgSuperior = '../assets/images/logo-superior.png';
+  txtIng = 'INGRESE SU CÓDIGO PERSONAL';
+  imgSuperior = '../assets/images/logo-superior.PNG';
   imgSalticas = '../assets/images/products-superior.png';
 
   fechaYHoraActual: Date = new Date();

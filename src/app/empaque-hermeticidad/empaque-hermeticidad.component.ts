@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ControlFugas, DatosCodigo, PeriodicElement } from '../interfaces/datos';
+import { ControlFugas, DatosCodigo } from '../interfaces/datos';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -9,12 +9,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EmpaqueHermeticidadComponent {
 
-  imgSuperior = '../assets/images/logo-superior.png';
+  imgSuperior = '../assets/images/logo-superior.PNG';
 
   fechaYHoraActual: Date = new Date();
   intervalo: any;
 
-  datosRecibidos: DatosCodigo = {
+  productoSeleccionado: DatosCodigo = {
     id: 0,
     codigo:"N/A",
     descripcion:"N/A"
@@ -39,7 +39,7 @@ export class EmpaqueHermeticidadComponent {
     private router: Router) {}
 
     empaqueParamAdic() {
-      this.router.navigate(['/empaque-param-adicionales']);
+      this.router.navigate(['/empaque-param-adicionales', this.productoSeleccionado]);
     }
 
     menuIng() {
@@ -49,7 +49,7 @@ export class EmpaqueHermeticidadComponent {
   ngOnInit(){
     this.route.params.subscribe(datos =>  {
       console.log(datos);
-      this.datosRecibidos = datos as DatosCodigo;
+      this.productoSeleccionado = datos as DatosCodigo;
     })
     this.intervalo = setInterval(() => {
       this.fechaYHoraActual = new Date();

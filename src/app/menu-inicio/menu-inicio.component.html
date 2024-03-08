@@ -1,18 +1,36 @@
 <div style="display: flex;">
-    <img class="logoSuperior" [src]="imgSuperior" alt="Imagen Corporación Superior"/>
-    <p class="FechaYHora">Fecha y hora: {{ fechaYHoraActual | date: 'medium' }}</p>
+  <img class="logoSuperior" [src]="imgSuperior" alt="Imagen Corporación Superior"/>
+  <p class="FechaYHora">{{ fechaYHoraActual | date: 'medium' }}</p>
+  <div>
+    <a
+    data-mdb-ripple-init
+    class="btn-salir btn btn-outline-light btn-lg m-2"
+    (click)="salidaPagInicio()"
+    style="margin-right: 20%; background-color: #F49929;"
+      >SALIR
+    </a>
+  </div>
 </div>
 <img class="imgSalticas" [src]="imgSalticas"/>
-<h1 class="txt">
-    QUE FUNCIÓN DESEA REALIZAR
-</h1>
-<div style="display: flex; justify-content: space-between;">
-    <button class="button-proceso" (click)="ingresoProceso()" mat-raised-button color="primary">
-        PROCESO
-    </button>
-    <button class="button-empaque" (click)="ingDatosEmp()" mat-raised-button color="primary">
-        EMPAQUE
-    </button>
+<div class="mask">
+      <div style="display: flex;">
+        <div class="text-white">
+          <h1 class="mb-3">QUE FUNCIÓN DESEA REALIZAR</h1>
+          <a
+            data-mdb-ripple-init
+            class="btn btn-outline-light btn-lg m-2"
+            (click)="ingresoProceso()"
+            style="background-color: #006EB6;"
+          >PROCESO</a
+          >
+          <a
+            data-mdb-ripple-init
+            class="btn btn-outline-light btn-lg m-2"
+            (click)="ingDatosEmp()"
+            style="margin-right: 20%; background-color: #006EB6;"
+          >EMPAQUE</a
+          >
+        </div>
+      </div>
 </div>
-<button class="button-exit" mat-raised-button (click)="salidaPagInicio()">SALIR</button>
 <router-outlet></router-outlet>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DatosCodigo, PeriodicElement } from '../interfaces/datos';
+import { DatosCodigo } from '../interfaces/datos';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -7,39 +7,26 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './ingreso-empaque.component.html',
   styleUrls: ['./ingreso-empaque.component.css']
 })
-export class IngresoEmpaqueComponent implements OnInit{
+export class IngresoEmpaqueComponent{
 
-  imgSuperior = '../assets/images/logo-superior.png';
+  imgSuperior = '../assets/images/logo-superior.PNG';
 
-  fechaYHoraActual: Date = new Date();
-  intervalo: any;
-
-  ELEMENT_DATA: PeriodicElement[] = [
-    {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-    {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-    {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-    {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-    {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-    {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-    {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-    {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-    {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-    {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
-  ];
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = this.ELEMENT_DATA;
-
-  datosRecibidos: DatosCodigo = {
-    id: 0,
+  productoSeleccionado: DatosCodigo = {
+    id:0,
     codigo:"N/A",
     descripcion:"N/A"
   }
+
+  fechaYHoraActual: Date = new Date();
+  intervalo: any;
+  items: any[] = [];
+  panelOpenState = false;
 
   constructor(private route: ActivatedRoute, 
     private router: Router) {}
 
     empaqueGalletaRota() {
-      this.router.navigate(['/empaque-galleta-rota']);
+      this.router.navigate(['/empaque-galleta-rota', this.productoSeleccionado]);
     }
 
     menuIng() {
@@ -49,8 +36,9 @@ export class IngresoEmpaqueComponent implements OnInit{
   ngOnInit(){
     this.route.params.subscribe(datos =>  {
       console.log(datos);
-      this.datosRecibidos = datos as DatosCodigo;
+      this.productoSeleccionado = datos as DatosCodigo;
     })
+    this.items = Array(10).fill({ columna1: '', columna2: '', columna3: '', columna4: '' });
     this.intervalo = setInterval(() => {
       this.fechaYHoraActual = new Date();
     }, 1000);

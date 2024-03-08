@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ServiciosService } from '../servicios/servicios.service';
-import { SeleccionarDatos } from '../interfaces/datos';
+import { DatosCodigo, SeleccionarDatos } from '../interfaces/datos';
 
 @Component({
   selector: 'ingreso-datos-empaque',
@@ -10,8 +10,14 @@ import { SeleccionarDatos } from '../interfaces/datos';
 })
 export class IngresoDatosEmpaqueComponent {
   value = 'Ingreso Lote';
-  imgSuperior = '../assets/images/logo-superior.png';
+  imgSuperior = '../assets/images/logo-superior.PNG';
   imgSalticas = '../assets/images/products-superior.png';
+  
+  productoSeleccionado: DatosCodigo = {
+    id:0,
+    codigo:"N/A",
+    descripcion:"N/A"
+  }
 
   fechaYHoraActual: Date = new Date();
   intervalo: any;
@@ -19,17 +25,22 @@ export class IngresoDatosEmpaqueComponent {
   optionsMaquina: SeleccionarDatos[] = [];
 
   constructor(public router: Router,
-    private listarServicio: ServiciosService) {}
+    private listarServicio: ServiciosService,
+    private route: ActivatedRoute) {}
 
   salidaMenuInicio() {
     this.router.navigate(['/menu-inicio']);
   }
 
   ingresoEmpaque() {
-    this.router.navigate(['/ingreso-empaque']);
+    this.router.navigate(['/ingreso-empaque', this.productoSeleccionado]);
   }
 
   ngOnInit(){
+    this.route.params.subscribe(datos => {
+      console.log(datos);
+      this.productoSeleccionado = datos as DatosCodigo;
+    })
     this.listarServicio.getMaquina().subscribe((rersultadoMaquina : any) =>{
       this.optionsMaquina = rersultadoMaquina.data;
       console.log(this.optionsMaquina);
