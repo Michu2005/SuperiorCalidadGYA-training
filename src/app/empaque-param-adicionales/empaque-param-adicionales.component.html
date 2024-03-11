@@ -13,50 +13,26 @@
   </h2>  
 </div>
 <div class="cont-tabla">
-    <!--<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-         Columna de posición 
-        <ng-container matColumnDef="position">
-            <mat-header-cell *matHeaderCellDef> Num. Parámetros </mat-header-cell>
-            <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
-        </ng-container>
-      
-        Columna de Fuga Leve 
-        <ng-container matColumnDef="paramDetalle">
-            <mat-header-cell *matHeaderCellDef> Detalle Parámetros </mat-header-cell>
-            <mat-cell *matCellDef="let element"> 
-                {{element.paramDetalle}}
-            </mat-cell>
-        </ng-container>
-      
-        Columna de Fuga Grave 
-        <ng-container matColumnDef="min">
-            <mat-header-cell *matHeaderCellDef> Min </mat-header-cell>
-            <mat-cell *matCellDef="let element"> 
-                {{element.min}}
-            </mat-cell>
-        </ng-container>
-      
-        Columna de Sin Fuga 
-        <ng-container matColumnDef="max">
-            <mat-header-cell *matHeaderCellDef> Max </mat-header-cell>
-            <mat-cell *matCellDef="let element"> 
-                {{element.max}}
-            </mat-cell>
-        </ng-container>
-
-        <ng-container matColumnDef="paramDato">
-            <mat-header-cell *matHeaderCellDef> Dato Parámetro </mat-header-cell>
-            <mat-cell *matCellDef="let element"> 
-                <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Ex. 66.9">
-                </mat-form-field>
-            </mat-cell>
-        </ng-container>
-      
-        Definición de las filas 
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-    </mat-table> -->
+    <table class="table table-striped-columns table-hover">
+        <thead class="thead-dark" style="position: sticky; top: 0; z-index: 1;">
+          <tr>
+            <th>No. Parámetros</th>
+            <th>Detalle Parametro</th>
+            <th>Min</th>
+            <th>Max</th>
+            <th>Dato Parámetro</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <tr *ngFor="let param of parametros; let i = index">
+            <td>{{ i + 1 }}</td> <!-- Aquí sumamos 1 al índice -->
+            <td>{{ param.descripcion }}</td>
+            <td><input type="text" class="form-control" [(ngModel)]="param.columna1"></td>
+            <td><input type="text" class="form-control" [(ngModel)]="param.columna2"></td>
+            <td><input type="text" class="form-control" [(ngModel)]="param.columna3"></td>
+          </tr>
+        </tbody>   
+    </table>
 </div>
 <div style="display: flex;">
     <button (click)="pagIng()" type="button" class="btn btn-primary" data-mdb-ripple-init>

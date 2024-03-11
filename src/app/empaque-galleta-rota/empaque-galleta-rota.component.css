@@ -1,8 +1,4 @@
-.detalles-prod{
-    margin-left: 2%;
-    color: white;
-}
-
+.detalles-prod,
 .txt-detalle-product{
     color: white;
     margin-left: 2%;
@@ -20,14 +16,7 @@
     width: 96%;
 }
 
-.mat-mdc-table {
-    max-height: 300px;
-    overflow: auto; 
-}
-
 .btn-primary{
-    margin-top: 3%;
-    margin-left: 25%;
     background-color: #006EB6;
 }
 
@@ -40,10 +29,22 @@
 }
 
 .contenedor-especificaciones{
+    display: flex;
     margin-left: 2%;
-    background-color: rgba(255, 255, 255, 0.781);
+    background-color: rgba(255, 255, 255, 0.849);
     border-radius: 5px;
-    margin-top: 0.5%;
-    width: 30%;
+    margin-top: 1%;
+    width: 13%;
 }
 
+.contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .boton-registro {
+    display: flex;
+    align-items: center;
+}
+  

@@ -23,13 +23,6 @@ export class EmpaqueGalletaRotaComponent {
     descripcion:"N/A"
   }
 
-  parametroSeleccionado: ParametrosEmpaque = {
-    descripcion: 'N/A',
-    min: 0,
-    max: 0,
-    unidadMedida: 'N/A'
-  }
-
   constructor(private route: ActivatedRoute, 
     private router: Router,
     private listarServicio : ServiciosService) {}
@@ -47,6 +40,7 @@ export class EmpaqueGalletaRotaComponent {
       console.log(datos);
       this.productoSeleccionado = datos as DatosCodigo;
     })
+    this.cargarParametros();
     this.items = Array(10).fill({ columna1: '', columna2: '', columna3: '', columna4: '' });
     this.intervalo = setInterval(() => {
       this.fechaYHoraActual = new Date();
@@ -60,10 +54,4 @@ export class EmpaqueGalletaRotaComponent {
     });
   }
 
-  cargarDato() {
-    this.listarServicio.getParametroPorIdProductoYTipoParametroId(this.productoSeleccionado.id, 1).subscribe((datos : any []) => {
-      console.log(datos); // Verifica que los datos se estén recibiendo correctamente
-      this.parametros = datos; // Asigna la lista de objetos directamente
-    });
-  }
 }

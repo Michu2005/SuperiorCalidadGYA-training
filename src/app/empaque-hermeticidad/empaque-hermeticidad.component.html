@@ -3,13 +3,20 @@
     <p style="display: flex;" class="FechaYHora">{{ fechaYHoraActual | date: 'medium' }}</p>
     <button (click)="menuIng()" type="button" class="btn btn-secondary" data-mdb-ripple-init>SALIR</button>
 </div>
-<div>
-  <h2 class="detalles-prod" *ngIf="productoSeleccionado">
-    Codigo producto: {{ productoSeleccionado.codigo }}
-  </h2> 
-  <h2 class="txt-detalle-product" *ngIf="productoSeleccionado">
-    Detalles producto: {{ productoSeleccionado.descripcion }}
-  </h2>  
+<div class="contenedor">
+    <div class="detalles-container">
+        <h2 class="detalles-prod" *ngIf="productoSeleccionado">
+            Código producto: {{ productoSeleccionado.codigo }}
+          </h2> 
+          <h2 class="txt-detalle-product" *ngIf="productoSeleccionado">
+            Detalles producto: {{ productoSeleccionado.descripcion }}
+          </h2>
+        </div>
+        <div class="boton-registro" style="display: flex; align-items: center; margin-right: 10px;">
+          <button (click)="empaqueParamAdic()" type="button" class="btn btn-primary" data-mdb-ripple-init>
+            GUARDAR
+          </button>
+    </div> 
 </div>
 <div class="cont-tabla">
     <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -51,9 +58,7 @@
 <div style="display: flex;">
     <div class="contenedor-especificaciones">
         <mat-tab-group>
-            <mat-tab label="Especificaciones" color="primary"> <br> % Mínimo Hermeticidad <span class="procentaje">90%</span></mat-tab>
+            <mat-tab label="Especificaciones" color="primary"> <br> % Mínimo Hermeticidad <span class="porcentaje">90%</span></mat-tab>
         </mat-tab-group>
     </div>
-    <button (click)="empaqueParamAdic()" type="button" class="btn btn-primary" data-mdb-ripple-init>
-        GUARDAR</button>
 </div>
