@@ -36,10 +36,21 @@
 .FechaYHora{
     font-size: 18px;
     color: white;
-    margin-left: 59%;
+    margin-left: 15%;
     margin-top: 3%;
 }
 
 .imgSalticas{
     margin-top: 4%;
+}
+
+.titulo{
+    color: white;
+    margin-top: 2%;
+    margin-left: 25%;
+}
+
+.btn-group{
+    margin-top: 4%;
+    margin-left: 19%;
 }

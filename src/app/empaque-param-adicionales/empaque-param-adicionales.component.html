@@ -1,8 +1,8 @@
 <div style="display: flex;">
-    <img class="logoSuperior" [src]="imgSuperior" alt="Imagen Corporación Superior"/>
-    <p style="display: flex;" class="FechaYHora">{{ fechaYHoraActual | date: 'medium' }}</p>
-    <button (click)="menuIng()" type="button" class="btn btn-secondary" data-mdb-ripple-init>
-        SALIR</button>
+  <img class="logoSuperior" [src]="imgSuperior" alt="Imagen Corporación Superior"/>
+  <p style="display: flex;" class="FechaYHora">{{ fechaYHoraActual | date: 'medium' }}</p>
+  <button (click)="menuIng()" type="button" class="btn btn-secondary" data-mdb-ripple-init>
+      SALIR</button>
 </div>
 <div>
   <h2 class="detalles-prod" *ngIf="productoSeleccionado">
@@ -13,28 +13,28 @@
   </h2>  
 </div>
 <div class="cont-tabla">
-    <table class="table table-striped-columns table-hover">
-        <thead class="thead-dark" style="position: sticky; top: 0; z-index: 1;">
-          <tr>
-            <th>No. Parámetros</th>
-            <th>Detalle Parametro</th>
-            <th>Min</th>
-            <th>Max</th>
-            <th>Dato Parámetro</th>
-          </tr>
-        </thead>
-        <tbody class="table-group-divider">
-          <tr *ngFor="let param of parametros; let i = index">
-            <td>{{ i + 1 }}</td> <!-- Aquí sumamos 1 al índice -->
-            <td>{{ param.descripcion }}</td>
-            <td><input type="text" class="form-control" [(ngModel)]="param.columna1"></td>
-            <td><input type="text" class="form-control" [(ngModel)]="param.columna2"></td>
-            <td><input type="text" class="form-control" [(ngModel)]="param.columna3"></td>
-          </tr>
-        </tbody>   
-    </table>
+  <table class="table table-striped-columns table-hover">
+    <thead class="thead-dark" style="position: sticky; top: 0; z-index: 1;">
+      <tr>
+        <th>No. Parámetros</th>
+        <th>Detalle Parametro</th>
+        <th>Min</th>
+        <th>Max</th>
+        <th>Dato Parámetro</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr *ngFor="let param of parametros; let i = index">
+        <td>{{ i + 1 }}</td> <!-- Aquí sumamos 1 al índice -->
+        <td>{{ param.descripcion }}</td>
+        <td>{{ param.min }}</td>
+        <td>{{ param.max }}</td>
+        <td><input type="text" class="form-control" [(ngModel)]="param.columna4"></td>
+      </tr>
+    </tbody>   
+  </table>
 </div>
 <div style="display: flex;">
-    <button (click)="pagIng()" type="button" class="btn btn-primary" data-mdb-ripple-init>
-        GUARDAR</button>
+  <button (click)="pagIng()" type="button" class="btn btn-primary" data-mdb-ripple-init>
+    GUARDAR</button>
 </div>

@@ -12,7 +12,7 @@
 .FechaYHora{
     font-size: 18px;
     color: white;
-    margin-left: 58%;
+    margin-left: 15%;
     margin-top: 3%;
 }
 
@@ -37,4 +37,15 @@
 
 .detalles-container {
     flex-grow: 1; /* Permite que este contenedor ocupe todo el espacio restante */
+}
+
+.titulo{
+    color: white;
+    margin-top: 2%;
+    margin-left: 25%;
+}
+
+.btn-group{
+    margin-top: 1%;
+    margin-left: 30%;
 }

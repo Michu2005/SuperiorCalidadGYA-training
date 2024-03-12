@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DatosCodigo } from '../interfaces/datos';
 import { ServiciosService } from '../servicios/servicios.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'ingreso-proceso',
@@ -10,6 +11,7 @@ import { ServiciosService } from '../servicios/servicios.service';
 })
 export class IngresoProcesoComponent {
 
+  formulario!: FormGroup;
   imgSuperior = '../assets/images/logo-superior.PNG';
 
   fechaYHoraActual: Date = new Date();
@@ -26,7 +28,8 @@ export class IngresoProcesoComponent {
   
   constructor(private route: ActivatedRoute, 
     private router: Router,
-    private listarServicio : ServiciosService) {}
+    private listarServicio : ServiciosService,
+    private formBuilder: FormBuilder) {}
 
     menuIng() {
       this.router.navigate(['/menu-inicio', this.productoSeleccionado]);
@@ -51,6 +54,12 @@ export class IngresoProcesoComponent {
     this.listarServicio.getParametroPorIdProductoYTipoParametroId(this.productoSeleccionado.id, 2).subscribe((datos : any []) => {
       console.log(datos); // Verifica que los datos se estén recibiendo correctamente
       this.parametros = datos; // Asigna la lista de objetos directamente
+    });
+  }
+
+  inicializarFormulario() {
+    this.formulario = this.formBuilder.group({
+      parametros: this.formBuilder.array([]),
     });
   }
 }

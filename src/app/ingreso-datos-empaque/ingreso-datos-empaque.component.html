@@ -1,7 +1,8 @@
 <div style="display: flex;">
     <img class="logoSuperior" [src]="imgSuperior" alt="Imagen Corporación Superior"/>
+    <h2 class="titulo">Ingreso Datos Empaque</h2>
     <p style="display: flex;" class="FechaYHora">{{ fechaYHoraActual | date: 'medium' }}</p>
-    <button (click)="salidaMenuInicio()" type="button" class="btn btn-secondary" data-mdb-ripple-init>SALIR</button>
+    <button (click)="salida()" type="button" class="btn btn-secondary" data-mdb-ripple-init>SALIR</button>
 </div>
 <img class="imgSalticas" [src]="imgSalticas"/>
 <div>
@@ -28,7 +29,16 @@
       <mat-icon>close</mat-icon>
     </button>
 </mat-form-field>
-<div class="buttons-cont">
-    <button (click)="ingresoEmpaque()" type="button" class="btn btn-primary" data-mdb-ripple-init>
-        GUARDAR</button>
+<div class="btn-group" role="group" aria-label="Basic example">
+    <button
+      (click)="regreso()"
+      type="button" 
+      class="btn btn-primary" 
+      style="background-color: #F49929;">
+      Atrás</button>
+    <button 
+        (click)="ingresoEmpaque()"
+        type="button" 
+        class="btn btn-primary">
+        INGRESAR</button>
 </div>

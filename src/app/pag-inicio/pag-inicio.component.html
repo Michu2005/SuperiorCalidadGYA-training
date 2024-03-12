@@ -1,21 +1,21 @@
 <div style="display: flex;">
   <img class="logoSuperior" [src]="imgSuperior" alt="Imagen Corporación Superior"/>
+  <h2 class="txt">Página de Inicio</h2>
   <p class="FechaYHora">{{ fechaYHoraActual | date: 'medium' }}</p>
   <button (click)="confirmarSalida()" type="button" class="btn btn-secondary" data-mdb-ripple-init>
     SALIR</button>
 </div>
 <img class="imgSalticas" [src]="imgSalticas"/>
 <div class="contenido-pag-inicio">
-    <div><h2 class="txt-cont">{{txtIng}}</h2></div>
-    <td><mat-form-field class="cont-cod">
-      <mat-label style="color: rgb(43, 43, 43);">CÓDIGO</mat-label>
-      <input matInput #codigo_empl maxlength="4" placeholder="Ej. 9410">
-      <mat-hint style="color: white;" align="start">{{codigo_empl.value.length}} / 4</mat-hint>
-    </mat-form-field></td>
-    <div class="buttons-cont">
+  <h2 class="txt-cont">{{ txtIng }}</h2>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Ingrese aquí su código" aria-label="" aria-describedby="basic-addon1">
+    <div class="input-group-append">
       <button (click)="ingresoDatos()" type="button" class="btn btn-primary" data-mdb-ripple-init>
-        GUARDAR</button>
+        SIGUIENTE
+      </button>
     </div>
+  </div>  
 </div>
 <router-outlet></router-outlet>
 

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DatosCodigo, ParametrosEmpaque } from '../interfaces/datos';
+import { DatosCodigo } from '../interfaces/datos';
 import { ServiciosService } from '../servicios/servicios.service';
 
 @Component({

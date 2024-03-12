@@ -1,5 +1,6 @@
 <div style="display: flex;">
   <img class="logoSuperior" [src]="imgSuperior" alt="Imagen Corporación Superior"/>
+  <h2 class="titulo">Ingreso de Datos Proceso</h2>
   <p class="FechaYHora">{{ fechaYHoraActual | date: 'medium' }}</p>
   <button (click)="salidaPagInicio()" type="button" class="btn btn-secondary" data-mdb-ripple-init>
     SALIR</button>
@@ -18,27 +19,38 @@
       REGISTRAR</button>
   </div>
 </div> 
-<div class="cont-tabla" style="max-height: 410px; overflow-y: scroll">
-  <table class="table table-striped-columns table-hover">
-    <thead class="thead-dark" style="position: sticky; top: 0; z-index: 1;">
-      <tr>
-        <th>Parametro</th>
-        <th>Min</th>
-        <th>Max</th>
-        <th>Parámetro Zona 1</th>
-        <th>Parámetro Zona 2</th>
-        <th>Parámetro Zona 3</th>
-      </tr>
-    </thead>
-    <tbody class="table-group-divider">
-      <tr *ngFor="let parametro of parametros">
-        <td>{{ parametro.descripcion }}</td>
-        <td>{{ parametro.min }}</td>
-        <td>{{ parametro.max }}</td>
-        <td><input type="text" class="form-control" [(ngModel)]="parametro.paramZona1"></td>
-        <td><input type="text" class="form-control" [(ngModel)]="parametro.paramZona2"></td>
-        <td><input type="text" class="form-control" [(ngModel)]="parametro.paramZona3"></td>
-      </tr>
-    </tbody>
-  </table>
+<div class="cont-tabla" style="max-height: 350px; overflow-y: scroll">
+  <form [formGroup]="formulario">
+    <table class="table table-striped-columns table-hover">
+      <thead class="thead-dark" style="position: sticky; top: 0; z-index: 1;">
+        <tr>
+          <th>Parametro</th>
+          <th>Min</th>
+          <th>Max</th>
+          <th>Parámetro Zona 1</th>
+          <th>Parámetro Zona 2</th>
+          <th>Parámetro Zona 3</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <tr *ngFor="let parametro of parametros">
+          <td>{{ parametro.descripcion }}</td>
+          <td>{{ parametro.min }}</td>
+          <td>{{ parametro.max }}</td>
+          <td><input formControlName="paramZona1" type="text" class="form-control"></td>
+          <td><input formControlName="paramZona2" type="text" class="form-control"></td>
+          <td><input formControlName="paramZona3" type="text" class="form-control"></td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</div>
+<div class="btn-group" role="group" aria-label="Basic example">
+  <button
+    (click)="menuIng()"
+    type="button" 
+    class="btn btn-primary" 
+    style="background-color: #F49929;">
+    Atrás</button>
+  <button type="button" class="btn btn-primary">Middle</button>
 </div>

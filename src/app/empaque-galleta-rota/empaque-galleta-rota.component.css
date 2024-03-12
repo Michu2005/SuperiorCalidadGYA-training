@@ -24,8 +24,7 @@
     background-color: #F49929;
     margin-top: 2%;
     margin-left: 2%;
-    width: 7%;
-    height: 6%;
+    height: 60%;
 }
 
 .contenedor-especificaciones{
@@ -46,5 +45,5 @@
   .boton-registro {
     display: flex;
     align-items: center;
-}
+  }
   

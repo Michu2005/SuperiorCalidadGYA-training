@@ -28,8 +28,12 @@ export class IngresoDatosEmpaqueComponent {
     private listarServicio: ServiciosService,
     private route: ActivatedRoute) {}
 
-  salidaMenuInicio() {
-    this.router.navigate(['/menu-inicio']);
+  regreso(){
+    this.router.navigate(['/menu-inicio', this.productoSeleccionado]);
+  }
+  
+  salida() {
+    this.router.navigate(['/pag-inicio']);
   }
 
   ingresoEmpaque() {

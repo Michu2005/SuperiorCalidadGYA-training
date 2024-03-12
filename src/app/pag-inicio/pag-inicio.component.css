@@ -1,23 +1,8 @@
-.ingresoCod{
-    margin-left: 5%;
-    padding: 8px 15px;
-    display: inline-block;
-    border: 10px solid #82b0f7;
-    border-radius: 25px;
-}
-
-.cont-cod {
-    margin-top: 15%;
-    margin-left: 140%;
-}
-
-.btn-primary{
-    margin-top: 8%;
-    margin-left: 25%;
+.btn-primary {
     background-color: #006EB6;
 }
 
-.btn-secondary{
+.btn-secondary {
     background-color: #F49929;
     margin-top: 2%;
     margin-left: 2%;
@@ -25,20 +10,32 @@
     height: 6%;
 }
 
-.txt-cont{
-    margin-top: 50px;
-    text-align: center;
+.txt-cont {
+    margin-left: 17%;
+    margin-top: 10%;
     color: white;
     font-size: 27px;
 }
- 
-.FechaYHora{
+
+.FechaYHora {
     font-size: 18px;
     color: white;
-    margin-left: 55%;
+    margin-left: 19%;
     margin-top: 3%;
 }
 
-.imgSalticas{
+.imgSalticas {
     margin-top: 3%;
+}
+
+.mb-3{
+    margin-top: 3%;
+    width: 23%;
+    margin-left: 20%;
+}
+
+.txt{
+    color: white;
+    margin-top: 2%;
+    margin-left: 25%;
 }

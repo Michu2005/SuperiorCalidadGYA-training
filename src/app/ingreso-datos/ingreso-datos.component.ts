@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ServiciosService } from '../servicios/servicios.service';
 import { DatosCodigo, DatosEmpleadoAac, DatosEmpleadoSac, SeleccionarDatos } from '../interfaces/datos';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';

@@ -1,7 +1,7 @@
 <div style="display: flex;">
   <img class="logoSuperior" [src]="imgSuperior" alt="Imagen Corporación Superior"/>
   <p class="FechaYHora">{{ fechaYHoraActual | date: 'medium' }}</p>
-  <button (click)="menuIng()" type="button" class="btn btn-secondary" data-mdb-ripple-init>
+  <button (click)="salida()" type="button" class="btn btn-secondary" data-mdb-ripple-init>
     SALIR</button>
 </div>
 <div class="contenedor">
@@ -87,6 +87,11 @@
       </mat-tab>
     </mat-tab-group>  
   </div>
+  <button 
+    (click)="menuIng()" 
+    type="button" 
+    class="btn btn-secondary"
+    style="margin-left: 20%;" 
+    data-mdb-ripple-init>
+    ATRÁS</button>
 </div>
-
-

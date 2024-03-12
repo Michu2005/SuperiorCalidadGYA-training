@@ -27,12 +27,16 @@ export class IngresoEmpaqueComponent{
     private router: Router,
     private listarServicio : ServiciosService) {}
 
+    salida(){
+      this.router.navigate(['/pag-inicio']);
+    }
+
     empaqueGalletaRota() {
       this.router.navigate(['/empaque-galleta-rota', this.productoSeleccionado]);
     }
 
     menuIng() {
-      this.router.navigate(['/menu-inicio']);
+      this.router.navigate(['/menu-inicio', this.productoSeleccionado]);
     }
 
   ngOnInit(){
