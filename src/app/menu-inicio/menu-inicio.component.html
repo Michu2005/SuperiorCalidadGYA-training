@@ -13,24 +13,28 @@
 </div>
 <img class="imgSalticas" [src]="imgSalticas"/>
 <div class="mask">
-      <div style="display: flex;">
-        <div class="text-white">
-          <h1 class="mb-3">QUE FUNCIÓN DESEA REALIZAR</h1>
-          <a
-            data-mdb-ripple-init
-            class="btn btn-outline-light btn-lg m-2"
-            (click)="ingresoProceso()"
-            style="background-color: #006EB6;"
-          >PROCESO</a
-          >
-          <a
-            data-mdb-ripple-init
-            class="btn btn-outline-light btn-lg m-2"
-            (click)="ingDatosEmp()"
-            style="margin-right: 20%; background-color: #006EB6;"
-          >EMPAQUE</a
-          >
-        </div>
-      </div>
+  <div style="display: flex;">
+    <div class="text-white">
+      <h1 class="mb-3">QUE FUNCIÓN DESEA REALIZAR</h1>
+      <a
+        data-mdb-ripple-init
+        class="btn btn-outline-light btn-lg m-2"
+        (click)="ingresoProceso()"
+        style="background-color: #006EB6;"
+      >PROCESO</a>
+      <a
+        data-mdb-ripple-init
+        class="btn btn-outline-light btn-lg m-2"
+        (click)="ingDatosEmp()"
+        style="margin-right: 20%; background-color: #006EB6;"
+      >EMPAQUE</a>
+      <a
+        data-mdb-ripple-init
+        class="btn btn-outline-light btn-lg m-2"
+        (click)="atrasIngresoDatos()"
+        style="background-color: #F49929;"
+      >ATRÁS</a>
+    </div>
+  </div>
 </div>
 <router-outlet></router-outlet>

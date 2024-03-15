@@ -17,11 +17,7 @@ export class EmpaqueGalletaRotaComponent {
   items: any[] = [];
   parametros: any [] = [];
 
-  productoSeleccionado: DatosCodigo = {
-    id:0,
-    codigo:"N/A",
-    descripcion:"N/A"
-  }
+  productoSeleccionado: any;
 
   constructor(private route: ActivatedRoute, 
     private router: Router,
@@ -48,7 +44,7 @@ export class EmpaqueGalletaRotaComponent {
   }
 
   cargarParametros() {
-    this.listarServicio.getParametroPorIdProductoYTipoParametroId(this.productoSeleccionado.id, 1).subscribe((datos : any []) => {
+    this.listarServicio.getParametroPorIdProductoYTipoParametroId(this.productoSeleccionado.idProducto, 1).subscribe((datos : any []) => {
       console.log(datos); // Verifica que los datos se estén recibiendo correctamente
       this.parametros = datos; // Asigna la lista de objetos directamente
     });

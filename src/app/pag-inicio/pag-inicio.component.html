@@ -9,14 +9,13 @@
 <div class="contenido-pag-inicio">
   <h2 class="txt-cont">{{ txtIng }}</h2>
   <div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="Ingrese aquí su código" aria-label="" aria-describedby="basic-addon1">
+    <input type="text" class="form-control" placeholder="Ingrese aquí su código" aria-label="" 
+    aria-describedby="basic-addon1" [(ngModel)]="codigoEmpleado">
     <div class="input-group-append">
       <button (click)="ingresoDatos()" type="button" class="btn btn-primary" data-mdb-ripple-init>
         SIGUIENTE
-      </button>
+      </button> 
     </div>
   </div>  
 </div>
 <router-outlet></router-outlet>
-
-

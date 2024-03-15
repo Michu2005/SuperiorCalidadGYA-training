@@ -12,6 +12,8 @@ export class PagInicioComponent{
   txtIng = 'INGRESE SU CÓDIGO PERSONAL';
   imgSuperior = '../assets/images/logo-superior.PNG';
   imgSalticas = '../assets/images/products-superior.png';
+  
+  codigoEmpleado: string = '';
 
   fechaYHoraActual: Date = new Date();
   intervalo: any;
@@ -31,7 +33,13 @@ export class PagInicioComponent{
     private listarServicio: ServiciosService) {}
 
   ingresoDatos() {
-    this.router.navigate(['ingreso-datos', { nombreEmpleado: this.empleAac.nombre }]);
+    this.listarServicio.getIdPorCodigoEmpleado(this.codigoEmpleado).subscribe((response) =>{
+      if(response === 0){
+        console.log("Usuario no autorizado");
+      }else {
+        this.router.navigate(['ingreso-datos', { idEmpleado: response }]);
+      }
+    })
   }
 
   ngOnInit(){

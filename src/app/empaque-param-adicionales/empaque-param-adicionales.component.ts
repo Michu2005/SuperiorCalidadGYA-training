@@ -17,11 +17,7 @@ export class EmpaqueParamAdicionalesComponent {
   parametros: any [] = [];
   items: any[] = [];
 
-  productoSeleccionado: DatosCodigo = {
-    id: 0,
-    codigo:"N/A",
-    descripcion:"N/A"
-  }
+  productoSeleccionado: any;
 
   constructor(private route: ActivatedRoute, 
     private router: Router,
@@ -38,7 +34,7 @@ export class EmpaqueParamAdicionalesComponent {
   ngOnInit(){
     this.route.params.subscribe(datos =>  {
       console.log(datos);
-      this.productoSeleccionado = datos as DatosCodigo;
+      this.productoSeleccionado = datos;
     })
     this.cargarParametros();
     this.intervalo = setInterval(() => {
@@ -47,7 +43,7 @@ export class EmpaqueParamAdicionalesComponent {
   }
 
   cargarParametros() {
-    this.listarServicio.getParametroPorIdProductoYTipoParametroId(this.productoSeleccionado.id, 3).subscribe((datos : any []) => {
+    this.listarServicio.getParametroPorIdProductoYTipoParametroId(this.productoSeleccionado.idProducto, 3).subscribe((datos : any []) => {
       console.log(datos); // Verifica que los datos se estén recibiendo correctamente
       this.parametros = datos; // Asigna la lista de objetos directamente
     });

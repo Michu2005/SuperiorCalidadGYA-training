@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DatosCodigo } from '../interfaces/datos';
+import { DatosCodigo, DatosEmpleadoAac } from '../interfaces/datos';
+import { ServiciosService } from '../servicios/servicios.service';
 
 @Component({
   selector: 'menu-inicio',
@@ -14,15 +15,11 @@ export class MenuInicioComponent {
 
   fechaYHoraActual: Date = new Date();
   intervalo: any;
-
-  datosRecibidos: DatosCodigo = {
-    id : 0,
-    codigo:"N/A",
-    descripcion:"N/A"
-  }
+  datosRecibidos: any;
 
   constructor(private router: Router,
-    private route : ActivatedRoute) {}
+    private route : ActivatedRoute,
+    private listarServicio: ServiciosService) {}
 
   ingresoProceso() {
     this.router.navigate(['/ingreso-proceso', this.datosRecibidos]);
@@ -41,9 +38,14 @@ export class MenuInicioComponent {
     this.router.navigate(['/ingreso-datos-empaque', this.datosRecibidos]);
   }
 
+  atrasIngresoDatos() {
+    this.router.navigate(['/menu-inicio']);
+  }
+
   ngOnInit(){
     this.route.params.subscribe(datos => {
-      this.datosRecibidos = datos as DatosCodigo;
+      this.datosRecibidos = datos;
+      console.log(this.datosRecibidos);
     })
     this.intervalo = setInterval(() => {
       this.fechaYHoraActual = new Date();

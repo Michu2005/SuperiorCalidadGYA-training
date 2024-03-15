@@ -8,15 +8,15 @@
 <div class="contenedor">
   <div class="detalles-container">
     <h2 class="detalles-prod">
-      Codigo producto: {{productoSeleccionado.codigo}}
+      Codigo producto: {{productoSeleccionado.codigoProducto}}
     </h2>
     <h2 class="txt-detalle-product">
-      Detalles producto: {{productoSeleccionado.descripcion}}
+      Detalles producto: {{productoSeleccionado.description}}
     </h2>
   </div>
   <div class="boton-registro">
-    <button (click)="menuIng()" type="button" class="btn btn-primary" data-mdb-ripple-init>
-      REGISTRAR</button>
+    <button (click)="submitForm()" type="button" class="btn btn-primary" data-mdb-ripple-init>
+      GUARDAR</button>
   </div>
 </div> 
 <div class="cont-tabla" style="max-height: 350px; overflow-y: scroll">
@@ -32,14 +32,20 @@
           <th>Parámetro Zona 3</th>
         </tr>
       </thead>
-      <tbody class="table-group-divider">
-        <tr *ngFor="let parametro of parametros">
-          <td>{{ parametro.descripcion }}</td>
-          <td>{{ parametro.min }}</td>
-          <td>{{ parametro.max }}</td>
-          <td><input formControlName="paramZona1" type="text" class="form-control"></td>
-          <td><input formControlName="paramZona2" type="text" class="form-control"></td>
-          <td><input formControlName="paramZona3" type="text" class="form-control"></td>
+      <tbody formArrayName="registros">
+        <tr *ngFor="let registro of registrosFormArray.controls; let i = index" [formGroupName]="i">
+          <td>{{ parametros[i].descripcion }}</td>
+          <td>{{ parametros[i].min }}</td>
+          <td>{{ parametros[i].max }}</td>
+          <td>
+            <input formControlName="valorZona1" type="number" class="form-control" style="border-color: black;">
+            <!-- <div *ngIf="getControl(i, 'valorZona1').errors && (getControl(i, 'valorZona1').dirty || getControl(i, 'valorZona1').touched)">
+              <div *ngIf="getControl(i, 'valorZona1')?.errors?.['required']">Este campo es requerido.</div>
+              <div *ngIf="getControl(i, 'valorZona1')?.errors?.['min'] || getControl(i, 'valorZona1')?.errors?.['max']">El valor debe estar entre {{ parametros[i].min }} y {{ parametros[i].max }}.</div>
+            </div> -->
+          </td>
+          <td><input formControlName="valorZona2" type="number" class="form-control" style="border-color: black;"></td>
+          <td><input formControlName="valorZona3" type="number" class="form-control" style="border-color: black;"></td>
         </tr>
       </tbody>
     </table>
@@ -52,5 +58,4 @@
     class="btn btn-primary" 
     style="background-color: #F49929;">
     Atrás</button>
-  <button type="button" class="btn btn-primary">Middle</button>
 </div>

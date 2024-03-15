@@ -26,12 +26,13 @@
 .FechaYHora{
     font-size: 18px;
     color: white;
-    margin-left: 10%;
+    margin-left: 47%;
     margin-top: 3%;
 }
 
 .prodSuperior{
-    width: 90%;
+    width: 95%;
+    margin-left: 25%;
 }
 
 .custom-autocomplete-panel {
@@ -41,10 +42,4 @@
 
 .mat-form-field .ingreso-cod {
     width: 150px;
-}
-
-.titulo{
-    color: white;
-    margin-top: 2%;
-    margin-left: 20%;
 }

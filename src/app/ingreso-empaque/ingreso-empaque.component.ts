@@ -12,11 +12,7 @@ export class IngresoEmpaqueComponent{
 
   imgSuperior = '../assets/images/logo-superior.PNG';
 
-  productoSeleccionado: DatosCodigo = {
-    id:0,
-    codigo:"N/A",
-    descripcion:"N/A"
-  }
+  productoSeleccionado: any;
 
   fechaYHoraActual: Date = new Date();
   intervalo: any;
@@ -52,7 +48,7 @@ export class IngresoEmpaqueComponent{
   }
 
   cargarParametros() {
-    this.listarServicio.getParametroPorIdProductoYTipoParametroId(this.productoSeleccionado.id, 1).subscribe((datos : any []) => {
+    this.listarServicio.getParametroPorIdProductoYTipoParametroId(this.productoSeleccionado.idProducto, 1).subscribe((datos : any []) => {
       console.log(datos); // Verifica que los datos se estén recibiendo correctamente
       this.parametros = datos; // Asigna la lista de objetos directamente
     });

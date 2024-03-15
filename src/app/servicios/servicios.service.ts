@@ -41,5 +41,12 @@ export class ServiciosService {
     return this.http.get<any>(`${this.baseUrl}/listar/parametrosPorProductoYTipoParametro?idProducto=${idProducto}&idTipoParametro=${tipoParametroId}`);
   }
 
+  public getIdPorCodigoEmpleado(codigoEmpleado: string){
+    return this.http.get(`${this.baseUrl}/obtenerIdPorCodigoEmpleado?codigoEmpleado=${codigoEmpleado}`);
+  }
+
+  public postRegistrarProceso(data: any){
+    return this.http.post(`${this.baseUrl}/registrarProceso`, data);
+  }
 
 }

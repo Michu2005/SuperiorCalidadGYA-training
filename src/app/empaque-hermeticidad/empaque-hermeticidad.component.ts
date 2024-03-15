@@ -14,11 +14,7 @@ export class EmpaqueHermeticidadComponent {
   fechaYHoraActual: Date = new Date();
   intervalo: any;
 
-  productoSeleccionado: DatosCodigo = {
-    id: 0,
-    codigo:"N/A",
-    descripcion:"N/A"
-  }
+  productoSeleccionado: any;
 
   ELEMENT_DATA: ControlFugas[] = [
     {position: 1, fugaLeve: false, fugaGrave: false, sinFuga: false},
@@ -49,7 +45,7 @@ export class EmpaqueHermeticidadComponent {
   ngOnInit(){
     this.route.params.subscribe(datos =>  {
       console.log(datos);
-      this.productoSeleccionado = datos as DatosCodigo;
+      this.productoSeleccionado = datos;
     })
     this.intervalo = setInterval(() => {
       this.fechaYHoraActual = new Date();
