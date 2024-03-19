@@ -78,7 +78,6 @@ export class IngresoProcesoComponent {
     this.formulario = this.formBuilder.group({
       registros: this.formBuilder.array([])
     });
-
   }
 
   get registrosFormArray() {

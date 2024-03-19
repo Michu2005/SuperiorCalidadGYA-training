@@ -14,8 +14,12 @@
     </h2>
   </div>
   <div>
-    <button (click)="empaqueGalletaRota()" type="button" class="btn btn-primary" data-mdb-ripple-init>
-      REGISTRAR</button>
+    <button 
+    (click)="submitForm()"
+    type="button" 
+    class="btn btn-primary" 
+    data-mdb-ripple-init>
+      GUARDAR</button>
   </div>
 </div> 
 <div class="cont-tabla" style="max-height: 300px; overflow-y: scroll;">
@@ -29,13 +33,25 @@
       </tr>
     </thead>
     <tbody class="table-group-divider">
-      <tr *ngFor="let parametro of parametros; let i = index">
-        <td>{{ i + 1 }}</td> <!-- Aquí sumamos 1 al índice -->
-        <td><input type="text" class="form-control" [(ngModel)]="parametro.columna1"></td>
-        <td><input type="text" class="form-control" [(ngModel)]="parametro.columna2"></td>
-        <td><input type="text" class="form-control" [(ngModel)]="parametro.columna3"></td>
+      <tr *ngFor="let muestra of numMuestras; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td><input 
+          type="text" 
+          class="form-control"
+          style="border-color: black;" 
+          [(ngModel)]="muestra.columna1"></td>
+        <td><input 
+          type="text" 
+          class="form-control" 
+          style="border-color: black;"
+          [(ngModel)]="muestra.columna2"></td>
+        <td><input 
+          type="text" 
+          class="form-control" 
+          style="border-color: black;"
+          [(ngModel)]="muestra.columna3"></td>
       </tr>
-    </tbody>   
+    </tbody>      
   </table>
 </div>
 <br>

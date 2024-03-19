@@ -49,4 +49,8 @@ export class ServiciosService {
     return this.http.post(`${this.baseUrl}/registrarProceso`, data);
   }
 
+  public postRegistrarEmpaque(data: any){
+    return this.http.post(`${this.baseUrl}/registrarEmpaque`, data);
+  }
+
 }

@@ -13,11 +13,7 @@ export class IngresoDatosEmpaqueComponent {
   imgSuperior = '../assets/images/logo-superior.PNG';
   imgSalticas = '../assets/images/products-superior.png';
   
-  productoSeleccionado: DatosCodigo = {
-    id:0,
-    codigo:"N/A",
-    descripcion:"N/A"
-  }
+  productoSeleccionado: any;
 
   fechaYHoraActual: Date = new Date();
   intervalo: any;
@@ -53,4 +49,7 @@ export class IngresoDatosEmpaqueComponent {
       this.fechaYHoraActual = new Date();
     }, 1000);
   }
+
+  
 }
+
