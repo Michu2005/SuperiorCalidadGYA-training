@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { DatosCodigo, DatosEmpleadoAac } from '../interfaces/datos';
+import { DatosEmpleadoAac } from '../interfaces/datos';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServiciosService } from '../servicios/servicios.service';
-import { AbstractControl, FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'ingreso-empaque',
@@ -28,7 +28,7 @@ export class IngresoEmpaqueComponent{
     idLinea: 0,
     idProducto: 0,
     idMaquina: 0,
-    lote: '',
+    lote: 'N/A',
     detalleEmpaqueDTOList: []
   }
 
@@ -57,50 +57,49 @@ export class IngresoEmpaqueComponent{
   ngOnInit(){
     this.route.params.subscribe(datos =>  {
       console.log(datos);
-      this.productoSeleccionado = datos as DatosCodigo;
+      this.productoSeleccionado = datos;
     })
     this.listarServicio.getEmpleadoAac().subscribe((resultEmpleadoAac : any) =>{
       this.empleAac = resultEmpleadoAac;
       console.log(resultEmpleadoAac);
     })
     this.numMuestras = Array(10).fill({}).map(_ => ({ columna1: '', columna2: '', columna3: '', columna4 : '' }));
+    this.inicializarFormulario();
     this.cargarParametros();
     this.intervalo = setInterval(() => {
       this.fechaYHoraActual = new Date();
     }, 1000);
-    this.inicializarFormulario();
-  }
-
-  cargarParametros() {
-    this.listarServicio.getParametroPorIdProductoYTipoParametroId(this.productoSeleccionado.idProducto, 1).subscribe((datos : any []) => {
-      console.log(datos); // Verifica que los datos se estén recibiendo correctamente
-      this.parametros = datos; // Asigna la lista de objetos directamente
-    });
   }
 
   inicializarFormulario() {
     this.formulario = this.formBuilder.group({
       registros: this.formBuilder.array([])
     });
-  } 
+  }
 
   get registrosFormArray() {
     return this.formulario.get('registros') as FormArray;
   }
 
-  getFormGroup(index: number): FormGroup {
-    const control = this.registrosFormArray.controls[index];
-    if (control instanceof FormGroup) {
-      return control;
-    } else {
-      // Si el control no es un FormGroup, crea uno nuevo vacío y devuélvelo
-      return this.formBuilder.group({
-        columna1: '',
-        columna2: '',
-        columna3: ''
-      });
-    }
-  }  
+  cargarFilas() {
+  this.registrosFormArray.clear();
+
+  const registroFormGroup = this.formBuilder.group({
+    pesoPrimario: [''],
+    pesoSecundario: [''],
+    pesoCorrugado: ['']
+  });
+
+  this.registrosFormArray.push(registroFormGroup);
+}
+
+  cargarParametros() {
+    this.listarServicio.getParametroPorIdProductoYTipoParametroId(this.productoSeleccionado.idProducto, 1).subscribe((datos : any []) => {
+      console.log(datos); // Verifica que los datos se estén recibiendo correctamente
+      this.parametros = datos; // Asigna la lista de objetos directamente
+      this.cargarFilas();
+    });
+  }
 
   submitForm(){
     if(this.formulario.valid){
@@ -113,9 +112,9 @@ export class IngresoEmpaqueComponent{
       this.datosEmpaque.lote = this.productoSeleccionado.lote;
       this.datosEmpaque.detalleEmpaqueDTOList = this.formulario.get('registros')?.value;
       console.log(this.datosEmpaque);
-      this.listarServicio.postRegistrarEmpaque(this.datosEmpaque).subscribe((response)=>{
+      /*this.listarServicio.postRegistrarEmpaque(this.datosEmpaque).subscribe((response)=>{
         console.log(response);
-      })
+      })*/
       //this.router.navigate(['/ingreso-datos'])
     }
   }

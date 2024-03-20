@@ -21,38 +21,43 @@
     data-mdb-ripple-init>
       GUARDAR</button>
   </div>
-</div> 
+</div>
 <div class="cont-tabla" style="max-height: 300px; overflow-y: scroll;">
-  <table class="table table-striped-columns table-hover">
-    <thead class="thead-dark" style="position: sticky; top: 0; z-index: 1;">
-      <tr>
-        <th>No. Muestras</th>
-        <th>Dato Peso Primario</th>
-        <th>Dato Peso Secundario</th>
-        <th>Dato Peso Corrugado</th>
-      </tr>
-    </thead>
-    <tbody class="table-group-divider">
-      <tr *ngFor="let muestra of numMuestras; let i = index">
-        <td>{{ i + 1 }}</td>
-        <td><input 
-          type="text" 
-          class="form-control"
-          style="border-color: black;" 
-          [(ngModel)]="muestra.columna1"></td>
-        <td><input 
-          type="text" 
-          class="form-control" 
-          style="border-color: black;"
-          [(ngModel)]="muestra.columna2"></td>
-        <td><input 
-          type="text" 
-          class="form-control" 
-          style="border-color: black;"
-          [(ngModel)]="muestra.columna3"></td>
-      </tr>
-    </tbody>      
-  </table>
+  <form [formGroup]="formulario">
+    <table class="table table-striped-columns table-hover">
+      <thead class="thead-dark" style="position: sticky; top: 0; z-index: 1;">
+        <tr>
+          <th>No. Muestras</th>
+          <th>Dato Peso Primario</th>
+          <th>Dato Peso Secundario</th>
+          <th>Dato Peso Corrugado</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider" formArrayName="registros">
+        <tr *ngFor="let registro of numMuestras; let i = index" [formGroupName]="i">
+          <td>{{ i + 1 }}</td>
+          <td><input
+            formControlName="pesoPrimario"
+            type="number" 
+            class="form-control"
+            style="border-color: black;" 
+          ></td>
+          <td><input
+            formControlName="pesoSecundario"
+            type="number" 
+            class="form-control" 
+            style="border-color: black;"
+          ></td>
+          <td><input
+            formControlName="pesoCorrugado"
+            type="number" 
+            class="form-control" 
+            style="border-color: black;"
+          ></td>
+        </tr>
+      </tbody>      
+    </table>
+  </form>
 </div>
 <br>
 <div style="display: flex;">

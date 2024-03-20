@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServiciosService } from '../servicios/servicios.service';
 import { DatosCodigo, DatosEmpleadoAac, DatosEmpleadoSac, SeleccionarDatos } from '../interfaces/datos';
@@ -71,8 +71,7 @@ export class IngresoDatosComponent implements OnInit{
 
   constructor(public router: Router,
     private listarServicio: ServiciosService,
-    private route: ActivatedRoute,
-    private formBuilder: FormBuilder) {}
+    private route: ActivatedRoute) {}
 
   menuInicio() {
     this.data.idEmpleado = this.idEmpleadoAac;
@@ -98,7 +97,6 @@ export class IngresoDatosComponent implements OnInit{
       console.log(datos);
       this.idEmpleadoAac = datos.idEmpleado;
     })
-
     this.listarServicio.getLinea().subscribe((resultado: any) => { //any es para cualquier tipo de dato
       this.options = resultado.data;
       console.log(this.options);
@@ -134,12 +132,9 @@ export class IngresoDatosComponent implements OnInit{
   }
 
   ingresoDatos() {
-    // Aquí puedes agregar la lógica para guardar el formulario
     if (this.formulario.valid) {
-      // Lógica para guardar el formulario
       console.log('Formulario válido. Guardando...');
     } else {
-      // Mostrar mensaje de error o realizar alguna acción
       console.log('Por favor, completa todos los campos antes de guardar.');
     }
   }
