@@ -17,13 +17,13 @@
     <button 
     (click)="submitForm()"
     type="button" 
-    class="btn btn-primary" 
+    class="btn btn-primary"
     data-mdb-ripple-init>
       GUARDAR</button>
   </div>
 </div>
 <div class="cont-tabla" style="max-height: 300px; overflow-y: scroll;">
-  <form [formGroup]="formulario">
+  <form [formGroup]="formulario" (ngSubmit)="submitForm()">
     <table class="table table-striped-columns table-hover">
       <thead class="thead-dark" style="position: sticky; top: 0; z-index: 1;">
         <tr>
@@ -34,22 +34,22 @@
         </tr>
       </thead>
       <tbody class="table-group-divider" formArrayName="registros">
-        <tr *ngFor="let registro of numMuestras; let i = index" [formGroupName]="i">
+        <tr *ngFor="let registro of registrosFormArray.controls; let i = index" [formGroupName]="i">
           <td>{{ i + 1 }}</td>
           <td><input
-            formControlName="pesoPrimario"
+            formControlName="datoPesoPrimario"
             type="number" 
             class="form-control"
             style="border-color: black;" 
           ></td>
           <td><input
-            formControlName="pesoSecundario"
+            formControlName="datoPesoSecundario"
             type="number" 
             class="form-control" 
             style="border-color: black;"
           ></td>
           <td><input
-            formControlName="pesoCorrugado"
+            formControlName="datoPesoCorrugado"
             type="number" 
             class="form-control" 
             style="border-color: black;"
@@ -109,7 +109,7 @@
     </mat-tab-group>  
   </div>
   <button 
-    (click)="menuIng()" 
+    (click)="atras()" 
     type="button" 
     class="btn btn-secondary"
     style="margin-left: 20%;" 

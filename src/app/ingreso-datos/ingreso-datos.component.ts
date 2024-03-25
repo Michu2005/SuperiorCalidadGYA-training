@@ -44,11 +44,7 @@ export class IngresoDatosComponent implements OnInit{
   filtroCodigo!: Observable<DatosCodigo[]>; 
 
   //Variable guardar dato del autocomplete
-  productoSeleccionado: DatosCodigo = {
-    id:0,
-    codigo:"N/A",
-    descripcion:"N/A"
-  }
+  productoSeleccionado: any;
 
   empleAac: DatosEmpleadoAac = {
     codigo: '0',

@@ -17,7 +17,6 @@ export class IngresoProcesoComponent {
   fechaYHoraActual: Date = new Date();
   intervalo: any;
 
-  //Incializa con estos valores
   productoSeleccionado: any;
 
   parametros: any [] = [];

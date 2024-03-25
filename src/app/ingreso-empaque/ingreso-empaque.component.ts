@@ -11,15 +11,17 @@ import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 })
 export class IngresoEmpaqueComponent{
 
+  formulario!: FormGroup;
   imgSuperior = '../assets/images/logo-superior.PNG';
 
-  productoSeleccionado: any;
   fechaYHoraActual: Date = new Date();
-  codigoEmpleado: string = '';
   intervalo: any;
+
+  productoSeleccionado: any;
+  
+  codigoEmpleado: string = '';
   numMuestras: any[] = [];
   parametros: any [] = [];
-  formulario!: FormGroup;
 
   datosEmpaque: any = {
     idSupervisor: 0,
@@ -50,8 +52,8 @@ export class IngresoEmpaqueComponent{
       this.router.navigate(['/empaque-galleta-rota', this.productoSeleccionado]);
     }
 
-    menuIng() {
-      this.router.navigate(['/menu-inicio', this.productoSeleccionado]);
+    atras() {
+      this.router.navigate(['/ingreso-datos-empaque', this.productoSeleccionado]);
     }
 
   ngOnInit(){
@@ -63,12 +65,19 @@ export class IngresoEmpaqueComponent{
       this.empleAac = resultEmpleadoAac;
       console.log(resultEmpleadoAac);
     })
-    this.numMuestras = Array(10).fill({}).map(_ => ({ columna1: '', columna2: '', columna3: '', columna4 : '' }));
-    this.inicializarFormulario();
     this.cargarParametros();
+      this.inicializarFormulario(); 
     this.intervalo = setInterval(() => {
       this.fechaYHoraActual = new Date();
     }, 1000);
+  }
+
+  cargarParametros() {
+    this.listarServicio.getParametroPorIdProductoYTipoParametroId(this.productoSeleccionado.idProducto, 1).subscribe((datos : any []) => {
+      console.log(datos); // Verifica que los datos se estén recibiendo correctamente
+      this.parametros = datos; // Asigna la lista de objetos directamente
+      this.cargarFilas();
+    });
   }
 
   inicializarFormulario() {
@@ -82,24 +91,21 @@ export class IngresoEmpaqueComponent{
   }
 
   cargarFilas() {
-  this.registrosFormArray.clear();
-
-  const registroFormGroup = this.formBuilder.group({
-    pesoPrimario: [''],
-    pesoSecundario: [''],
-    pesoCorrugado: ['']
-  });
-
-  this.registrosFormArray.push(registroFormGroup);
-}
-
-  cargarParametros() {
-    this.listarServicio.getParametroPorIdProductoYTipoParametroId(this.productoSeleccionado.idProducto, 1).subscribe((datos : any []) => {
-      console.log(datos); // Verifica que los datos se estén recibiendo correctamente
-      this.parametros = datos; // Asigna la lista de objetos directamente
-      this.cargarFilas();
-    });
-  }
+    this.registrosFormArray.clear();
+    
+    const idParametros = [15, 16, 17]; // Ids de los parámetros correspondientes
+    
+    // Itera sobre las 10 muestras
+    for (let i = 0; i < 10; i++) {
+      const registroFormGroup = this.formBuilder.group({
+        idParametro: [idParametros[i % idParametros.length]], // Asigna el idParametro correspondiente
+        datoPesoPrimario: [''],
+        datoPesoSecundario: [''],
+        datoPesoCorrugado: ['']
+      });
+      this.registrosFormArray.push(registroFormGroup);
+    }  
+  }  
 
   submitForm(){
     if(this.formulario.valid){
@@ -112,10 +118,9 @@ export class IngresoEmpaqueComponent{
       this.datosEmpaque.lote = this.productoSeleccionado.lote;
       this.datosEmpaque.detalleEmpaqueDTOList = this.formulario.get('registros')?.value;
       console.log(this.datosEmpaque);
-      /*this.listarServicio.postRegistrarEmpaque(this.datosEmpaque).subscribe((response)=>{
+      this.listarServicio.postRegistrarEmpaque(this.datosEmpaque).subscribe((response)=>{
         console.log(response);
-      })*/
-      //this.router.navigate(['/ingreso-datos'])
+      })
     }
   }
 

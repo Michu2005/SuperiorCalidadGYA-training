@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServiciosService } from '../servicios/servicios.service';
-import { DatosCodigo, DatosEmpleadoAac, SeleccionarDatos } from '../interfaces/datos';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { DatosEmpleadoAac, SeleccionarDatos } from '../interfaces/datos';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'ingreso-datos-empaque',
@@ -10,6 +10,9 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./ingreso-datos-empaque.component.css']
 })
 export class IngresoDatosEmpaqueComponent {
+
+  formulario!: FormGroup;
+
   value = 'Ingreso Lote';
   imgSuperior = '../assets/images/logo-superior.PNG';
   imgSalticas = '../assets/images/products-superior.png';
@@ -21,10 +24,6 @@ export class IngresoDatosEmpaqueComponent {
     nombre: 'N/A'
   }
 
-  formulario!: FormGroup;
-
-  codigoProducto: string='';
-
   //Muestra hora y fecha en tiempo real
   fechaYHoraActual: Date = new Date();
   intervalo: any;
@@ -32,7 +31,7 @@ export class IngresoDatosEmpaqueComponent {
   optionsMaquina: SeleccionarDatos[] = [];
 
   data: any = {
-    idAnalista: 0,
+    idEmpleado: 0,
     idProducto: 0,
     codigoProducto: "N/A",
     description:"N/A",
@@ -43,28 +42,24 @@ export class IngresoDatosEmpaqueComponent {
     lote: 'N/A'
   }
 
-  idEmpleadoAac: number = 0;
-
-  nombreEmpleado: string = '';
-
   constructor(public router: Router,
     private listarServicio: ServiciosService,
     private route: ActivatedRoute,
     private fb: FormBuilder) {}
 
     ingresoEmpaque() {
-      if(this.formulario.valid){
-        this.data.idAnalista = this.productoSeleccionado.idEmpleado;
-        this.data.idProducto = this.productoSeleccionado.idProducto;
-        this.data.codigoProducto = this.productoSeleccionado.codigoProducto;
-        this.data.description = this.productoSeleccionado.description;
-        this.data.idMaquina = this.formulario.get('maquinaControl')?.value;
-        this.data.lote = this.formulario.get('loteControl')?.value;
-        this.data.idLinea = this.productoSeleccionado.idLinea;
-        this.data.idSupervisor = this.productoSeleccionado.idSupervisor;
-        this.data.idTurno = this.productoSeleccionado.idTurno;
-        this.router.navigate(['/ingreso-empaque', this.data]);
-      }
+      console.log(this.productoSeleccionado);
+      console.log(this.productoSeleccionado.idEmpleado);
+      this.data.idProducto = this.productoSeleccionado.idProducto;
+      this.data.codigoProducto = this.productoSeleccionado.codigoProducto;
+      this.data.description = this.productoSeleccionado.description;
+      this.data.idMaquina = this.formulario.get('maquinaControl')?.value;
+      this.data.lote = this.formulario.get('loteControl')?.value;
+      this.data.idLinea = this.productoSeleccionado.idLinea;
+      this.data.idSupervisor = this.productoSeleccionado.idSupervisor;
+      this.data.idTurno = this.productoSeleccionado.idTurno;
+      this.data.idEmpleado = this.productoSeleccionado.idEmpleado;
+      this.router.navigate(['/ingreso-empaque', this.data]);
     }
 
   regreso(){
@@ -83,10 +78,6 @@ export class IngresoDatosEmpaqueComponent {
     this.route.params.subscribe(datos => {
       console.log(datos);
       this.productoSeleccionado = datos;
-    })
-    this.route.params.subscribe((datos: any) =>{
-      console.log(datos);
-      this.idEmpleadoAac = datos.idEmpleado;
     })
     this.listarServicio.getMaquina().subscribe((rersultadoMaquina : any) =>{
       this.optionsMaquina = rersultadoMaquina.data;
