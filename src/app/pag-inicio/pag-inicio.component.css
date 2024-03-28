@@ -20,7 +20,7 @@
 .FechaYHora {
     font-size: 18px;
     color: white;
-    margin-left: 19%;
+    margin-left: 8%;
     margin-top: 3%;
 }
 
@@ -37,5 +37,11 @@
 .txt{
     color: white;
     margin-top: 2%;
-    margin-left: 25%;
+    margin-left: 10%;
+}
+
+.buttons-ing{
+    margin-top: 2%;
+    margin-left: 6%;
+    height: 50%;
 }

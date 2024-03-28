@@ -17,6 +17,7 @@ export class IngresoProcesoComponent {
   fechaYHoraActual: Date = new Date();
   intervalo: any;
 
+  //Incializa con estos valores
   productoSeleccionado: any;
 
   parametros: any [] = [];
@@ -54,15 +55,11 @@ export class IngresoProcesoComponent {
       console.log(datos);
       this.productoSeleccionado = datos;
     })
-    this.listarServicio.getEmpleadoAac().subscribe((resultEmpleadoAac : any) =>{
-      this.empleAac = resultEmpleadoAac;
-      console.log(resultEmpleadoAac);
-    })
     this.cargarParametros();
+    this.inicializarFormulario();
     this.intervalo = setInterval(() => {
       this.fechaYHoraActual = new Date();
     }, 1000);
-    this.inicializarFormulario();
   }
 
   cargarParametros() {
@@ -77,6 +74,7 @@ export class IngresoProcesoComponent {
     this.formulario = this.formBuilder.group({
       registros: this.formBuilder.array([])
     });
+
   }
 
   get registrosFormArray() {

@@ -1,5 +1,6 @@
 <div style="display: flex;">
   <img class="logoSuperior" [src]="imgSuperior" alt="Imagen Corporación Superior"/>
+  <h2 class="titulo">Ingreso de Datos Empaque</h2>
   <p class="FechaYHora">{{ fechaYHoraActual | date: 'medium' }}</p>
   <button (click)="salida()" type="button" class="btn btn-secondary" data-mdb-ripple-init>
     SALIR</button>
@@ -23,7 +24,7 @@
   </div>
 </div>
 <div class="cont-tabla" style="max-height: 300px; overflow-y: scroll;">
-  <form [formGroup]="formulario" (ngSubmit)="submitForm()">
+  <form [formGroup]="formulario">
     <table class="table table-striped-columns table-hover">
       <thead class="thead-dark" style="position: sticky; top: 0; z-index: 1;">
         <tr>
@@ -40,7 +41,7 @@
             formControlName="datoPesoPrimario"
             type="number" 
             class="form-control"
-            style="border-color: black;" 
+            style="border-color: black;"
           ></td>
           <td><input
             formControlName="datoPesoSecundario"
@@ -60,7 +61,7 @@
   </form>
 </div>
 <br>
-<div style="display: flex;">
+<div style="display: flex; align-items: flex-start;">
   <div class="contenedor-especificaciones">
     <mat-tab-group>
       <mat-tab label="Peso Primario (g)">
@@ -106,13 +107,23 @@
           </div>
         </ng-container>
       </mat-tab>
-    </mat-tab-group>  
+    </mat-tab-group>
   </div>
-  <button 
-    (click)="atras()" 
+  <div class="botones-opc btn-group" role="group" aria-label="Basic example">
+    <button 
     type="button" 
-    class="btn btn-secondary"
-    style="margin-left: 20%;" 
-    data-mdb-ripple-init>
-    ATRÁS</button>
+    class="boton-atras btn btn" 
+    (click)="atras()"
+    >ATRÁS</button>
+    <button 
+    type="button" 
+    class="boton-azul btn btn" 
+    (click)="empaqueGalletaRota()"
+    >GALLETA ROTA</button>
+    <button 
+    type="button" 
+    class="boton-azul btn btn" 
+    (click)="empaqueHermeticidad()"
+    >HERMETICIDAD</button>
+  </div>
 </div>

@@ -7,7 +7,7 @@
 .FechaYHora{
     font-size: 18px;
     color: white;
-    margin-left: 59%;
+    margin-left: 20%;
     margin-top: 3%;
 }
 
@@ -40,10 +40,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
+}
   
-  .boton-registro {
+.boton-registro {
     display: flex;
     align-items: center;
-  }
-  
+}
+
+.titulo{
+    color: white;
+    margin-top: 2%;
+    margin-left: 20%;
+}

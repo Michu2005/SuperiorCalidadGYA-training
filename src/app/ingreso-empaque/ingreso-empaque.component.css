@@ -18,7 +18,7 @@
 
 .btn-primary{
     margin-top: 30%;
-    margin-right: 15px;
+    margin-right: 25px;
     background-color: #006EB6;
 }
 
@@ -33,7 +33,7 @@
 .FechaYHora{
     font-size: 18px;
     color: white;
-    margin-left: 57%;
+    margin-left: 10%;
     margin-top: 3%;
 }
 
@@ -57,7 +57,6 @@
 }
 
 .contenedor-especificaciones{
-    display: flex;
     margin-left: 2%;
     background-color: rgba(255, 255, 255, 0.849);
     width: 42%;
@@ -67,4 +66,29 @@
 .detalle-peso-primario{
     display: flex; 
     margin: 5%;
+}
+
+.botones-opc {
+    align-items: center; /* Alinea los botones verticalmente al centro */
+}
+
+.boton-atras{
+    color: white;
+    background-color: #F49929;
+    border-color: black;
+    margin: 30px;
+    margin-left: 150px;
+}
+
+.boton-azul{
+    color: white;
+    background-color: #006EB6;
+    border-color: black;
+    margin: 30px;
+}
+
+.titulo{
+    color: white;
+    margin-top: 3%;
+    margin-left: 25%;
 }

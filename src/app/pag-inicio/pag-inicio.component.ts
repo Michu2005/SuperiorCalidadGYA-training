@@ -32,6 +32,10 @@ export class PagInicioComponent{
   constructor(public router: Router,
     private listarServicio: ServiciosService) {}
 
+    ingresoAdmin(){
+      this.router.navigate(['/ingreso-admin']); 
+    }
+
   ingresoDatos() {
     this.listarServicio.getIdPorCodigoEmpleado(this.codigoEmpleado).subscribe((response) =>{
       if(response === 0){

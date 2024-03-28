@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ParametroProducto } from '../interfaces/datos';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -53,4 +52,7 @@ export class ServiciosService {
     return this.http.post(`${this.baseUrl}/registrarEmpaque`, data);
   }
 
+  obtenerDetallesEmpaquePorIdCabecera(idCabecera: number): Observable<any[]> {
+    return this.http.get<any[]>(`registrarEmpaque/${idCabecera}/detalles`);
+  }
 }

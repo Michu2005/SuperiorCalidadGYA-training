@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { DatosEmpleadoAac } from '../interfaces/datos';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServiciosService } from '../servicios/servicios.service';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'ingreso-empaque',
@@ -20,7 +20,6 @@ export class IngresoEmpaqueComponent{
   productoSeleccionado: any;
   
   codigoEmpleado: string = '';
-  numMuestras: any[] = [];
   parametros: any [] = [];
 
   datosEmpaque: any = {
@@ -42,7 +41,13 @@ export class IngresoEmpaqueComponent{
   constructor(private route: ActivatedRoute, 
     private router: Router,
     private listarServicio : ServiciosService,
-    private formBuilder: FormBuilder) {}
+    private formBuilder: FormBuilder) {
+      this.formulario = this.formBuilder.group({
+        datoPesoPrimario: ['', Validators.required],
+        datoPesoSecundario: ['', Validators.required],
+        datoPesoCorrugado: ['', Validators.required]
+      });
+    }
 
     salida(){
       this.router.navigate(['/pag-inicio']);
@@ -50,6 +55,10 @@ export class IngresoEmpaqueComponent{
 
     empaqueGalletaRota() {
       this.router.navigate(['/empaque-galleta-rota', this.productoSeleccionado]);
+    }
+
+    empaqueHermeticidad() {
+      this.router.navigate(['/empaque-hermeticidad', this.productoSeleccionado]);
     }
 
     atras() {
@@ -66,7 +75,7 @@ export class IngresoEmpaqueComponent{
       console.log(resultEmpleadoAac);
     })
     this.cargarParametros();
-      this.inicializarFormulario(); 
+    this.inicializarFormulario();
     this.intervalo = setInterval(() => {
       this.fechaYHoraActual = new Date();
     }, 1000);
@@ -105,7 +114,7 @@ export class IngresoEmpaqueComponent{
       });
       this.registrosFormArray.push(registroFormGroup);
     }  
-  }  
+  }
 
   submitForm(){
     if(this.formulario.valid){
@@ -123,6 +132,7 @@ export class IngresoEmpaqueComponent{
       })
     }
   }
+    
 
   getControl(index: number, controlName: string) {
     return (this.registrosFormArray.controls[index] as FormGroup).controls[controlName];

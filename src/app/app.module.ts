@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { EmpaqueGalletaRotaComponent } from './empaque-galleta-rota/empaque-galleta-rota.component';
 import { EmpaqueHermeticidadComponent } from './empaque-hermeticidad/empaque-hermeticidad.component';
 import { EmpaqueParamAdicionalesComponent } from './empaque-param-adicionales/empaque-param-adicionales.component';
+import { IngresoAdminComponent } from './ingreso-admin/ingreso-admin.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { EmpaqueParamAdicionalesComponent } from './empaque-param-adicionales/em
     IngresoEmpaqueComponent,
     EmpaqueGalletaRotaComponent,
     EmpaqueHermeticidadComponent,
-    EmpaqueParamAdicionalesComponent
+    EmpaqueParamAdicionalesComponent,
+    IngresoAdminComponent
   ],
   imports: [
     BrowserModule,

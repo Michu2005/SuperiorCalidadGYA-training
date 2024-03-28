@@ -1,9 +1,11 @@
 <div style="display: flex;">
   <img class="logoSuperior" [src]="imgSuperior" alt="Imagen Corporación Superior"/>
+  <h2 class="titulo">Ingreso de Datos Galleta Rota</h2>
   <p style="display: flex;" class="FechaYHora">{{ fechaYHoraActual | date: 'medium' }}</p>
   <button (click)="menuIng()" type="button" class="btn btn-secondary" data-mdb-ripple-init>
     SALIR</button>
 </div>
+
 <div class="contenedor">
   <div class="detalles-container">
     <h2 class="detalles-prod" *ngIf="productoSeleccionado">
@@ -14,32 +16,52 @@
     </h2>
   </div>
   <div class="boton-registro" style="display: flex; align-items: center; margin-right: 10px;">
-    <button (click)="empaqueHermeticidad()" type="button" class="btn btn-primary" data-mdb-ripple-init>
+    <button (click)="submitForm()" type="button" class="btn btn-primary" data-mdb-ripple-init>
       GUARDAR
     </button>
   </div>
 </div>
 
 <div class="cont-tabla" style="max-height: 300px; overflow-y: scroll;">
-  <table class="table table-striped-columns table-hover">
-    <thead class="thead-dark" style="position: sticky; top: 0; z-index: 1;">
-      <tr>
-        <th>No. Muestras</th>
-        <th>Peso Galleta Rota (g)</th>
-        <th>Peso Primario (g)</th>
-        <th>% Galleta Rota Calculado</th>
-      </tr>
-    </thead>
-    <tbody class="table-group-divider">
-      <tr *ngFor="let item of items; let i = index">
-        <td>{{ i + 1 }}</td> <!-- Aquí sumamos 1 al índice -->
-        <td><input type="text" class="form-control" [(ngModel)]="item.columna1"></td>
-        <td><input type="text" class="form-control" [(ngModel)]="item.columna2"></td>
-        <td><input type="text" class="form-control" [(ngModel)]="item.columna3"></td>
-      </tr>
-    </tbody>   
-  </table>
+  <form [formGroup]="formulario" (ngSubmit)="submitForm()">
+    <table class="table table-striped-columns table-hover">
+      <!-- Encabezados de la tabla -->
+      <thead class="thead-dark" style="position: sticky; top: 0; z-index: 1;">
+        <tr>
+          <th>No. Muestras</th>
+          <th>Peso Galleta Rota (g)</th>
+          <th>% Galleta Rota Calculado</th>
+          <th>Peso Primario (g)</th>
+        </tr>
+      </thead>
+      <!-- Cuerpo de la tabla -->
+      <tbody class="table-group-divider" formArrayName="registros">
+        <tr *ngFor="let registro of registrosFormArray.controls; let i = index" [formGroupName]="i">
+          <td>{{ i + 1 }}</td> <!-- Aquí sumamos 1 al índice -->
+          <td><input 
+            formControlName="datoPesoGalletaRota"
+            type="number" 
+            class="form-control"
+            style="border-color: black;"
+            ></td>
+          <td><input 
+            formControlName="datoPesoGalletaRotaCalculado"
+            type="number" 
+            class="form-control"
+            style="border-color: black;"
+            ></td>
+          <td><input
+            formControlName="datoPesoPrimarioGalletaRota"
+            type="number" 
+            class="form-control"
+            style="border-color: black;"
+            ></td>
+        </tr>
+      </tbody>   
+    </table>
+  </form>
 </div>
+
 <div style="display: flex;">
   <div class="contenedor-especificaciones">
     <mat-tab-group headerPosition="above">
@@ -53,7 +75,14 @@
       </mat-tab>
     </mat-tab-group>
     <button 
-    (click)="menuIng()" 
+    (click)="empaqueHermeticidad()" 
+    type="button" 
+    class="btn btn-primary"
+    style="margin-left: 150%; height: 70%;"
+    data-mdb-ripple-init>
+    HERMETICIDAD</button>
+    <button 
+    (click)="registroGalletaRota()" 
     type="button" 
     class="btn btn-secondary"
     style="margin-left: 150%;"

@@ -9,6 +9,7 @@ import { IngresoDatosEmpaqueComponent } from './ingreso-datos-empaque/ingreso-da
 import { EmpaqueGalletaRotaComponent } from './empaque-galleta-rota/empaque-galleta-rota.component';
 import { EmpaqueHermeticidadComponent } from './empaque-hermeticidad/empaque-hermeticidad.component';
 import { EmpaqueParamAdicionalesComponent } from './empaque-param-adicionales/empaque-param-adicionales.component';
+import { IngresoAdminComponent } from './ingreso-admin/ingreso-admin.component';
 
 const routes: Routes = [
   { path:'pag-inicio', component:PagInicioComponent},
@@ -20,7 +21,7 @@ const routes: Routes = [
   { path:'empaque-galleta-rota', component:EmpaqueGalletaRotaComponent},
   { path:'empaque-hermeticidad', component:EmpaqueHermeticidadComponent},
   { path:'empaque-param-adicionales', component:EmpaqueParamAdicionalesComponent},
-  
+  { path:'ingreso-admin', component:IngresoAdminComponent},
   
   
   //Ruta por defecto
