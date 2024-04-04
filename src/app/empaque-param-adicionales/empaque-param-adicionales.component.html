@@ -1,5 +1,6 @@
 <div style="display: flex;">
   <img class="logoSuperior" [src]="imgSuperior" alt="Imagen Corporación Superior"/>
+  <h2 class="titulo">Parametros Adicionales</h2>
   <p style="display: flex;" class="FechaYHora">{{ fechaYHoraActual | date: 'medium' }}</p>
   <button (click)="menuIng()" type="button" class="btn btn-secondary" data-mdb-ripple-init>
       SALIR</button>
@@ -13,28 +14,34 @@
   </h2>  
 </div>
 <div class="cont-tabla">
-  <table class="table table-striped-columns table-hover">
-    <thead class="thead-dark" style="position: sticky; top: 0; z-index: 1;">
-      <tr>
-        <th>No. Parámetros</th>
-        <th>Detalle Parametro</th>
-        <th>Min</th>
-        <th>Max</th>
-        <th>Dato Parámetro</th>
-      </tr>
-    </thead>
-    <tbody class="table-group-divider">
-      <tr *ngFor="let param of parametros; let i = index">
-        <td>{{ i + 1 }}</td> <!-- Aquí sumamos 1 al índice -->
-        <td>{{ param.descripcion }}</td>
-        <td>{{ param.min }}</td>
-        <td>{{ param.max }}</td>
-        <td><input type="text" class="form-control" [(ngModel)]="param.columna4"></td>
-      </tr>
-    </tbody>   
-  </table>
+  <form [formGroup]="formulario">
+    <table class="table table-striped-columns table-hover">
+      <thead class="thead-dark" style="position: sticky; top: 0; z-index: 1;">
+        <tr>
+          <th>No. Parámetros</th>
+          <th>Detalle Parametro</th>
+          <th>Min</th>
+          <th>Max</th>
+          <th>Dato Parámetro</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider" formArrayName="registros">
+        <tr *ngFor="let registro of registrosFormArray.controls; let i = index" [formGroupName]="i">
+          <td>{{ i + 1 }}</td> <!-- Aquí sumamos 1 al índice -->
+          <td>{{ parametros[i].descripcion }}</td>
+          <td>{{ parametros[i].min }}</td>
+          <td>{{ parametros[i].max }}</td>
+          <td><input
+            formControlName="datoParametro"
+            type="number" 
+            class="form-control"
+            style="border-color: black;"></td>
+        </tr>
+      </tbody>   
+    </table>
+  </form>
 </div>
 <div style="display: flex;">
-  <button (click)="pagIng()" type="button" class="btn btn-primary" data-mdb-ripple-init>
+  <button (click)="submitForm()" type="button" class="btn btn-primary" data-mdb-ripple-init>
     GUARDAR</button>
 </div>

@@ -19,8 +19,9 @@
     (click)="submitForm()"
     type="button" 
     class="btn btn-primary"
-    data-mdb-ripple-init>
-      GUARDAR</button>
+    data-mdb-ripple-init
+    [disabled]="!formularioLleno"
+    >GUARDAR</button>
   </div>
 </div>
 <div class="cont-tabla" style="max-height: 300px; overflow-y: scroll;">
@@ -116,14 +117,16 @@
     (click)="atras()"
     >ATRÁS</button>
     <button 
-    type="button" 
+    type="button"
     class="boton-azul btn btn" 
     (click)="empaqueGalletaRota()"
+    [disabled]="!botonesHabilitados"
     >GALLETA ROTA</button>
     <button 
     type="button" 
     class="boton-azul btn btn" 
     (click)="empaqueHermeticidad()"
+    [disabled]="!botonesHabilitados"
     >HERMETICIDAD</button>
   </div>
 </div>

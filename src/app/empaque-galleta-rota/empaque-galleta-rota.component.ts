@@ -11,16 +11,13 @@ import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 export class EmpaqueGalletaRotaComponent implements OnInit {
 
   imgSuperior = '../assets/images/logo-superior.PNG';
+  botonGuardar = false;
+  botonesHabilitados = false;
 
-  idCabecera: number = 0; // Inicializa idCabecera con un valor predeterminado
-
-  detallesEmpaque: any[] = []; // Aquí almacenarás los detalles de empaque
-
-  formulario!: FormGroup;
-  fechaYHoraActual: Date = new Date();
-  parametros: any[] = [];
   productoSeleccionado: any;
-
+  fechaYHoraActual: Date = new Date();
+  formulario!: FormGroup;
+  parametros: any[] = [];
   datosEmpaque: any = {
     idSupervisor: 0,
     idAnalista: 0,
@@ -32,6 +29,8 @@ export class EmpaqueGalletaRotaComponent implements OnInit {
     detalleEmpaqueDTOList: []
   }
 
+  listId : number[] = [];
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -39,21 +38,32 @@ export class EmpaqueGalletaRotaComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {}
 
+
+  empaqueHermeticidad() {
+    this.router.navigate(['/empaque-hermeticidad', this.productoSeleccionado]);
+  }
+
+  paramAdicionales() {
+    this.router.navigate(['/empaque-param-adicionales', this.productoSeleccionado]);
+  }
+
+  menuIng() {
+    this.router.navigate(['/menu-inicio']);
+  }
+
+  atras(){
+    this.router.navigate(['/ingreso-empaque', this.productoSeleccionado]);
+  }
+
   ngOnInit() {
-    this.route.params.subscribe(params => {
+    this.route.params.subscribe((params: any) => {
+      console.log(params);
+      this.listId = params.idGuardados.split(',').map((num : number) => +num);
       this.productoSeleccionado = params;
-      this.cargarDetallesEmpaque(this.productoSeleccionado.idCabecera); // Llama al método para cargar los detalles de empaque
     });
     this.cargarParametros();
     this.inicializarFormulario();
   }
-
-  cargarDetallesEmpaque(idCabecera: number) {
-    this.listarServicio.obtenerDetallesEmpaquePorIdCabecera(idCabecera).subscribe((detalles: any[]) => {
-      this.detallesEmpaque = detalles;
-    });
-  }
-
 
   cargarParametros() {
     this.listarServicio.getParametroPorIdProductoYTipoParametroId(this.productoSeleccionado.idProducto, 1).subscribe((datos: any[]) => {
@@ -66,6 +76,10 @@ export class EmpaqueGalletaRotaComponent implements OnInit {
     this.formulario = this.formBuilder.group({
       registros: this.formBuilder.array([])
     });
+    //Escuchar cambios en el formulario
+    this.formulario.valueChanges.subscribe(() => {
+      this.habilitarBotonGuardar();
+    });
   }
 
   get registrosFormArray() {
@@ -75,10 +89,9 @@ export class EmpaqueGalletaRotaComponent implements OnInit {
   cargarFilas() {
     this.registrosFormArray.clear();
 
-    const idParametro = this.parametros[0].id;
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < this.listId.length; i++) {
       const registroFormGroup = this.formBuilder.group({
-        idParametro: [idParametro],
+        idGuardado: [this.listId[i]],
         datoPesoGalletaRota: ['', Validators.required],
         datoPesoGalletaRotaCalculado: ['', Validators.required],
         datoPesoPrimarioGalletaRota: ['', Validators.required]
@@ -89,36 +102,21 @@ export class EmpaqueGalletaRotaComponent implements OnInit {
 
   submitForm() {
     if(this.formulario.valid) {
-      this.datosEmpaque.idSupervisor = this.productoSeleccionado.idSupervisor;
-      this.datosEmpaque.idAnalista = this.productoSeleccionado.idEmpleado;
-      this.datosEmpaque.idTurno = this.productoSeleccionado.idTurno;
-      this.datosEmpaque.idLinea = this.productoSeleccionado.idLinea;
-      this.datosEmpaque.idProducto = this.productoSeleccionado.idProducto;
-      this.datosEmpaque.idMaquina = this.productoSeleccionado.idMaquina;
-      this.datosEmpaque.lote = this.productoSeleccionado.lote;
-      this.datosEmpaque.detalleEmpaqueDTOList = this.formulario.get('registros')?.value;
-      this.listarServicio.postRegistrarEmpaque(this.datosEmpaque).subscribe(
-        (response: any) => { // Cambiar el tipo de la respuesta según lo que devuelve el backend
-          console.log('Respuesta del servidor:', response);
-          // Aquí puedes manejar la respuesta devuelta por el backend según tus necesidades
-        },
-        (error) => {
-          console.error('Error al registrar empaque:', error);
-          // Manejar errores si es necesario
-        }
-      );
+      console.log(this.formulario.get('registros')?.value); 
+      console.log(this.productoSeleccionado);
+      this.listarServicio.putRegistrarGalletaRota(this.formulario.get('registros')?.value).subscribe(
+        (response : any) =>{
+          console.log(response);
+      })
+      this.botonesHabilitados = true;
     }
   }
 
-  empaqueHermeticidad() {
-    this.router.navigate(['/empaque-hermeticidad', { ids: this.productoSeleccionado.ids }]);
+  habilitarBotonGuardar(){
+    this.botonGuardar = this.formulario.valid;
   }
 
-  registroGalletaRota() {
-    this.router.navigate(['/empaque-galleta-rota', { ids: this.productoSeleccionado.ids }]);
-  }
-
-  menuIng() {
-    this.router.navigate(['/menu-inicio']);
+  getControl(index: number, controlName: string) {
+    return (this.registrosFormArray.controls[index] as FormGroup).controls[controlName];
   }
 }

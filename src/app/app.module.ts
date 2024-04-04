@@ -36,7 +36,7 @@ import { IngresoAdminComponent } from './ingreso-admin/ingreso-admin.component';
     AppRoutingModule,
     MaterialModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

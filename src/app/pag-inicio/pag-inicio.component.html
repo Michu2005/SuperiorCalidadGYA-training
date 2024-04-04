@@ -1,10 +1,6 @@
 <div style="display: flex;">
   <img class="logoSuperior" [src]="imgSuperior" alt="Imagen Corporación Superior"/>
   <h1 class="txt">Ingreso Analistas</h1>
-  <div class="buttons-ing d-grid gap-2 d-md-flex justify-content-md-end">
-    <button class="btn btn-primary me-md-2" type="button" (click)="ingresoAdmin()">ADMINISTRADOR</button>
-    <button class="btn btn-primary" type="button">SUPERVISOR</button>
-  </div>
   <p class="FechaYHora">{{ fechaYHoraActual | date: 'medium' }}</p>
   <button (click)="confirmarSalida()" type="button" class="btn btn-secondary" data-mdb-ripple-init>
     SALIR</button>

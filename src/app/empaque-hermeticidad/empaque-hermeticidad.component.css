@@ -12,7 +12,7 @@
 .FechaYHora{
     font-size: 18px;
     color: white;
-    margin-left: 59%;
+    margin-left: 20%;
     margin-top: 3%;
 }
 .cont-tabla{
@@ -56,4 +56,10 @@
   
 .boton-registro {
     display: flex;
+}
+
+.titulo{
+    color: white;
+    margin-top: 2%;
+    margin-left: 25%;
 }

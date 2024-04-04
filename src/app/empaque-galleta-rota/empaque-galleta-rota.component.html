@@ -5,7 +5,6 @@
   <button (click)="menuIng()" type="button" class="btn btn-secondary" data-mdb-ripple-init>
     SALIR</button>
 </div>
-
 <div class="contenedor">
   <div class="detalles-container">
     <h2 class="detalles-prod" *ngIf="productoSeleccionado">
@@ -16,12 +15,14 @@
     </h2>
   </div>
   <div class="boton-registro" style="display: flex; align-items: center; margin-right: 10px;">
-    <button (click)="submitForm()" type="button" class="btn btn-primary" data-mdb-ripple-init>
-      GUARDAR
-    </button>
+    <button 
+    (click)="submitForm()" 
+    type="button" class="btn btn-primary" 
+    data-mdb-ripple-init
+    [disabled]="!botonGuardar"
+    >GUARDAR</button>
   </div>
 </div>
-
 <div class="cont-tabla" style="max-height: 300px; overflow-y: scroll;">
   <form [formGroup]="formulario" (ngSubmit)="submitForm()">
     <table class="table table-striped-columns table-hover">
@@ -61,7 +62,6 @@
     </table>
   </form>
 </div>
-
 <div style="display: flex;">
   <div class="contenedor-especificaciones">
     <mat-tab-group headerPosition="above">
@@ -75,18 +75,26 @@
       </mat-tab>
     </mat-tab-group>
     <button 
+    (click)="paramAdicionales()" 
+    type="button" 
+    class="btn btn-primary"
+    style="margin-left: 100%; height: 70%;"
+    data-mdb-ripple-init
+    >PARAMETROS ADICIONALES</button>
+    <button 
     (click)="empaqueHermeticidad()" 
     type="button" 
     class="btn btn-primary"
     style="margin-left: 150%; height: 70%;"
-    data-mdb-ripple-init>
-    HERMETICIDAD</button>
+    data-mdb-ripple-init
+    [disabled]="!botonesHabilitados"
+    >HERMETICIDAD</button>
     <button 
-    (click)="registroGalletaRota()" 
+    (click)="atras()" 
     type="button" 
     class="btn btn-secondary"
     style="margin-left: 150%;"
-    data-mdb-ripple-init>
-    ATRÁS</button>
+    data-mdb-ripple-init
+    >ATRÁS</button>
   </div>
 </div>

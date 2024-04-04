@@ -52,7 +52,16 @@ export class ServiciosService {
     return this.http.post(`${this.baseUrl}/registrarEmpaque`, data);
   }
 
-  obtenerDetallesEmpaquePorIdCabecera(idCabecera: number): Observable<any[]> {
-    return this.http.get<any[]>(`registrarEmpaque/${idCabecera}/detalles`);
+  public putRegistrarGalletaRota(data: any){
+    return this.http.put(`${this.baseUrl}/registrarGalletaRota`, data);
   }
+
+  public putRegistrarHermeticidad(data: any){
+    return this.http.put(`${this.baseUrl}/registrarHermeticidad`, data);
+  }
+
+  public putRegistrarParamAdicional(data: any){
+    return this.http.put(`${this.baseUrl}/registrarParametrosAdicionales`, data);
+  }
+
 }

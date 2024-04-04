@@ -1,5 +1,6 @@
 <div style="display: flex;">
   <img class="logoSuperior" [src]="imgSuperior" alt="Imagen Corporación Superior"/>
+  <h2 class="titulo">Ingreso Hermeticidad</h2>
   <p style="display: flex;" class="FechaYHora">{{ fechaYHoraActual | date: 'medium' }}</p>
   <button (click)="menuIng()" type="button" class="btn btn-secondary" data-mdb-ripple-init>SALIR</button>
 </div>
@@ -13,47 +14,57 @@
     </h2>
   </div>
   <div class="boton-registro" style="display: flex; align-items: center; margin-right: 10px;">
-    <button (click)="empaqueParamAdic()" type="button" class="btn btn-primary" data-mdb-ripple-init>
-      GUARDAR
-    </button>
+    <button 
+    (click)="submitForm()" 
+    type="button" class="btn btn-primary" 
+    data-mdb-ripple-init
+    >GUARDAR</button>
   </div> 
 </div>
 <div class="cont-tabla">
-  <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    <!-- Columna de posición -->
-    <ng-container matColumnDef="position">
-      <mat-header-cell *matHeaderCellDef> No. Muestras </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
-    </ng-container>
-      
-    <!-- Columna de Fuga Leve -->
-    <ng-container matColumnDef="fugaLeve">
-      <mat-header-cell *matHeaderCellDef> Fuga Leve </mat-header-cell>
+  <div class="cont-tabla">
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- Columna de posición -->
+      <ng-container matColumnDef="position">
+        <mat-header-cell *matHeaderCellDef> No. Muestras </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+      </ng-container>
+        
+      <!-- Columna de Fuga Leve -->
+      <ng-container matColumnDef="fugaLeve">
+        <mat-header-cell *matHeaderCellDef> Fuga Leve </mat-header-cell>
         <mat-cell *matCellDef="let element"> 
-          <mat-checkbox [(ngModel)]="element.fugaLeve" name="fugaGroup"></mat-checkbox>
+          <mat-radio-group [(ngModel)]="element.selectedOption" name="fuga{{element.position}}">
+            <mat-radio-button value="Fuga Leve"></mat-radio-button>
+          </mat-radio-group>
         </mat-cell>
       </ng-container>
       
-    <!-- Columna de Fuga Grave -->
-    <ng-container matColumnDef="fugaGrave">
-      <mat-header-cell *matHeaderCellDef> Fuga Grave </mat-header-cell>
-      <mat-cell *matCellDef="let element"> 
-        <mat-checkbox [(ngModel)]="element.fugaGrave" name="fugaGroup"></mat-checkbox>
-      </mat-cell>
-    </ng-container>
+      <!-- Columna de Fuga Grave -->
+      <ng-container matColumnDef="fugaGrave">
+        <mat-header-cell *matHeaderCellDef> Fuga Grave </mat-header-cell>
+        <mat-cell *matCellDef="let element"> 
+          <mat-radio-group [(ngModel)]="element.selectedOption" name="fuga{{element.position}}">
+            <mat-radio-button value="Fuga Grave"></mat-radio-button>
+          </mat-radio-group>
+        </mat-cell>
+      </ng-container>
       
-    <!-- Columna de Sin Fuga -->
-    <ng-container matColumnDef="sinFuga">
-      <mat-header-cell *matHeaderCellDef> Sin Fuga </mat-header-cell>
-      <mat-cell *matCellDef="let element"> 
-        <mat-checkbox [(ngModel)]="element.sinFuga" name="fugaGroup"></mat-checkbox>
-      </mat-cell>
-    </ng-container>
-      
-    <!-- Definición de las filas -->
+      <!-- Columna de Sin Fuga -->
+      <ng-container matColumnDef="sinFuga">
+        <mat-header-cell *matHeaderCellDef> Sin Fuga </mat-header-cell>
+        <mat-cell *matCellDef="let element"> 
+          <mat-radio-group [(ngModel)]="element.selectedOption" name="fuga{{element.position}}">
+            <mat-radio-button value="Sin Fuga"></mat-radio-button>
+          </mat-radio-group>
+        </mat-cell>
+      </ng-container>
+          
+      <!-- Definición de las filas -->
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
+  </div>
 </div>
 <div style="display: flex;">
   <div class="contenedor-especificaciones">

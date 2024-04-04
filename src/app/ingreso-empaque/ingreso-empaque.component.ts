@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { DatosEmpleadoAac } from '../interfaces/datos';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServiciosService } from '../servicios/servicios.service';
@@ -9,9 +9,12 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './ingreso-empaque.component.html',
   styleUrls: ['./ingreso-empaque.component.css']
 })
+
 export class IngresoEmpaqueComponent{
 
   formulario!: FormGroup;
+  formularioLleno = false;
+  botonesHabilitados = false;
   imgSuperior = '../assets/images/logo-superior.PNG';
 
   fechaYHoraActual: Date = new Date();
@@ -21,6 +24,18 @@ export class IngresoEmpaqueComponent{
   
   codigoEmpleado: string = '';
   parametros: any [] = [];
+  data: any ={
+    codigoProducto: "",
+    description: "",
+    idEmpleado: 0,
+    idLinea: 0,
+    idMaquina: 0,
+    idProducto: 0,
+    idSupervisor: 0,
+    idTurno: 0,
+    lote: "",
+    idGuardados: []
+  };
 
   datosEmpaque: any = {
     idSupervisor: 0,
@@ -54,11 +69,11 @@ export class IngresoEmpaqueComponent{
     }
 
     empaqueGalletaRota() {
-      this.router.navigate(['/empaque-galleta-rota', this.productoSeleccionado]);
+      this.router.navigate(['/empaque-galleta-rota', this.data]);
     }
 
     empaqueHermeticidad() {
-      this.router.navigate(['/empaque-hermeticidad', this.productoSeleccionado]);
+      this.router.navigate(['/empaque-hermeticidad', this.data]);
     }
 
     atras() {
@@ -69,6 +84,15 @@ export class IngresoEmpaqueComponent{
     this.route.params.subscribe(datos =>  {
       console.log(datos);
       this.productoSeleccionado = datos;
+      this.data.codigoProducto = this.productoSeleccionado.codigoProducto;
+      this.data.description = this.productoSeleccionado.description;
+      this.data.idEmpleado = this.productoSeleccionado.idEmpleado;
+      this.data.idLinea = this.productoSeleccionado.idLinea;
+      this.data.idMaquina = this.productoSeleccionado.idMaquina;
+      this.data.idProducto = this.productoSeleccionado.idProducto;
+      this.data.idSupervisor = this.productoSeleccionado.idSupervisor;
+      this.data.idTurno = this.productoSeleccionado.idTurno;
+      this.data.lote = this.productoSeleccionado.lote;
     })
     this.listarServicio.getEmpleadoAac().subscribe((resultEmpleadoAac : any) =>{
       this.empleAac = resultEmpleadoAac;
@@ -93,6 +117,10 @@ export class IngresoEmpaqueComponent{
     this.formulario = this.formBuilder.group({
       registros: this.formBuilder.array([])
     });
+    //Escuchar cambios en el formulario
+    this.formulario.valueChanges.subscribe(() => {
+      this.habilitarFormularioLleno();
+    });
   }
 
   get registrosFormArray() {
@@ -108,9 +136,10 @@ export class IngresoEmpaqueComponent{
     for (let i = 0; i < 10; i++) {
       const registroFormGroup = this.formBuilder.group({
         idParametro: [idParametros[i % idParametros.length]], // Asigna el idParametro correspondiente
-        datoPesoPrimario: [''],
-        datoPesoSecundario: [''],
-        datoPesoCorrugado: ['']
+        datoPesoPrimario: ['', Validators.required],
+        datoPesoSecundario: ['', Validators.required],
+        datoPesoCorrugado: ['', Validators.required]
+
       });
       this.registrosFormArray.push(registroFormGroup);
     }  
@@ -127,16 +156,21 @@ export class IngresoEmpaqueComponent{
       this.datosEmpaque.lote = this.productoSeleccionado.lote;
       this.datosEmpaque.detalleEmpaqueDTOList = this.formulario.get('registros')?.value;
       console.log(this.datosEmpaque);
-      this.listarServicio.postRegistrarEmpaque(this.datosEmpaque).subscribe((response)=>{
+      this.listarServicio.postRegistrarEmpaque(this.datosEmpaque).subscribe((response : any)=>{
         console.log(response);
+        this.data.idGuardados = response;
+        console.log(this.data.idGuardados + " estos son los id's guardados");
       })
+      this.botonesHabilitados = true;
     }
-  }
-    
+  } 
 
   getControl(index: number, controlName: string) {
     return (this.registrosFormArray.controls[index] as FormGroup).controls[controlName];
   }
 
+  habilitarFormularioLleno(){
+    this.formularioLleno = this.formulario.valid;
+  }
 }
 
