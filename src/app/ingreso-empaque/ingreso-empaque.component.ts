@@ -34,7 +34,8 @@ export class IngresoEmpaqueComponent{
     idSupervisor: 0,
     idTurno: 0,
     lote: "",
-    idGuardados: []
+    idGuardados: [],
+    idControlEmpaqueCabecera : 0
   };
 
   datosEmpaque: any = {
@@ -83,6 +84,8 @@ export class IngresoEmpaqueComponent{
   ngOnInit(){
     this.route.params.subscribe(datos =>  {
       console.log(datos);
+      console.log(this.data);
+      
       this.productoSeleccionado = datos;
       this.data.codigoProducto = this.productoSeleccionado.codigoProducto;
       this.data.description = this.productoSeleccionado.description;
@@ -93,6 +96,7 @@ export class IngresoEmpaqueComponent{
       this.data.idSupervisor = this.productoSeleccionado.idSupervisor;
       this.data.idTurno = this.productoSeleccionado.idTurno;
       this.data.lote = this.productoSeleccionado.lote;
+      this.data.idControlEmpaqueCabecera = this.productoSeleccionado.idControlEmpaqueCabecera;
     })
     this.listarServicio.getEmpleadoAac().subscribe((resultEmpleadoAac : any) =>{
       this.empleAac = resultEmpleadoAac;
@@ -136,6 +140,7 @@ export class IngresoEmpaqueComponent{
     for (let i = 0; i < 10; i++) {
       const registroFormGroup = this.formBuilder.group({
         idParametro: [idParametros[i % idParametros.length]], // Asigna el idParametro correspondiente
+        idCotrolEmpaqueCabecera : [],
         datoPesoPrimario: ['', Validators.required],
         datoPesoSecundario: ['', Validators.required],
         datoPesoCorrugado: ['', Validators.required]
@@ -154,12 +159,13 @@ export class IngresoEmpaqueComponent{
       this.datosEmpaque.idProducto = this.productoSeleccionado.idProducto;
       this.datosEmpaque.idMaquina = this.productoSeleccionado.idMaquina;
       this.datosEmpaque.lote = this.productoSeleccionado.lote;
+      this.datosEmpaque.idControlEmpaqueCabecera = this.productoSeleccionado.idControlEmpaqueCabecera;
       this.datosEmpaque.detalleEmpaqueDTOList = this.formulario.get('registros')?.value;
       console.log(this.datosEmpaque);
       this.listarServicio.postRegistrarEmpaque(this.datosEmpaque).subscribe((response : any)=>{
         console.log(response);
-        this.data.idGuardados = response;
-        console.log(this.data.idGuardados + " estos son los id's guardados");
+        this.data.idGuardados = response.idGuardados;
+        this.data.idControlEmpaqueCabecera = response.idControlEmpaqueCabecera;
       })
       this.botonesHabilitados = true;
     }

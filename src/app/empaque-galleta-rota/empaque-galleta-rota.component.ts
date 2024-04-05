@@ -60,7 +60,7 @@ export class EmpaqueGalletaRotaComponent implements OnInit {
       console.log(params);
       this.listId = params.idGuardados.split(',').map((num : number) => +num);
       this.productoSeleccionado = params;
-    });
+    });    
     this.cargarParametros();
     this.inicializarFormulario();
   }
@@ -92,6 +92,7 @@ export class EmpaqueGalletaRotaComponent implements OnInit {
     for (let i = 0; i < this.listId.length; i++) {
       const registroFormGroup = this.formBuilder.group({
         idGuardado: [this.listId[i]],
+        idControlEmpaqueCabecera: [],
         datoPesoGalletaRota: ['', Validators.required],
         datoPesoGalletaRotaCalculado: ['', Validators.required],
         datoPesoPrimarioGalletaRota: ['', Validators.required]

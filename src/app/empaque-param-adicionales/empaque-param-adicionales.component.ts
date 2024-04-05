@@ -81,10 +81,10 @@ export class EmpaqueParamAdicionalesComponent {
 
   submitForm(){
     console.log(this.formulario.value);
-    /*this.listarServicio.putRegistrarParamAdicional(this.formulario.get('registros')?.value).subscribe(
+    this.listarServicio.putRegistrarParamAdicional(this.formulario.get('registros')?.value).subscribe(
       (response : any) =>{
         console.log(response);
-    })*/
+    })
   }
 
   getControl(index: number, controlName: string) {
